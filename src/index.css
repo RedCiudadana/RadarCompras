@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --md-sys-color-primary: 25 118 210;
+    --md-sys-color-on-primary: 255 255 255;
+    --md-sys-color-primary-container: 227 242 253;
+    --md-sys-color-on-primary-container: 13 71 161;
+
+    --md-sys-color-secondary: 102 187 106;
+    --md-sys-color-on-secondary: 255 255 255;
+    --md-sys-color-secondary-container: 232 245 233;
+    --md-sys-color-on-secondary-container: 27 94 32;
+
+    --md-sys-color-surface: 255 255 255;
+    --md-sys-color-on-surface: 33 33 33;
+    --md-sys-color-surface-variant: 250 250 250;
+    --md-sys-color-on-surface-variant: 97 97 97;
+
+    --md-sys-color-error: 211 47 47;
+    --md-sys-color-on-error: 255 255 255;
+
+    --md-sys-color-outline: 189 189 189;
+    --md-sys-color-outline-variant: 224 224 224;
+
+    --md-ref-elevation-level0: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+    --md-ref-elevation-level1: 0px 1px 3px 0px rgba(0, 0, 0, 0.12), 0px 1px 2px 0px rgba(0, 0, 0, 0.24);
+    --md-ref-elevation-level2: 0px 3px 6px 0px rgba(0, 0, 0, 0.16), 0px 3px 6px 0px rgba(0, 0, 0, 0.23);
+    --md-ref-elevation-level3: 0px 10px 20px 0px rgba(0, 0, 0, 0.19), 0px 6px 6px 0px rgba(0, 0, 0, 0.23);
+    --md-ref-elevation-level4: 0px 14px 28px 0px rgba(0, 0, 0, 0.25), 0px 10px 10px 0px rgba(0, 0, 0, 0.22);
+    --md-ref-elevation-level5: 0px 19px 38px 0px rgba(0, 0, 0, 0.30), 0px 15px 12px 0px rgba(0, 0, 0, 0.22);
+  }
+
+  body {
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: rgb(var(--md-sys-color-surface-variant));
+    color: rgb(var(--md-sys-color-on-surface));
+  }
+}
+
+@layer utilities {
+  .md-elevation-0 {
+    box-shadow: var(--md-ref-elevation-level0);
+  }
+
+  .md-elevation-1 {
+    box-shadow: var(--md-ref-elevation-level1);
+  }
+
+  .md-elevation-2 {
+    box-shadow: var(--md-ref-elevation-level2);
+  }
+
+  .md-elevation-3 {
+    box-shadow: var(--md-ref-elevation-level3);
+  }
+
+  .md-elevation-4 {
+    box-shadow: var(--md-ref-elevation-level4);
+  }
+
+  .md-elevation-5 {
+    box-shadow: var(--md-ref-elevation-level5);
+  }
+
+  .md-ripple {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .md-ripple::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+  }
+
+  .md-ripple:active::after {
+    width: 300px;
+    height: 300px;
+  }
+}
