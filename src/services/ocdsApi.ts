@@ -1,35 +1,40 @@
-import { Release, Record, ProcessFilters } from '../types/ocds';
+import { Release, Record, ProcessFilters, StatusRelease } from '../types/ocds';
 
-const BASE_URL = 'https://ocds.guatecompras.gt/gc-api/v1';
+const BASE_URL = 'https://ocds.guatecompras.gt';
 
 export class OCDSApi {
   static async searchReleases(
     filters: ProcessFilters = {},
     page = 1,
-    pageSize = 50
+    pageSize = 50,
+    abortController: AbortController | null = null
   ): Promise<{ data: Release[]; hasMore: boolean; total: number }> {
     try {
       const params = new URLSearchParams();
-      params.append('page', page.toString());
-      params.append('limit', pageSize.toString());
+      const now = new Date();
+      params.append('pagina', page.toString());
+      params.append('Anio', now.getFullYear().toString());
+      params.append('Mes', (now.getMonth() + 1).toString());
+      params.append('Estatus_concurso', StatusRelease.Vigente.toString());
+      // params.append('Dia', now.getDate().toString());
 
       if (filters.keyword) {
         params.append('q', filters.keyword);
       }
 
       const url = `${BASE_URL}/release/search?${params.toString()}`;
-      const response = await fetch(url);
+      const response = await fetch(url, { signal: abortController?.signal});
 
       if (!response.ok) {
         throw new Error(`API Error: ${response.status}`);
       }
 
-      const data = await response.json();
+      const result = await response.json();
 
       return {
-        data: Array.isArray(data) ? data : [],
-        hasMore: data.length === pageSize,
-        total: data.length,
+        data: result.releases,
+        hasMore: !!result.links.next,
+        total: result.releases.length
       };
     } catch (error) {
       console.error('Error fetching releases:', error);
@@ -62,6 +67,7 @@ export class OCDSApi {
       );
     }
 
+    // Don't exist
     if (filters.minAmount !== undefined) {
       filtered = filtered.filter(r =>
         (r.tender?.value?.amount || 0) >= filters.minAmount!

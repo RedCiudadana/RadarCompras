@@ -54,12 +54,15 @@ export const ProcessSearch: React.FC<ProcessSearchProps> = ({ onSelectProcess })
   }, [filters, releases, sortBy]);
 
   const loadReleases = async () => {
+    const abortController = new AbortController();
     setLoading(true);
+
     try {
       const { data, hasMore: more } = await OCDSApi.searchReleases(
         { keyword: filters.keyword },
         page,
-        50
+        50,
+        abortController
       );
 
       if (page === 1) {
@@ -69,10 +72,14 @@ export const ProcessSearch: React.FC<ProcessSearchProps> = ({ onSelectProcess })
       }
       setHasMore(more);
     } catch (error) {
-      console.error('Error loading releases:', error);
+      if ((error as Error).name !== 'AbortError') {
+        console.error('Error loading releases:', error);
+      }
     } finally {
       setLoading(false);
     }
+
+    return () => abortController.abort();
   };
 
   const applyFilters = () => {

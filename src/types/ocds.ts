@@ -98,3 +98,11 @@ export interface ProcessFilters {
   startDate?: string;
   endDate?: string;
 }
+
+export enum StatusRelease {
+  Vigente = 1,
+  Evaluacion = 2,
+  Adjudicado = 3,
+  Prescindido = 4,
+  Desierto = 5
+}
