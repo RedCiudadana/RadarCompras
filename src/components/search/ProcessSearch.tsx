@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Search, Filter, ChevronDown, X, RotateCcw, ArrowUpDown, Save, Download } from 'lucide-react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { Search, Filter, ChevronDown, RotateCcw, Save, Download } from 'lucide-react';
 import { Input } from '../ui/Input';
 import { Button } from '../ui/Button';
 import { Card } from '../ui/Card';
@@ -7,9 +7,29 @@ import { Badge } from '../ui/Badge';
 import { Loading } from '../ui/Loading';
 import { HeroSlider } from '../ui/HeroSlider';
 import { ApiStatusBar } from '../ui/ApiStatusBar';
+import { SearchableSelect } from '../ui/SearchableSelect';
 import { OCDSApi } from '../../services/ocdsApi';
 import { Release, ProcessFilters } from '../../types/ocds';
 import { formatCurrency, formatDate, getStatusColor, truncateText } from '../../utils/formatters';
+import entidades from '../../const/ejecutivo.json';
+
+const MONTHS = [
+  { value: 1, label: 'Enero' },
+  { value: 2, label: 'Febrero' },
+  { value: 3, label: 'Marzo' },
+  { value: 4, label: 'Abril' },
+  { value: 5, label: 'Mayo' },
+  { value: 6, label: 'Junio' },
+  { value: 7, label: 'Julio' },
+  { value: 8, label: 'Agosto' },
+  { value: 9, label: 'Septiembre' },
+  { value: 10, label: 'Octubre' },
+  { value: 11, label: 'Noviembre' },
+  { value: 12, label: 'Diciembre' },
+];
+
+const currentYear = new Date().getFullYear();
+const YEARS = Array.from({ length: currentYear - 2019 }, (_, i) => currentYear - i);
 
 interface ProcessSearchProps {
   onSelectProcess?: (release: Release) => void;
@@ -28,6 +48,7 @@ export const ProcessSearch: React.FC<ProcessSearchProps> = ({ onSelectProcess })
       gradient: 'from-pink-600 to-rose-700',
     },
   ];
+
   const [releases, setReleases] = useState<Release[]>([]);
   const [filteredReleases, setFilteredReleases] = useState<Release[]>([]);
   const [loading, setLoading] = useState(false);
@@ -38,49 +59,64 @@ export const ProcessSearch: React.FC<ProcessSearchProps> = ({ onSelectProcess })
 
   const [filters, setFilters] = useState<ProcessFilters>({
     keyword: '',
-    buyer: '',
+    entidad: '',
     minAmount: undefined,
     maxAmount: undefined,
+    year: currentYear,
+    month: new Date().getMonth() + 1,
   });
 
-  const hasActiveFilters = filters.buyer || filters.minAmount !== undefined || filters.maxAmount !== undefined;
+  const hasActiveFilters =
+    !!filters.entidad || filters.minAmount !== undefined || filters.maxAmount !== undefined;
 
+  // Carga releases usando los filtros actuales (o los que se provean explícitamente)
+  const loadReleases = useCallback(
+    async (currentFilters: ProcessFilters = filters, currentPage = page) => {
+      const abortController = new AbortController();
+      setLoading(true);
+
+      try {
+        const { data, hasMore: more } = await OCDSApi.searchReleases(
+          currentFilters,
+          currentPage,
+          50,
+          abortController
+        );
+
+        if (currentPage === 1) {
+          setReleases(data);
+        } else {
+          setReleases(prev => [...prev, ...data]);
+        }
+        setHasMore(more);
+      } catch (error) {
+        if ((error as Error).name !== 'AbortError') {
+          console.error('Error loading releases:', error);
+        }
+      } finally {
+        setLoading(false);
+      }
+
+      return () => abortController.abort();
+    },
+    [filters, page]
+  );
+
+  // Carga más páginas cuando cambia `page` (solo en load more)
   useEffect(() => {
-    loadReleases();
-  }, [page]);
+    if (page > 1) {
+      loadReleases(filters, page);
+    }
+  }, [page]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Carga inicial
+  useEffect(() => {
+    loadReleases(filters, 1);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     applyFilters();
-  }, [filters, releases, sortBy]);
-
-  const loadReleases = async () => {
-    const abortController = new AbortController();
-    setLoading(true);
-
-    try {
-      const { data, hasMore: more } = await OCDSApi.searchReleases(
-        { keyword: filters.keyword },
-        page,
-        50,
-        abortController
-      );
-
-      if (page === 1) {
-        setReleases(data);
-      } else {
-        setReleases(prev => [...prev, ...data]);
-      }
-      setHasMore(more);
-    } catch (error) {
-      if ((error as Error).name !== 'AbortError') {
-        console.error('Error loading releases:', error);
-      }
-    } finally {
-      setLoading(false);
-    }
-
-    return () => abortController.abort();
-  };
+  }, [filters, releases, sortBy]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const applyFilters = () => {
     let filtered = OCDSApi.filterReleases(releases, filters);
@@ -99,27 +135,35 @@ export const ProcessSearch: React.FC<ProcessSearchProps> = ({ onSelectProcess })
     setFilteredReleases(filtered);
   };
 
-  const resetFilters = () => {
-    setFilters({
-      keyword: '',
-      buyer: '',
-      minAmount: undefined,
-      maxAmount: undefined,
-    });
-  };
-
   const handleSearch = () => {
     setPage(1);
     setReleases([]);
-    loadReleases();
+    loadReleases(filters, 1);
   };
 
-  const handleLoadMore = () => {
-    setPage(prev => prev + 1);
+  // Cambia un filtro que afecta la API y dispara búsqueda inmediata
+  const handleApiFilterChange = (key: 'year' | 'month' | 'entidad', value: any) => {
+    const newFilters = { ...filters, [key]: value };
+    setFilters(newFilters);
+    setPage(1);
+    setReleases([]);
+    loadReleases(newFilters, 1);
   };
 
   const handleFilterChange = (key: keyof ProcessFilters, value: any) => {
     setFilters(prev => ({ ...prev, [key]: value }));
+  };
+
+  const resetFilters = () => {
+    const newFilters = { ...filters, entidad: '', minAmount: undefined, maxAmount: undefined };
+    setFilters(newFilters);
+    setPage(1);
+    setReleases([]);
+    loadReleases(newFilters, 1);
+  };
+
+  const handleLoadMore = () => {
+    setPage(prev => prev + 1);
   };
 
   return (
@@ -130,8 +174,9 @@ export const ProcessSearch: React.FC<ProcessSearchProps> = ({ onSelectProcess })
 
       <Card>
         <div className="space-y-4">
-          <div className="flex gap-4">
-            <div className="flex-1">
+          {/* Fila principal: búsqueda + periodo + acciones */}
+          <div className="flex flex-wrap gap-3">
+            <div className="flex-1 min-w-[200px]">
               <Input
                 placeholder="Buscar por palabra clave..."
                 value={filters.keyword}
@@ -140,23 +185,54 @@ export const ProcessSearch: React.FC<ProcessSearchProps> = ({ onSelectProcess })
                 icon={<Search className="w-5 h-5 text-gray-400" />}
               />
             </div>
-            <Button onClick={handleSearch}>
-              Buscar
-            </Button>
-            <Button
-              variant="outline"
-              onClick={() => setShowFilters(!showFilters)}
-              className={hasActiveFilters ? 'border-blue-600 text-blue-600' : ''}
-            >
-              <Filter className="w-5 h-5 mr-2" />
-              Filtros
-              {hasActiveFilters && (
-                <span className="ml-2 bg-blue-600 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">
-                  !
-                </span>
-              )}
-              <ChevronDown className={`w-4 h-4 ml-2 transition-transform ${showFilters ? 'rotate-180' : ''}`} />
-            </Button>
+
+            {/* Selector de año */}
+            <div className="flex flex-col">
+              <label className="block text-xs font-medium text-gray-500 mb-1">Año</label>
+              <select
+                value={filters.year}
+                onChange={(e) => handleApiFilterChange('year', Number(e.target.value))}
+                className="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+              >
+                {YEARS.map(y => (
+                  <option key={y} value={y}>{y}</option>
+                ))}
+              </select>
+            </div>
+
+            {/* Selector de mes */}
+            <div className="flex flex-col">
+              <label className="block text-xs font-medium text-gray-500 mb-1">Mes</label>
+              <select
+                value={filters.month}
+                onChange={(e) => handleApiFilterChange('month', Number(e.target.value))}
+                className="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+              >
+                {MONTHS.map(m => (
+                  <option key={m.value} value={m.value}>{m.label}</option>
+                ))}
+              </select>
+            </div>
+
+            <div className="flex items-end gap-2">
+              <Button onClick={handleSearch}>
+                Buscar
+              </Button>
+              <Button
+                variant="outlined"
+                onClick={() => setShowFilters(!showFilters)}
+                className={hasActiveFilters ? 'border-blue-600 text-blue-600' : ''}
+              >
+                <Filter className="w-5 h-5 mr-2" />
+                Filtros
+                {hasActiveFilters && (
+                  <span className="ml-2 bg-blue-600 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">
+                    !
+                  </span>
+                )}
+                <ChevronDown className={`w-4 h-4 ml-2 transition-transform ${showFilters ? 'rotate-180' : ''}`} />
+              </Button>
+            </div>
           </div>
 
           {filters.keyword && (
@@ -170,22 +246,21 @@ export const ProcessSearch: React.FC<ProcessSearchProps> = ({ onSelectProcess })
               <div className="flex items-center justify-between mb-4">
                 <h3 className="font-semibold text-gray-900">Filtros avanzados</h3>
                 {hasActiveFilters && (
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={resetFilters}
-                  >
+                  <Button variant="outlined" size="sm" onClick={resetFilters}>
                     <RotateCcw className="w-4 h-4 mr-1" />
                     Limpiar filtros
                   </Button>
                 )}
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <Input
-                  label="Institución"
-                  placeholder="Filtrar por institución..."
-                  value={filters.buyer}
-                  onChange={(e) => handleFilterChange('buyer', e.target.value)}
+                {/* Entidad compradora — filtro enviado a la API */}
+                <SearchableSelect
+                  label="Entidad compradora"
+                  options={entidades}
+                  value={filters.entidad || ''}
+                  onChange={(id) => handleApiFilterChange('entidad', id)}
+                  placeholder="Seleccionar entidad..."
+                  searchPlaceholder="Buscar entidad..."
                 />
                 <Input
                   label="Monto Mínimo"
@@ -217,9 +292,7 @@ export const ProcessSearch: React.FC<ProcessSearchProps> = ({ onSelectProcess })
                 Mostrando {filteredReleases.length} procesos
               </span>
               {filters.keyword && (
-                <span className="ml-2">
-                  para "{filters.keyword}"
-                </span>
+                <span className="ml-2">para "{filters.keyword}"</span>
               )}
             </div>
             <div className="flex items-center gap-2">
@@ -233,11 +306,11 @@ export const ProcessSearch: React.FC<ProcessSearchProps> = ({ onSelectProcess })
                 <option value="date">Fecha (más reciente)</option>
                 <option value="amount">Monto (mayor a menor)</option>
               </select>
-              <Button variant="outline" size="sm">
+              <Button variant="outlined" size="sm">
                 <Save className="w-4 h-4 mr-1" />
                 Guardar búsqueda
               </Button>
-              <Button variant="outline" size="sm">
+              <Button variant="outlined" size="sm">
                 <Download className="w-4 h-4 mr-1" />
                 Descargar
               </Button>
@@ -301,7 +374,7 @@ export const ProcessSearch: React.FC<ProcessSearchProps> = ({ onSelectProcess })
 
           {hasMore && !loading && (
             <div className="flex justify-center">
-              <Button onClick={handleLoadMore} variant="outline">
+              <Button onClick={handleLoadMore} variant="outlined">
                 Cargar más procesos
               </Button>
             </div>

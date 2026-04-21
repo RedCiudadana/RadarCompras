@@ -1,0 +1,1210 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "API OCDS",
+    "description": "En esta sección puedes encontrar la documentación detallada sobre el uso de la API del Portal de Contrataciones Abiertas de la Compra Pública de Guatemala.\n\n### Documentación de Open Contracting Partnership (OCP) sobre OCDS:\n* [Documentación de referencia del Identificador de Proceso de Contratación (OCID)](https://standard.open-contracting.org/1.1/es/schema/identifiers/#contracting-process-identifier-ocidt)\n* [Documentación de referencia de entregas o releases](https://standard.open-contracting.org/latest/es/schema/reference/)\n* [Documentación de referencia de records o registros](https://standard.open-contracting.org/latest/es/schema/records_reference/)",
+    "termsOfService": "https://www.guatecompras.gt/descargas/politica_publicacion.pdf",
+    "version": "v1"
+  },
+  "paths": {
+    "/file/{type}/{year}/{month}": {
+      "get": {
+        "tags": [
+          "File"
+        ],
+        "summary": "Obtiene un archivo de descarga masiva\r\nGET: file/json/2024/01",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "path",
+            "description": "Es el tipo de archivo a descargar",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/TipoArchivo"
+            }
+          },
+          {
+            "name": "year",
+            "in": "path",
+            "description": "Año del archivo",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "example": 2020
+          },
+          {
+            "name": "month",
+            "in": "path",
+            "description": "Mes del archivo",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MensajeResultadoDeOperacionesModelo"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MensajeResultadoDeOperacionesModelo"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MensajeResultadoDeOperacionesModelo"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/files": {
+      "get": {
+        "tags": [
+          "File"
+        ],
+        "summary": "Obtiene una lista de archivos de descargas masivas",
+        "parameters": [
+          {
+            "name": "year",
+            "in": "query",
+            "description": "Año del archivo",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "month",
+            "in": "query",
+            "description": "Mes del archivo",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FilePkgRecord"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/record/{ocid}": {
+      "get": {
+        "tags": [
+          "record"
+        ],
+        "summary": "Obtiene una lista de RecordPackage",
+        "parameters": [
+          {
+            "name": "ocid",
+            "in": "path",
+            "description": "Es el identificador del record Default value : <b>ocds-xqjsxa-16024362</b>",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/release/searchNog/{nog}": {
+      "get": {
+        "tags": [
+          "release"
+        ],
+        "summary": "Obtine el último release, por identificador NOG (Número de operación de Guatecompras)\r\nEjemplo: 16024362",
+        "parameters": [
+          {
+            "name": "nog",
+            "in": "path",
+            "description": "NOG (Número de operación de Guatecompras)",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HeaderRelease"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/release/search": {
+      "get": {
+        "tags": [
+          "release"
+        ],
+        "summary": "Búsqueda y lista de releases por ciertos criterios, recorrido secuencial (método Search alter) para explorar más de 10,000 resultados",
+        "description": "**Tabla de parámetros:**\r\n\r\nParámetro | Descripción | Ejemplo\r\n--------- | ----------- | ----------\r\nanio | Año de la publicacion | 2021\r\nmes | Mes de la publicación | 2 dígitos => 10 (Octubre)\r\ndia | Día de la publicación | 2 dígitos => 25 \r\ntipo_entidad | Tipo de entidad | dígitos\r\nsub_tipo_entidad | Sub tipo de entidad | dígitos\r\nentidad | Entidad compradora | dígitos\r\nunidad_compradora | Unidad compradora | dígitos\r\nmodalidad_compradora | Modalidad de compra | dígitos\r\nsub_modalidad_compradora | Sub modalidad de compra | dígitos\r\nestatus_concurso | Estado de concurso | dígitos\r\n\r\n**Nota:** parámetro de tiempo obligatorio (Año ó Mes ó Día)",
+        "parameters": [
+          {
+            "name": "pagina",
+            "in": "query",
+            "description": "Obtiene un número de página específica del los Releases o Entregas",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "ordenamiento",
+            "in": "query",
+            "description": "Ordena los releases por la fecha publicación",
+            "schema": {
+              "$ref": "#/components/schemas/orderDatePublishNOG"
+            }
+          },
+          {
+            "name": "Anio",
+            "in": "query",
+            "description": "Año de la publicacion",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Mes",
+            "in": "query",
+            "description": "Mes de la publicación",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Dia",
+            "in": "query",
+            "description": "Día de la publicación",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Tipo_entidad",
+            "in": "query",
+            "description": "Tipo de entidad",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Sub_tipo_entidad",
+            "in": "query",
+            "description": "Sub tipo de entidad",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Entidad",
+            "in": "query",
+            "description": "Entidad compradora",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Unidad_compradora",
+            "in": "query",
+            "description": "Unidad compradora",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Modalidad_compradora",
+            "in": "query",
+            "description": "Modalidad de compra",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Sub_modalidad_compradora",
+            "in": "query",
+            "description": "Sub modalidad de compra",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Estatus_concurso",
+            "in": "query",
+            "description": "Estado de concurso",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HeaderRelease"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/release/{id}": {
+      "get": {
+        "tags": [
+          "release"
+        ],
+        "summary": "Obtiene un release por el identificador\r\nEjemplo de un identificador de release:  GT-NOG-17047528-T637979723532777654",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Identificador de release. Ejemplo: GT-NOG-17047528-T637979723532777654",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AdditionalContactPoints": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "telephone": {
+            "type": "string",
+            "nullable": true
+          },
+          "availableLanguage": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Address": {
+        "type": "object",
+        "properties": {
+          "streetAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "locality": {
+            "type": "string",
+            "nullable": true
+          },
+          "region": {
+            "type": "string",
+            "nullable": true
+          },
+          "countryName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "attributes": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Awards": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "statusDetails": {
+            "type": "string",
+            "nullable": true
+          },
+          "date": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "$ref": "#/components/schemas/Value"
+          },
+          "suppliers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Estructura_Id_Nombre"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Bids": {
+        "type": "object",
+        "properties": {
+          "details": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Details"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ContactPoint": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "telephone": {
+            "type": "string",
+            "nullable": true
+          },
+          "faxNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "url": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Contracts": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "awardID": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "contractNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "statusDetails": {
+            "type": "string",
+            "nullable": true
+          },
+          "dateSigned": {
+            "type": "string",
+            "nullable": true
+          },
+          "period": {
+            "$ref": "#/components/schemas/TenderPeriod"
+          },
+          "value": {
+            "$ref": "#/components/schemas/Value"
+          },
+          "documents": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Documents"
+            },
+            "nullable": true
+          },
+          "implementation": {
+            "$ref": "#/components/schemas/Implementation"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DataSegmentation": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "criteria": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Details": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "date": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "$ref": "#/components/schemas/Value"
+          },
+          "tenderers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Estructura_Id_Nombre"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DetailsTender": {
+        "type": "object",
+        "properties": {
+          "level": {
+            "$ref": "#/components/schemas/Estructura_Id_Descrip"
+          },
+          "legalEntityTypeDetail": {
+            "$ref": "#/components/schemas/Estructura_Id_Descrip"
+          },
+          "entityType": {
+            "$ref": "#/components/schemas/Estructura_Id_Descrip"
+          },
+          "type": {
+            "$ref": "#/components/schemas/Estructura_Id_Descrip"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Documents": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "documentType": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "url": {
+            "type": "string",
+            "nullable": true
+          },
+          "format": {
+            "type": "string",
+            "nullable": true
+          },
+          "language": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "datePublished": {
+            "type": "string",
+            "nullable": true
+          },
+          "documentTypeDetails": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Estructura_Id_Descrip": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Estructura_Id_Nombre": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "id": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Estructura_Nombre": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Estructura_Nombre_compuesto": {
+        "type": "object",
+        "properties": {
+          "scheme": {
+            "type": "string",
+            "nullable": true
+          },
+          "uid": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "uri": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FilePkgRecord": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResultFilePkgRecord"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FileRecord": {
+        "type": "object",
+        "properties": {
+          "csv": {
+            "type": "string",
+            "nullable": true
+          },
+          "xlsx": {
+            "type": "string",
+            "nullable": true
+          },
+          "json": {
+            "type": "string",
+            "nullable": true
+          },
+          "sha": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "HeaderRelease": {
+        "type": "object",
+        "properties": {
+          "uri": {
+            "type": "string",
+            "nullable": true
+          },
+          "version": {
+            "type": "string",
+            "nullable": true
+          },
+          "extensions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "publishedDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "license": {
+            "type": "string",
+            "nullable": true
+          },
+          "publisher": {
+            "$ref": "#/components/schemas/Estructura_Nombre_compuesto"
+          },
+          "releases": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Releases"
+            },
+            "nullable": true
+          },
+          "publicationPolicy": {
+            "type": "string",
+            "nullable": true
+          },
+          "links": {
+            "$ref": "#/components/schemas/Pagination"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Identifier": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "scheme": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Implementation": {
+        "type": "object",
+        "properties": {
+          "transactions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Transaction"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "classification": {
+            "$ref": "#/components/schemas/Identifier"
+          },
+          "quantity": {
+            "type": "number",
+            "format": "double"
+          },
+          "unit": {
+            "$ref": "#/components/schemas/Estructura_Nombre"
+          },
+          "attributes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/attributes"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "MensajeResultadoDeOperacionesModelo": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/statusMessage"
+          },
+          "operacionRealizadaConExito": {
+            "type": "boolean"
+          },
+          "mensajeOperacion": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "orderDatePublishNOG": {
+        "enum": [
+          "Asc",
+          "Desc"
+        ],
+        "type": "string"
+      },
+      "Pagination": {
+        "type": "object",
+        "properties": {
+          "next": {
+            "type": "string",
+            "nullable": true
+          },
+          "prev": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Parties": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "identifier": {
+            "$ref": "#/components/schemas/Identifier"
+          },
+          "address": {
+            "$ref": "#/components/schemas/Address"
+          },
+          "contactPoint": {
+            "$ref": "#/components/schemas/ContactPoint"
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "additionalContactPoints": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AdditionalContactPoints"
+            },
+            "nullable": true
+          },
+          "memberOf": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Estructura_Id_Nombre"
+            },
+            "nullable": true
+          },
+          "details": {
+            "$ref": "#/components/schemas/DetailsTender"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Releases": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "ocid": {
+            "type": "string",
+            "nullable": true
+          },
+          "date": {
+            "type": "string",
+            "nullable": true
+          },
+          "publishedDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "language": {
+            "type": "string",
+            "nullable": true
+          },
+          "tag": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "initiationType": {
+            "type": "string",
+            "nullable": true
+          },
+          "parties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Parties"
+            },
+            "nullable": true
+          },
+          "buyer": {
+            "$ref": "#/components/schemas/Estructura_Id_Nombre"
+          },
+          "bids": {
+            "$ref": "#/components/schemas/Bids"
+          },
+          "tender": {
+            "$ref": "#/components/schemas/Tender"
+          },
+          "awards": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Awards"
+            },
+            "nullable": true
+          },
+          "contracts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Contracts"
+            },
+            "nullable": true
+          },
+          "sources": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Sources"
+            },
+            "nullable": true
+          },
+          "dataSegmentation": {
+            "$ref": "#/components/schemas/DataSegmentation"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResultFilePkgRecord": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "files": {
+            "$ref": "#/components/schemas/FileRecord"
+          },
+          "year": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "month": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "monthName": {
+            "type": "string",
+            "nullable": true
+          },
+          "source": {
+            "type": "string",
+            "nullable": true
+          },
+          "timestamp": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Sources": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "url": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "statusMessage": {
+        "enum": [
+          "Success",
+          "Notcontent",
+          "Error",
+          "Warning"
+        ],
+        "type": "string"
+      },
+      "Tender": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "statusDetails": {
+            "type": "string",
+            "nullable": true
+          },
+          "datePublished": {
+            "type": "string",
+            "nullable": true
+          },
+          "procuringEntity": {
+            "$ref": "#/components/schemas/Estructura_Id_Nombre"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Items"
+            },
+            "nullable": true
+          },
+          "procurementMethod": {
+            "type": "string",
+            "nullable": true
+          },
+          "procurementMethodDetails": {
+            "type": "string",
+            "nullable": true
+          },
+          "mainProcurementCategory": {
+            "type": "string",
+            "nullable": true
+          },
+          "additionalProcurementCategories": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "submissionMethod": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "submissionMethodDetails": {
+            "type": "string",
+            "nullable": true
+          },
+          "tenderPeriod": {
+            "$ref": "#/components/schemas/TenderPeriod"
+          },
+          "numberOfTenderers": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tenderers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Estructura_Id_Nombre"
+            },
+            "nullable": true
+          },
+          "documents": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Documents"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TenderPeriod": {
+        "type": "object",
+        "properties": {
+          "startDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "endDate": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TipoArchivo": {
+        "enum": [
+          "json",
+          "xlsx",
+          "csv"
+        ],
+        "type": "string"
+      },
+      "Transaction": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "$ref": "#/components/schemas/Value"
+          },
+          "payer": {
+            "$ref": "#/components/schemas/Estructura_Id_Nombre"
+          },
+          "payee": {
+            "$ref": "#/components/schemas/Estructura_Id_Nombre"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Value": {
+        "type": "object",
+        "properties": {
+          "amount": {
+            "type": "number",
+            "format": "double"
+          },
+          "currency": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

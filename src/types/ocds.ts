@@ -97,6 +97,12 @@ export interface ProcessFilters {
   maxAmount?: number;
   startDate?: string;
   endDate?: string;
+  /** Año de la publicación → parámetro Anio de la API */
+  year?: number;
+  /** Mes de la publicación → parámetro Mes de la API */
+  month?: number;
+  /** ID numérico de entidad compradora → parámetro Entidad de la API (ver const/ejecutivo.json) */
+  entidad?: string;
 }
 
 export enum StatusRelease {
