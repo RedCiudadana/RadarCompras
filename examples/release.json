@@ -1,0 +1,371 @@
+{
+    "uri": "https://ocds.guatecompras.gt/release/GT-NOG-29813743-T639106884317254118",
+    "version": "1.1",
+    "extensions": [
+        "https://raw.githubusercontent.com/open-contracting-extensions/ocds_bid_extension/master/extension.json",
+        "https://raw.githubusercontent.com/open-contracting-extensions/ocds_memberOf_extension/master/extension.json",
+        "https://gitlab.com/dncp-opendata/ocds_item_attributes_extension/-/raw/master/extension.json",
+        "https://raw.githubusercontent.com/open-contracting-extensions/ocds_additionalContactPoints_extension/master/extension.json",
+        "https://gitlab.com/dncp-opendata/ocds_statusdetails_extension/-/raw/master/extension.json",
+        "https://gitlab.com/dncp-opendata/ocds_document_type_details/-/raw/master/extension.json",
+        "https://raw.githubusercontent.com/portaledcahn/ocds_tenderDatePublished_extension/master/extension.json",
+        "https://raw.githubusercontent.com/guatecompras/ocds_partyDetails_publicEntitiesLevelDetails_extension/main/extension.json",
+        "https://bitbucket.org/ONCAETI/ocds_releasesource_extension/raw/master/extension.json",
+        "https://devops11.osce.gob.pe/bitbucket/projects/PROYEC/repos/ocds_releasepublisheddate_extension/raw/extension.json",
+        "https://devops11.osce.gob.pe/bitbucket/projects/PROYEC/repos/ocds_datasegmentation_extension/raw/extension.json",
+        "https://devops11.osce.gob.pe/bitbucket/projects/PROYEC/repos/ocds_currencyname_extension/raw/extension.json",
+        "https://devops11.osce.gob.pe/bitbucket/projects/PROYEC/repos/ocds_department_extension/raw/extension.json",
+        "https://raw.githubusercontent.com/open-contracting-extensions/ocds_contract_completion_extension/master/extension.json",
+        "https://raw.githubusercontent.com/openprocurement/ocds_contractNumber_extension/master/extension.json"
+    ],
+    "publishedDate": "2026-04-21T23:22:13-06:00",
+    "license": "https://creativecommons.org/licenses/by/4.0",
+    "publisher": {
+        "name": "Guatemala - Ministerio de Finanzas Públicas - DGAE",
+        "uri": "https://www.guatecompras.gt",
+        "scheme": "GT-CISP",
+        "uid": "GT-CISP-29813743"
+    },
+    "releases": [
+        {
+            "ocid": "ocds-xqjsxa-29813743",
+            "date": "2026-04-01T11:01:29-06:00",
+            "publishedDate": "2026-04-02T01:00:31-06:00",
+            "language": "es",
+            "tag": [
+                "tender"
+            ],
+            "initiationType": "tender",
+            "parties": [
+                {
+                    "identifier": {
+                        "scheme": "GT-CISP",
+                        "id": "12101206"
+                    },
+                    "address": {
+                        "streetAddress": "3ra. Calle 2-14 Edificio Municipal Zona 1 Municipio de Concepción Tutuapa, Departamento de San Marcos.",
+                        "locality": "CONCEPCION TUTUAPA",
+                        "region": "SAN MARCOS",
+                        "countryName": "GUATEMALA"
+                    },
+                    "contactPoint": {
+                        "name": "MUNICIPALIDAD DE CONCEPCIÓN TUTUAPA, SAN MARCOS",
+                        "email": "guatecomprasconcepciontutuapa@gmail.com",
+                        "telephone": "47709334",
+                        "faxNumber": "47709334"
+                    },
+                    "roles": [
+                        "buyer"
+                    ],
+                    "details": {
+                        "level": {
+                            "description": "Municipalidad",
+                            "id": "59"
+                        },
+                        "entityType": {
+                            "description": "Gobiernos Locales (Municipalidades, Mancomunidades, etc.)",
+                            "id": "6"
+                        },
+                        "type": {
+                            "description": "Sector Público",
+                            "id": "1"
+                        }
+                    },
+                    "id": "GT-CISP-12101206",
+                    "name": "MUNICIPALIDAD DE CONCEPCIÓN TUTUAPA, SAN MARCOS"
+                },
+                {
+                    "identifier": {
+                        "scheme": "GT-GCUC",
+                        "id": "342-2"
+                    },
+                    "address": {
+                        "streetAddress": "3ra Calle 2-14 Zona 1 Edificio Municipal, Concepción Tutuapa, San Marcos",
+                        "locality": "CONCEPCION TUTUAPA",
+                        "region": "SAN MARCOS",
+                        "countryName": "GUATEMALA"
+                    },
+                    "contactPoint": {
+                        "name": "DEPARTAMENTO DE COMPRAS MUNICIPALIDAD DE CONCEPCION TUTUAPA",
+                        "email": "guatecomprasconcepciontutuapa@gmail.com",
+                        "telephone": "47709334",
+                        "faxNumber": "48415264"
+                    },
+                    "roles": [
+                        "buyer"
+                    ],
+                    "memberOf": [
+                        {
+                            "id": "GT-CISP-12101206",
+                            "name": "MUNICIPALIDAD DE CONCEPCIÓN TUTUAPA, SAN MARCOS"
+                        }
+                    ],
+                    "details": {
+                        "entityType": {
+                            "description": "Gobiernos Locales (Municipalidades, Mancomunidades, etc.)",
+                            "id": "6"
+                        },
+                        "type": {
+                            "description": "Sector Público",
+                            "id": "1"
+                        }
+                    },
+                    "id": "GT-GCUC-342-2",
+                    "name": "DEPARTAMENTO DE COMPRAS MUNICIPALIDAD DE CONCEPCION TUTUAPA"
+                }
+            ],
+            "buyer": {
+                "id": "GT-NIT-6200060",
+                "name": "MUNICIPALIDAD DE CONCEPCIÓN TUTUAPA, SAN MARCOS"
+            },
+            "tender": {
+                "title": "CONSTRUCCION EDIFICIO COMUNITARIO CASERIO TRAMPA DE COYOTE, ALDEA SOCHEL CONCEPCION TUTUAPA, SAN MARCOS",
+                "status": "active",
+                "statusDetails": "Vigente",
+                "datePublished": "2026-04-01T11:01:28-06:00",
+                "procuringEntity": {
+                    "id": "GT-NIT-6200060",
+                    "name": "MUNICIPALIDAD DE CONCEPCIÓN TUTUAPA, SAN MARCOS"
+                },
+                "items": [
+                    {
+                        "description": "CONSTRUCCION EDIFICIO COMUNITARIO",
+                        "classification": {
+                            "scheme": "UNSPSC",
+                            "id": "81101513"
+                        },
+                        "quantity": 100.0,
+                        "unit": {
+                            "name": "Metro Cuadrado"
+                        },
+                        "attributes": [
+                            {
+                                "value": "Obligatorio salvo excepciones",
+                                "id": "31413C0FE025D6B3A472452C8171EE9C",
+                                "name": "Tipo de obligatoriedad"
+                            },
+                            {
+                                "value": "EL DETALLE DE CADA RENGLON SOLICITADO LO PUEDEN VISUALIZAR EN LAS BASES DEL PRESENTE EVENTO ESPECIFICAMENTE EN SECCION X: OBJETO DE LA PRESENTE LICITACION; SIGUIENDO ESPEFICICAMENTE CADA RENGLON SOLICITADO",
+                                "id": "D950349B3D8E0BADA270FA8EED6969A8",
+                                "name": "Características"
+                            }
+                        ],
+                        "id": "B59D1110D3A456758558A4FA07262B74"
+                    }
+                ],
+                "procurementMethod": "open",
+                "procurementMethodDetails": "Licitación Pública (Art. 17 LCE)",
+                "mainProcurementCategory": "works",
+                "submissionMethod": [
+                    "electronicSubmission"
+                ],
+                "tenderPeriod": {
+                    "startDate": "2026-04-01T11:01:28-06:00"
+                },
+                "numberOfTenderers": 0,
+                "documents": [
+                    {
+                        "title": "Boleta de SNIP",
+                        "url": "http://www.guatecompras.gt/concursos/files/5963/29813743@03%2003-2026%20BOLETA%20DE%20SNIP.pdf",
+                        "format": "application/pdf",
+                        "language": "es",
+                        "datePublished": "2026-04-01T11:01:28-06:00",
+                        "documentTypeDetails": "Boleta de SNIP",
+                        "id": "B7BF92F792631E75CEF5FA5EE33361C9"
+                    },
+                    {
+                        "title": "Estudio de Factibilidad",
+                        "url": "http://www.guatecompras.gt/concursos/files/5963/29813743@10%2003-2026%20ESTUDIO%20DE%20FACTIBILIDAD%20PERFIL.pdf",
+                        "format": "application/pdf",
+                        "language": "es",
+                        "datePublished": "2026-04-01T11:01:28-06:00",
+                        "documentTypeDetails": "Estudio de Factibilidad",
+                        "id": "BC0913E9062C03337AB2D622926A34B7"
+                    },
+                    {
+                        "title": "Dictamen de aprobación de estudio de factibilidad",
+                        "url": "http://www.guatecompras.gt/concursos/files/5963/29813743@05%2003-2026%20DICTAMEN%20DE%20APROBACION%20DE%20ESTUDIO%20DE%20FACTIBILIDAD.pdf",
+                        "format": "application/pdf",
+                        "language": "es",
+                        "datePublished": "2026-04-01T11:01:28-06:00",
+                        "documentTypeDetails": "Dictamen de aprobación de estudio de factibilidad",
+                        "id": "C558FA93062AF8D07EA5D43AC07A5127"
+                    },
+                    {
+                        "title": "Diseño del Proyecto",
+                        "url": "http://www.guatecompras.gt/concursos/files/5963/29813743@09%2003-2026%20DISENO%20DEL%20PROYECTO.pdf",
+                        "format": "application/pdf",
+                        "language": "es",
+                        "datePublished": "2026-04-01T11:01:28-06:00",
+                        "documentTypeDetails": "Diseño del Proyecto",
+                        "id": "4967EB17B684481C16CA1E90B7000F45"
+                    },
+                    {
+                        "title": "Estudio de impacto ambiental",
+                        "url": "http://www.guatecompras.gt/concursos/files/5963/29813743@11%2003-2026%20ESTUDIO%20DE%20IMPACTO%20AMBIENTAL.pdf",
+                        "format": "application/pdf",
+                        "language": "es",
+                        "datePublished": "2026-04-01T11:01:28-06:00",
+                        "documentTypeDetails": "Estudio de impacto ambiental",
+                        "id": "C11B728F2348B1DB8689385F9A1EEA3C"
+                    },
+                    {
+                        "title": "Dictamen de aprobación de impacto ambiental",
+                        "url": "http://www.guatecompras.gt/concursos/files/5963/29813743@06%2003-2026%20DICTAMEN%20DE%20APROBACION%20DE%20ESTUDIO%20DE%20FACTIBILIDAD.pdf",
+                        "format": "application/pdf",
+                        "language": "es",
+                        "datePublished": "2026-04-01T11:01:28-06:00",
+                        "documentTypeDetails": "Dictamen de aprobación de impacto ambiental",
+                        "id": "FA74E3BD5AD6A2E9D7E215B45B8C06F8"
+                    },
+                    {
+                        "title": "Selección de supervisor de la obra",
+                        "url": "http://www.guatecompras.gt/concursos/files/5963/29813743@17%2003-2026%20SELECCION%20DE%20SUPERVISOR%20DE%20OBRAS.pdf",
+                        "format": "application/pdf",
+                        "language": "es",
+                        "datePublished": "2026-04-01T11:01:28-06:00",
+                        "documentTypeDetails": "Selección de supervisor de la obra",
+                        "id": "40C1008AB4BD5734B215F10DA6246C86"
+                    },
+                    {
+                        "title": "Proyecto de bases",
+                        "url": "http://www.guatecompras.gt/concursos/files/5963/29813743@PROYECTO%20DE%20BASES%20EDIFICIO%20COMUNITARIO%20TRAMPA%20DE%20COYOTE_1.pdf",
+                        "format": "application/pdf",
+                        "language": "es",
+                        "datePublished": "2026-03-26T14:31:37-06:00",
+                        "documentTypeDetails": "Proyecto de bases",
+                        "id": "323081B8458EF50D10E7134FA2B3D365"
+                    },
+                    {
+                        "documentType": "purchaseRequest",
+                        "title": "Solicitud o requerimiento de bien, servicio o suministro",
+                        "url": "http://www.guatecompras.gt/concursos/files/5963/29813743@18%2003-2026%20SOLICITUD%20REUERIMIENTO%20DE%20BIEN%20SERVICIO%20O%20SUMINISTRO.pdf",
+                        "format": "application/pdf",
+                        "language": "es",
+                        "datePublished": "2026-04-01T11:01:28-06:00",
+                        "documentTypeDetails": "Solicitud o requerimiento de bien, servicio o suministro",
+                        "id": "B035A75CA62634A785BD3FAFDFC5CE37"
+                    },
+                    {
+                        "title": "Anuncio, convocatoria o invitación",
+                        "url": "http://www.guatecompras.gt/concursos/files/5963/29813743@01%2003-2026%20ANUNCIO%20CONVOCATORIA%20O%20INVITACION.pdf",
+                        "format": "application/pdf",
+                        "language": "es",
+                        "datePublished": "2026-04-01T11:01:28-06:00",
+                        "documentTypeDetails": "Anuncio, convocatoria o invitación",
+                        "id": "0DEA9B045CBE313CB4B64D0E5433F2D5"
+                    },
+                    {
+                        "documentType": "purchaseRequest",
+                        "title": "Bases, especificaciones generales o términos de referencia",
+                        "url": "http://www.guatecompras.gt/concursos/files/5963/29813743@02%2003-2026%20BASES%20ESPECIFICACIONES%20GENERALES%20O%20TERMINOS%20DE%20REFERENCIA.pdf",
+                        "format": "application/pdf",
+                        "language": "es",
+                        "datePublished": "2026-04-01T11:01:28-06:00",
+                        "documentTypeDetails": "Bases, especificaciones generales o términos de referencia",
+                        "id": "2A023A04C6E93F62BF01E0E003412507"
+                    },
+                    {
+                        "title": "Dictamen técnico",
+                        "url": "http://www.guatecompras.gt/concursos/files/5963/29813743@08%2003-2026%20DICTAMEN%20TECNICO.pdf",
+                        "format": "application/pdf",
+                        "language": "es",
+                        "datePublished": "2026-04-01T11:01:28-06:00",
+                        "documentTypeDetails": "Dictamen técnico",
+                        "id": "F570309052A01F91766FF2F1A1F1F853"
+                    },
+                    {
+                        "title": "Opinión Jurídica  o dictamen jurídico",
+                        "url": "http://www.guatecompras.gt/concursos/files/5963/29813743@14%2003-2026%20OPINION%20JURIDICA%20O%20DICTAMEN%20JURIDICA.pdf",
+                        "format": "application/pdf",
+                        "language": "es",
+                        "datePublished": "2026-04-01T11:01:28-06:00",
+                        "documentTypeDetails": "Opinión Jurídica  o dictamen jurídico",
+                        "id": "4BF721422126A26417E81C73B8699C9F"
+                    },
+                    {
+                        "title": "Resolución de aprobación de bases",
+                        "url": "http://www.guatecompras.gt/concursos/files/5963/29813743@16%2003-2026RESOLUCION%20DE%20APROBACION%20DE%20BASES.pdf",
+                        "format": "application/pdf",
+                        "language": "es",
+                        "datePublished": "2026-04-01T11:01:28-06:00",
+                        "documentTypeDetails": "Resolución de aprobación de bases",
+                        "id": "691B7FC9509526BB7DE65D6170050719"
+                    },
+                    {
+                        "title": "Estudios, diseños o planos",
+                        "url": "http://www.guatecompras.gt/concursos/files/5963/29813743@12%2003-2026%20ESTUDIOS%20DISENOS%20O%20PLANOS.pdf",
+                        "format": "application/pdf",
+                        "language": "es",
+                        "datePublished": "2026-04-01T11:01:28-06:00",
+                        "documentTypeDetails": "Estudios, diseños o planos",
+                        "id": "4C2843E3D19C509CC4581FA8C0ABF1FB"
+                    },
+                    {
+                        "documentType": "biddingDocuments",
+                        "title": "Modelo de oferta (formulario)",
+                        "url": "http://www.guatecompras.gt/concursos/files/5963/29813743@13%2003-2026%20MODELO%20DE%20LA%20OFERTA%20FORMULARIO.pdf",
+                        "format": "application/pdf",
+                        "language": "es",
+                        "datePublished": "2026-04-01T11:01:28-06:00",
+                        "documentTypeDetails": "Modelo de oferta (formulario)",
+                        "id": "ACA839EC283D69B20DB962EB5D134F35"
+                    },
+                    {
+                        "title": "Proyecto de contrato",
+                        "url": "http://www.guatecompras.gt/concursos/files/5963/29813743@15%2003-2026%20PROYECTO%20DE%20CONTRATO.pdf",
+                        "format": "application/pdf",
+                        "language": "es",
+                        "datePublished": "2026-04-01T11:01:28-06:00",
+                        "documentTypeDetails": "Proyecto de contrato",
+                        "id": "46AC6D39B86B977D804FEE2CCE2D4A7C"
+                    },
+                    {
+                        "title": "Proyecto de Especificaciones Técnicas ",
+                        "url": "http://www.guatecompras.gt/concursos/files/5963/29813743@ESPECIFICACIONES%20TECNICAS_1.pdf",
+                        "format": "application/pdf",
+                        "language": "es",
+                        "datePublished": "2026-03-26T14:31:37-06:00",
+                        "documentTypeDetails": "Proyecto de Especificaciones Técnicas ",
+                        "id": "AFE611D7AAB109526C37660C46A6C65E"
+                    },
+                    {
+                        "title": "Proyecto de Especificaciones Generales ",
+                        "url": "http://www.guatecompras.gt/concursos/files/5963/29813743@ESPECIFICACIONES%20GENERALES_1.pdf",
+                        "format": "application/pdf",
+                        "language": "es",
+                        "datePublished": "2026-03-26T14:31:37-06:00",
+                        "documentTypeDetails": "Proyecto de Especificaciones Generales ",
+                        "id": "DC4B7DFEFA29B7338E58B23063F91321"
+                    },
+                    {
+                        "title": "Dictamen Presupuestario",
+                        "url": "http://www.guatecompras.gt/concursos/files/5963/29813743@07%2003-2026%20DICTAMEN%20PRESUPUESTARIO.pdf",
+                        "format": "application/pdf",
+                        "language": "es",
+                        "datePublished": "2026-04-01T11:01:28-06:00",
+                        "documentTypeDetails": "Dictamen Presupuestario",
+                        "id": "C2251B017308ACCEA4AD7EB450442B92"
+                    }
+                ],
+                "id": "GT-NOG-29813743"
+            },
+            "sources": [
+                {
+                    "url": "https://www.guatecompras.gt",
+                    "id": "GUATECOMPRAS",
+                    "name": "Sistema de Información de Contrataciones y Adquisiciones del Estado"
+                }
+            ],
+            "dataSegmentation": {
+                "criteria": [
+                    "añoPublicaciónConvocatoria",
+                    "mesPublicaciónConvocatoria"
+                ],
+                "id": "2026-04"
+            },
+            "id": "GT-NOG-29813743-T639106884317254118"
+        }
+    ],
+    "publicationPolicy": "https://www.guatecompras.gt/descargas/politica_publicacion.pdf"
+}

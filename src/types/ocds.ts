@@ -90,11 +90,7 @@ export interface SearchResponse {
 }
 
 export interface ProcessFilters {
-  keyword?: string;
   buyer?: string;
-  sector?: string;
-  minAmount?: number;
-  maxAmount?: number;
   startDate?: string;
   endDate?: string;
   /** Año de la publicación → parámetro Anio de la API */
@@ -103,12 +99,30 @@ export interface ProcessFilters {
   month?: number;
   /** ID numérico de entidad compradora → parámetro Entidad de la API (ver const/ejecutivo.json) */
   entidad?: string;
+  /** Modalidad de compra → parámetro Modalidad_compradora (ver const/catalogo.ts) */
+  modalidad?: string;
+  /** Sub-modalidad de compra → parámetro Sub_modalidad_compradora (solo aplica a modalidad 6) */
+  subModalidad?: string;
+  /** Estado del concurso → parámetro Estatus_concurso (ver const/catalogo.ts, default: 1=Vigente) */
+  estatus?: number;
 }
 
+/** 2.3.9 Estatus del concurso — catálogo completo según /politica */
 export enum StatusRelease {
   Vigente = 1,
   Evaluacion = 2,
   Adjudicado = 3,
   Prescindido = 4,
-  Desierto = 5
+  Desierto = 5,
+  FinalizadoAdjudicadoCedido = 10,
+  Anulado = 11,
+  FinalizadoRematado = 12,
+  TerminadoPrecalificado = 13,
+  Subastando = 14,
+  Improbado = 15,
+  TerminadoCancelado = 16,
+  FinalizadoSeleccionado = 17,
+  Suspendido = 18,
+  EnEsperaDeProrroga = 19,
+  NoAdjudicado = 20,
 }

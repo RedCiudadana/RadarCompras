@@ -1,17 +1,13 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { Search, Filter, ChevronDown, RotateCcw, Save, Download } from 'lucide-react';
-import { Input } from '../ui/Input';
-import { Button } from '../ui/Button';
-import { Card } from '../ui/Card';
-import { Badge } from '../ui/Badge';
-import { Loading } from '../ui/Loading';
-import { HeroSlider } from '../ui/HeroSlider';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
+import { RotateCcw, ArrowUpDown, ChevronRight } from 'lucide-react';
 import { ApiStatusBar } from '../ui/ApiStatusBar';
+import { Loading } from '../ui/Loading';
 import { SearchableSelect } from '../ui/SearchableSelect';
 import { OCDSApi } from '../../services/ocdsApi';
 import { Release, ProcessFilters } from '../../types/ocds';
-import { formatCurrency, formatDate, getStatusColor, truncateText } from '../../utils/formatters';
+import { formatCurrency, formatDate } from '../../utils/formatters';
 import entidades from '../../const/ejecutivo.json';
+import { MODALIDADES, SUB_MODALIDADES, ESTATUS_CONCURSO } from '../../const/catalogo';
 
 const MONTHS = [
   { value: 1, label: 'Enero' },
@@ -31,50 +27,59 @@ const MONTHS = [
 const currentYear = new Date().getFullYear();
 const YEARS = Array.from({ length: currentYear - 2019 }, (_, i) => currentYear - i);
 
+const DEFAULT_FILTERS: ProcessFilters = {
+  entidad: '',
+  modalidad: '',
+  subModalidad: '',
+  estatus: 1,
+  year: currentYear,
+  month: new Date().getMonth() + 1,
+};
+
+function statusStyle(status?: string): { bg: string; text: string } {
+  if (!status) return { bg: 'bg-gray-100', text: 'text-gray-500' };
+  const s = status.toLowerCase();
+  if (s.includes('vigent') || s.includes('activ')) return { bg: 'bg-emerald-100', text: 'text-emerald-700' };
+  if (s.includes('adjudic') || s.includes('seleccion')) return { bg: 'bg-blue-100', text: 'text-blue-700' };
+  if (s.includes('evaluac') || s.includes('espera') || s.includes('subast')) return { bg: 'bg-amber-100', text: 'text-amber-700' };
+  if (s.includes('desert') || s.includes('cancel') || s.includes('anulad') || s.includes('prescind') || s.includes('improbad')) return { bg: 'bg-red-100', text: 'text-red-600' };
+  return { bg: 'bg-gray-100', text: 'text-gray-500' };
+}
+
 interface ProcessSearchProps {
   onSelectProcess?: (release: Release) => void;
 }
 
 export const ProcessSearch: React.FC<ProcessSearchProps> = ({ onSelectProcess }) => {
-  const heroSlides = [
-    {
-      title: 'Buscador de Procesos',
-      subtitle: 'Encuentra y filtra procesos de compras públicas con facilidad',
-      gradient: 'from-orange-600 to-red-700',
-    },
-    {
-      title: 'Búsqueda Avanzada',
-      subtitle: 'Filtra por institución, monto, fecha y más',
-      gradient: 'from-pink-600 to-rose-700',
-    },
-  ];
-
   const [releases, setReleases] = useState<Release[]>([]);
-  const [filteredReleases, setFilteredReleases] = useState<Release[]>([]);
   const [loading, setLoading] = useState(false);
-  const [showFilters, setShowFilters] = useState(false);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
-  const [sortBy, setSortBy] = useState<'relevance' | 'date' | 'amount'>('relevance');
+  const [sortBy, setSortBy] = useState<'date' | 'amount'>('date');
+  const [filters, setFilters] = useState<ProcessFilters>(DEFAULT_FILTERS);
 
-  const [filters, setFilters] = useState<ProcessFilters>({
-    keyword: '',
-    entidad: '',
-    minAmount: undefined,
-    maxAmount: undefined,
-    year: currentYear,
-    month: new Date().getMonth() + 1,
-  });
+  const subModalidadOptions = filters.modalidad ? (SUB_MODALIDADES[filters.modalidad] ?? []) : [];
+  const hasSubModalidades = subModalidadOptions.length > 0;
 
   const hasActiveFilters =
-    !!filters.entidad || filters.minAmount !== undefined || filters.maxAmount !== undefined;
+    !!filters.entidad ||
+    !!filters.modalidad ||
+    !!filters.subModalidad ||
+    (filters.estatus !== undefined && filters.estatus !== 1);
 
-  // Carga releases usando los filtros actuales (o los que se provean explícitamente)
+  const sortedReleases = useMemo(() => {
+    return [...releases].sort((a, b) => {
+      if (sortBy === 'date') {
+        return new Date(b.date).getTime() - new Date(a.date).getTime();
+      }
+      return (b.tender?.value?.amount || 0) - (a.tender?.value?.amount || 0);
+    });
+  }, [releases, sortBy]);
+
   const loadReleases = useCallback(
-    async (currentFilters: ProcessFilters = filters, currentPage = page) => {
+    async (currentFilters: ProcessFilters, currentPage: number) => {
       const abortController = new AbortController();
       setLoading(true);
-
       try {
         const { data, hasMore: more } = await OCDSApi.searchReleases(
           currentFilters,
@@ -82,7 +87,6 @@ export const ProcessSearch: React.FC<ProcessSearchProps> = ({ onSelectProcess })
           50,
           abortController
         );
-
         if (currentPage === 1) {
           setReleases(data);
         } else {
@@ -96,292 +100,235 @@ export const ProcessSearch: React.FC<ProcessSearchProps> = ({ onSelectProcess })
       } finally {
         setLoading(false);
       }
-
       return () => abortController.abort();
     },
-    [filters, page]
+    []
   );
 
-  // Carga más páginas cuando cambia `page` (solo en load more)
   useEffect(() => {
     if (page > 1) {
       loadReleases(filters, page);
     }
   }, [page]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // Carga inicial
   useEffect(() => {
-    loadReleases(filters, 1);
+    loadReleases(DEFAULT_FILTERS, 1);
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  useEffect(() => {
-    applyFilters();
-  }, [filters, releases, sortBy]); // eslint-disable-line react-hooks/exhaustive-deps
-
-  const applyFilters = () => {
-    let filtered = OCDSApi.filterReleases(releases, filters);
-
-    filtered = filtered.sort((a, b) => {
-      if (sortBy === 'date') {
-        return new Date(b.date).getTime() - new Date(a.date).getTime();
-      } else if (sortBy === 'amount') {
-        const amountA = a.tender?.value?.amount || 0;
-        const amountB = b.tender?.value?.amount || 0;
-        return amountB - amountA;
-      }
-      return 0;
-    });
-
-    setFilteredReleases(filtered);
-  };
-
-  const handleSearch = () => {
-    setPage(1);
-    setReleases([]);
-    loadReleases(filters, 1);
-  };
-
-  // Cambia un filtro que afecta la API y dispara búsqueda inmediata
-  const handleApiFilterChange = (key: 'year' | 'month' | 'entidad', value: any) => {
-    const newFilters = { ...filters, [key]: value };
+  const triggerSearch = (newFilters: ProcessFilters) => {
     setFilters(newFilters);
     setPage(1);
     setReleases([]);
     loadReleases(newFilters, 1);
   };
 
-  const handleFilterChange = (key: keyof ProcessFilters, value: any) => {
-    setFilters(prev => ({ ...prev, [key]: value }));
+  const handleFilterChange = (
+    key: 'year' | 'month' | 'entidad' | 'modalidad' | 'subModalidad' | 'estatus',
+    value: string | number
+  ) => {
+    let newFilters = { ...filters, [key]: value };
+    if (key === 'modalidad') {
+      newFilters = { ...newFilters, subModalidad: '' };
+    }
+    triggerSearch(newFilters);
   };
 
-  const resetFilters = () => {
-    const newFilters = { ...filters, entidad: '', minAmount: undefined, maxAmount: undefined };
-    setFilters(newFilters);
-    setPage(1);
-    setReleases([]);
-    loadReleases(newFilters, 1);
-  };
+  const resetFilters = () => triggerSearch(DEFAULT_FILTERS);
 
-  const handleLoadMore = () => {
-    setPage(prev => prev + 1);
-  };
+  const handleLoadMore = () => setPage(prev => prev + 1);
+
+  const toggleSort = () => setSortBy(s => (s === 'date' ? 'amount' : 'date'));
 
   return (
-    <div className="space-y-6">
-      <HeroSlider slides={heroSlides} />
-
+    <div className="space-y-4">
       <ApiStatusBar />
 
-      <Card>
-        <div className="space-y-4">
-          {/* Fila principal: búsqueda + periodo + acciones */}
-          <div className="flex flex-wrap gap-3">
-            <div className="flex-1 min-w-[200px]">
-              <Input
-                placeholder="Buscar por palabra clave..."
-                value={filters.keyword}
-                onChange={(e) => handleFilterChange('keyword', e.target.value)}
-                onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
-                icon={<Search className="w-5 h-5 text-gray-400" />}
-              />
-            </div>
-
-            {/* Selector de año */}
-            <div className="flex flex-col">
-              <label className="block text-xs font-medium text-gray-500 mb-1">Año</label>
-              <select
-                value={filters.year}
-                onChange={(e) => handleApiFilterChange('year', Number(e.target.value))}
-                className="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
-              >
-                {YEARS.map(y => (
-                  <option key={y} value={y}>{y}</option>
-                ))}
-              </select>
-            </div>
-
-            {/* Selector de mes */}
-            <div className="flex flex-col">
-              <label className="block text-xs font-medium text-gray-500 mb-1">Mes</label>
-              <select
-                value={filters.month}
-                onChange={(e) => handleApiFilterChange('month', Number(e.target.value))}
-                className="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
-              >
-                {MONTHS.map(m => (
-                  <option key={m.value} value={m.value}>{m.label}</option>
-                ))}
-              </select>
-            </div>
-
-            <div className="flex items-end gap-2">
-              <Button onClick={handleSearch}>
-                Buscar
-              </Button>
-              <Button
-                variant="outlined"
-                onClick={() => setShowFilters(!showFilters)}
-                className={hasActiveFilters ? 'border-blue-600 text-blue-600' : ''}
-              >
-                <Filter className="w-5 h-5 mr-2" />
-                Filtros
-                {hasActiveFilters && (
-                  <span className="ml-2 bg-blue-600 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">
-                    !
-                  </span>
-                )}
-                <ChevronDown className={`w-4 h-4 ml-2 transition-transform ${showFilters ? 'rotate-180' : ''}`} />
-              </Button>
-            </div>
+      {/* Filter bar */}
+      <div className="bg-white border border-rc-border rounded-lg p-4">
+        <div className="flex flex-wrap items-end gap-2">
+          {/* Año */}
+          <div className="flex flex-col">
+            <label className="text-xs font-medium text-rc-text-muted mb-1">Año</label>
+            <select
+              value={filters.year}
+              onChange={(e) => handleFilterChange('year', Number(e.target.value))}
+              className="px-3 py-2 border border-rc-border rounded text-sm bg-white text-rc-text-base focus:outline-none focus:ring-2 focus:ring-rc-primary/30 focus:border-rc-primary"
+            >
+              {YEARS.map(y => (
+                <option key={y} value={y}>{y}</option>
+              ))}
+            </select>
           </div>
 
-          {filters.keyword && (
-            <div className="text-sm text-gray-700 bg-blue-50 p-3 rounded-lg border border-blue-100">
-              Características de búsqueda: Tipo: Abierto. Palabra clave incluida: "{filters.keyword}"
-            </div>
-          )}
+          {/* Mes */}
+          <div className="flex flex-col">
+            <label className="text-xs font-medium text-rc-text-muted mb-1">Mes</label>
+            <select
+              value={filters.month}
+              onChange={(e) => handleFilterChange('month', Number(e.target.value))}
+              className="px-3 py-2 border border-rc-border rounded text-sm bg-white text-rc-text-base focus:outline-none focus:ring-2 focus:ring-rc-primary/30 focus:border-rc-primary"
+            >
+              {MONTHS.map(m => (
+                <option key={m.value} value={m.value}>{m.label}</option>
+              ))}
+            </select>
+          </div>
 
-          {showFilters && (
-            <div className="pt-4 border-t space-y-4">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="font-semibold text-gray-900">Filtros avanzados</h3>
-                {hasActiveFilters && (
-                  <Button variant="outlined" size="sm" onClick={resetFilters}>
-                    <RotateCcw className="w-4 h-4 mr-1" />
-                    Limpiar filtros
-                  </Button>
-                )}
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {/* Entidad compradora — filtro enviado a la API */}
-                <SearchableSelect
-                  label="Entidad compradora"
-                  options={entidades}
-                  value={filters.entidad || ''}
-                  onChange={(id) => handleApiFilterChange('entidad', id)}
-                  placeholder="Seleccionar entidad..."
-                  searchPlaceholder="Buscar entidad..."
-                />
-                <Input
-                  label="Monto Mínimo"
-                  type="number"
-                  placeholder="0"
-                  value={filters.minAmount || ''}
-                  onChange={(e) => handleFilterChange('minAmount', e.target.value ? Number(e.target.value) : undefined)}
-                />
-                <Input
-                  label="Monto Máximo"
-                  type="number"
-                  placeholder="Sin límite"
-                  value={filters.maxAmount || ''}
-                  onChange={(e) => handleFilterChange('maxAmount', e.target.value ? Number(e.target.value) : undefined)}
-                />
-              </div>
-            </div>
+          {/* Estatus */}
+          <div className="flex flex-col">
+            <label className="text-xs font-medium text-rc-text-muted mb-1">Estatus</label>
+            <select
+              value={filters.estatus ?? 1}
+              onChange={(e) => handleFilterChange('estatus', Number(e.target.value))}
+              className="px-3 py-2 border border-rc-border rounded text-sm bg-white text-rc-text-base focus:outline-none focus:ring-2 focus:ring-rc-primary/30 focus:border-rc-primary"
+            >
+              {ESTATUS_CONCURSO.map(e => (
+                <option key={e.id} value={e.id}>{e.name}</option>
+              ))}
+            </select>
+          </div>
+
+          {/* Entidad */}
+          <div className="flex flex-col w-64">
+            <SearchableSelect
+              label="Entidad compradora"
+              options={entidades}
+              value={filters.entidad || ''}
+              onChange={(id) => handleFilterChange('entidad', id)}
+              placeholder="Todas las entidades"
+              searchPlaceholder="Buscar entidad..."
+            />
+          </div>
+
+          {/* Modalidad */}
+          <div className="flex flex-col w-56">
+            <SearchableSelect
+              label="Modalidad"
+              options={MODALIDADES}
+              value={filters.modalidad || ''}
+              onChange={(id) => handleFilterChange('modalidad', id)}
+              placeholder="Todas las modalidades"
+              searchPlaceholder="Buscar modalidad..."
+            />
+          </div>
+
+          {/* Reset */}
+          {hasActiveFilters && (
+            <button
+              onClick={resetFilters}
+              title="Limpiar filtros"
+              className="flex items-center gap-1.5 px-3 py-2 text-xs font-medium text-rc-text-muted border border-rc-border rounded hover:border-rc-primary hover:text-rc-primary transition-colors"
+            >
+              <RotateCcw className="w-3.5 h-3.5" />
+              Limpiar
+            </button>
           )}
         </div>
-      </Card>
 
+        {/* Sub-modalidad — solo cuando modalidad 6 está seleccionada */}
+        {hasSubModalidades && (
+          <div className="mt-3 pt-3 border-t border-rc-border">
+            <div className="w-72">
+              <SearchableSelect
+                label="Sub-modalidad (Casos de Excepción)"
+                options={subModalidadOptions}
+                value={filters.subModalidad || ''}
+                onChange={(id) => handleFilterChange('subModalidad', id)}
+                placeholder="Todas las sub-modalidades"
+                searchPlaceholder="Buscar sub-modalidad..."
+              />
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Results */}
       {loading && page === 1 ? (
         <Loading text="Cargando procesos..." />
       ) : (
         <>
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-gray-50 p-4 rounded-lg">
-            <div className="text-sm text-gray-700">
-              <span className="font-semibold text-gray-900">
-                Mostrando {filteredReleases.length} procesos
-              </span>
-              {filters.keyword && (
-                <span className="ml-2">para "{filters.keyword}"</span>
-              )}
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="text-sm text-gray-600">Ordenar por:</span>
-              <select
-                value={sortBy}
-                onChange={(e) => setSortBy(e.target.value as any)}
-                className="px-3 py-1.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-              >
-                <option value="relevance">Relevancia</option>
-                <option value="date">Fecha (más reciente)</option>
-                <option value="amount">Monto (mayor a menor)</option>
-              </select>
-              <Button variant="outlined" size="sm">
-                <Save className="w-4 h-4 mr-1" />
-                Guardar búsqueda
-              </Button>
-              <Button variant="outlined" size="sm">
-                <Download className="w-4 h-4 mr-1" />
-                Descargar
-              </Button>
-            </div>
+          {/* Results header */}
+          <div className="flex items-center justify-between px-1">
+            <span className="text-sm text-rc-text-muted">
+              <span className="font-semibold text-rc-text-base font-sans text-base">
+                {sortedReleases.length}
+              </span>{' '}
+              procesos
+              {hasMore && <span className="text-rc-text-subtle"> · más disponibles</span>}
+            </span>
+            <button
+              onClick={toggleSort}
+              className="flex items-center gap-1.5 text-xs font-medium text-rc-text-muted hover:text-rc-primary transition-colors"
+            >
+              <ArrowUpDown className="w-3.5 h-3.5" />
+              Ordenar por {sortBy === 'date' ? 'fecha' : 'monto'}
+            </button>
           </div>
 
-          <div className="space-y-4">
-            {filteredReleases.map((release, index) => (
-              <Card
-                key={release.id || index}
-                hover
-                onClick={() => onSelectProcess?.(release)}
-              >
-                <div className="space-y-3">
-                  <div className="flex items-start justify-between">
-                    <div className="flex-1">
-                      <h3 className="text-lg font-semibold text-gray-900">
+          {/* Dense rows */}
+          <div className="bg-white border border-rc-border rounded-lg overflow-hidden">
+            {sortedReleases.length === 0 && !loading ? (
+              <div className="px-6 py-12 text-center text-rc-text-subtle text-sm">
+                No se encontraron procesos con los filtros seleccionados.
+              </div>
+            ) : (
+              sortedReleases.map((release, index) => {
+                const st = statusStyle(release.tender?.status);
+                return (
+                  <button
+                    key={release.id || index}
+                    onClick={() => onSelectProcess?.(release)}
+                    className="w-full flex items-center gap-3 px-4 py-3 border-b border-rc-border last:border-b-0 hover:bg-rc-surface transition-colors text-left group"
+                  >
+                    {/* Entity + title */}
+                    <div className="flex-1 min-w-0">
+                      <div className="font-sans text-xs font-semibold uppercase tracking-wider text-rc-primary truncate leading-tight">
+                        {release.buyer?.name || '—'}
+                      </div>
+                      <div className="text-sm text-rc-text-muted truncate mt-0.5 leading-snug">
                         {release.tender?.title || 'Sin título'}
-                      </h3>
-                      <p className="text-sm text-gray-600 mt-1">
-                        {release.buyer?.name || 'Institución no especificada'}
-                      </p>
+                      </div>
                     </div>
-                    {release.tender?.status && (
-                      <Badge variant={getStatusColor(release.tender.status) as any}>
-                        {release.tender.status}
-                      </Badge>
-                    )}
-                  </div>
 
-                  {release.tender?.description && (
-                    <p className="text-sm text-gray-700">
-                      {truncateText(release.tender.description, 200)}
-                    </p>
-                  )}
-
-                  <div className="flex flex-wrap gap-4 text-sm">
-                    <div>
-                      <span className="text-gray-600">Monto: </span>
-                      <span className="font-semibold text-gray-900">
+                    {/* Amount + date */}
+                    <div className="shrink-0 text-right">
+                      <div className="font-sans font-bold text-sm text-rc-accent tabular-nums">
                         {formatCurrency(release.tender?.value?.amount || 0)}
-                      </span>
-                    </div>
-                    <div>
-                      <span className="text-gray-600">Fecha: </span>
-                      <span className="font-semibold text-gray-900">
+                      </div>
+                      <div className="text-xs text-rc-text-subtle mt-0.5 tabular-nums">
                         {formatDate(release.date)}
-                      </span>
+                      </div>
                     </div>
-                    <div>
-                      <span className="text-gray-600">OCID: </span>
-                      <span className="font-mono text-xs text-gray-700">
-                        {release.ocid}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </Card>
-            ))}
+
+                    {/* Status pill */}
+                    {release.tender?.status && (
+                      <div className="shrink-0 hidden sm:block w-24 text-right">
+                        <span className={`inline-block text-xs px-2 py-0.5 rounded-full ${st.bg} ${st.text} truncate max-w-full`}>
+                          {release.tender.status}
+                        </span>
+                      </div>
+                    )}
+
+                    <ChevronRight className="w-4 h-4 text-rc-border group-hover:text-rc-text-subtle transition-colors shrink-0" />
+                  </button>
+                );
+              })
+            )}
           </div>
 
           {hasMore && !loading && (
             <div className="flex justify-center">
-              <Button onClick={handleLoadMore} variant="outlined">
+              <button
+                onClick={handleLoadMore}
+                className="px-6 py-2 text-sm font-medium text-rc-primary border border-rc-primary rounded hover:bg-rc-primary hover:text-white transition-colors"
+              >
                 Cargar más procesos
-              </Button>
+              </button>
             </div>
           )}
 
           {loading && page > 1 && (
-            <Loading text="Cargando más procesos..." />
+            <div className="text-center text-sm text-rc-text-subtle py-4">Cargando más procesos...</div>
           )}
         </>
       )}

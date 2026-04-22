@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  Home,
   Search,
   Radar,
   BarChart3,
@@ -12,7 +11,6 @@ import {
   Linkedin,
   Mail,
   Globe,
-  Book,
 } from 'lucide-react';
 
 interface NavigationProps {
@@ -25,7 +23,6 @@ const navItems = [
   { id: 'opportunities', label: 'Oportunidades', icon: Radar },
   { id: 'analytics', label: 'Estadísticas', icon: BarChart3 },
   { id: 'trends', label: 'Tendencias', icon: TrendingUp },
-  { id: 'docs', label: 'Documentación', icon: Book },
 ];
 
 export const Navigation: React.FC<NavigationProps> = ({ currentView, onNavigate }) => {

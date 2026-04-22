@@ -9,17 +9,22 @@ export class OCDSApi {
    *
    * Basado en la especificación OpenAPI `/release/search` (docs.json):
    *
-   * | Parámetro API       | Filter prop  | Descripción                                     |
-   * |---------------------|--------------|-------------------------------------------------|
-   * | pagina              | page         | Número de página de los releases                |
-   * | Anio                | year         | Año de la publicación (obligatorio*)            |
-   * | Mes                 | month        | Mes de la publicación (2 dígitos)               |
-   * | Entidad             | entidad      | Entidad compradora (ID numérico)                |
-   * | Estatus_concurso    | —            | Estado del concurso (1=Vigente por defecto)     |
-   * | q                   | keyword      | Búsqueda por palabra clave                      |
+   * | Parámetro API           | Filter prop   | Descripción                                         |
+   * |-------------------------|---------------|-----------------------------------------------------|
+   * | pagina                  | page          | Número de página de los releases                    |
+   * | Anio                    | year          | Año de la publicación (obligatorio*)                |
+   * | Mes                     | month         | Mes de la publicación                               |
+   * | Entidad                 | entidad       | Entidad compradora (ID numérico, ver ejecutivo.json)|
+   * | Modalidad_compradora    | modalidad     | Modalidad de compra (ver const/catalogo.ts)         |
+   * | Sub_modalidad_compradora| subModalidad  | Sub-modalidad (solo aplica a modalidad 6)           |
+   * | Estatus_concurso        | estatus       | Estado del concurso (default: 1=Vigente)            |
    *
    * *Nota API: al menos uno de Anio, Mes o Dia es obligatorio.
    * Cuando no se proveen year/month se usa la fecha actual.
+   *
+   * Parámetros NO soportados por la API (no se envían):
+   * - Búsqueda por texto libre (q)
+   * - Filtro por monto (minAmount / maxAmount)
    *
    * Respuesta (HeaderRelease schema):
    * - releases[]: array de Release
@@ -40,14 +45,18 @@ export class OCDSApi {
       params.append('pagina', page.toString());
       params.append('Anio', (filters.year ?? now.getFullYear()).toString());
       params.append('Mes', (filters.month ?? now.getMonth() + 1).toString());
-      params.append('Estatus_concurso', StatusRelease.Vigente.toString());
+      params.append('Estatus_concurso', (filters.estatus ?? StatusRelease.Vigente).toString());
 
       if (filters.entidad) {
         params.append('Entidad', filters.entidad);
       }
 
-      if (filters.keyword) {
-        params.append('q', filters.keyword);
+      if (filters.modalidad) {
+        params.append('Modalidad_compradora', filters.modalidad);
+      }
+
+      if (filters.subModalidad) {
+        params.append('Sub_modalidad_compradora', filters.subModalidad);
       }
 
       const url = `${BASE_URL}/release/search?${params.toString()}`;
@@ -92,19 +101,6 @@ export class OCDSApi {
     if (filters.buyer) {
       filtered = filtered.filter(r =>
         r.buyer?.name?.toLowerCase().includes(filters.buyer!.toLowerCase())
-      );
-    }
-
-    // Don't exist as API params — applied client-side
-    if (filters.minAmount !== undefined) {
-      filtered = filtered.filter(r =>
-        (r.tender?.value?.amount || 0) >= filters.minAmount!
-      );
-    }
-
-    if (filters.maxAmount !== undefined) {
-      filtered = filtered.filter(r =>
-        (r.tender?.value?.amount || 0) <= filters.maxAmount!
       );
     }
 

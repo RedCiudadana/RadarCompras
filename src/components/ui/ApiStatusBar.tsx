@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Activity, Clock, CheckCircle2, XCircle, AlertCircle } from 'lucide-react';
-import { formatDistanceToNow } from 'date-fns';
-import { es } from 'date-fns/locale';
+import { Activity, CheckCircle2, XCircle, AlertCircle } from 'lucide-react';
 import { OCDSApi } from '../../services/ocdsApi';
 
 export const ApiStatusBar: React.FC = () => {
   const [apiStatus, setApiStatus] = useState<'checking' | 'online' | 'offline' | 'error'>('checking');
-  const [lastUpdate, setLastUpdate] = useState<Date | null>(null);
   const [responseTime, setResponseTime] = useState<number | null>(null);
 
   useEffect(() => {
@@ -23,12 +20,12 @@ export const ApiStatusBar: React.FC = () => {
 
       if (data && data.length >= 0) {
         setApiStatus('online');
-        setLastUpdate(new Date());
         setResponseTime(endTime - startTime);
       } else {
         setApiStatus('error');
+        setResponseTime(null);
       }
-    } catch (error) {
+    } catch {
       setApiStatus('offline');
       setResponseTime(null);
     }
@@ -39,7 +36,7 @@ export const ApiStatusBar: React.FC = () => {
       case 'online':
         return {
           icon: CheckCircle2,
-          text: 'API OCDS Activo',
+          text: 'Guatecompras OCDS en línea',
           color: 'text-green-600',
           bgColor: 'bg-green-50',
           borderColor: 'border-green-200',
@@ -47,7 +44,7 @@ export const ApiStatusBar: React.FC = () => {
       case 'offline':
         return {
           icon: XCircle,
-          text: 'API OCDS Inactivo',
+          text: 'Guatecompras OCDS sin conexión',
           color: 'text-red-600',
           bgColor: 'bg-red-50',
           borderColor: 'border-red-200',
@@ -55,7 +52,7 @@ export const ApiStatusBar: React.FC = () => {
       case 'error':
         return {
           icon: AlertCircle,
-          text: 'API OCDS con Errores',
+          text: 'Guatecompras OCDS con errores',
           color: 'text-amber-600',
           bgColor: 'bg-amber-50',
           borderColor: 'border-amber-200',
@@ -63,7 +60,7 @@ export const ApiStatusBar: React.FC = () => {
       default:
         return {
           icon: Activity,
-          text: 'Verificando API...',
+          text: 'Verificando conexión...',
           color: 'text-gray-600',
           bgColor: 'bg-gray-50',
           borderColor: 'border-gray-200',
@@ -75,32 +72,14 @@ export const ApiStatusBar: React.FC = () => {
   const StatusIcon = config.icon;
 
   return (
-    <div className={`${config.bgColor} border ${config.borderColor} rounded-lg px-4 py-2.5 mb-6`}>
-      <div className="flex items-center justify-between flex-wrap gap-3">
-        <div className="flex items-center gap-3">
-          <StatusIcon className={`w-5 h-5 ${config.color} ${apiStatus === 'checking' ? 'animate-pulse' : ''}`} />
-          <span className={`font-semibold ${config.color}`}>{config.text}</span>
-
-          {responseTime && (
-            <span className="text-sm text-gray-600 flex items-center gap-1">
-              <Activity className="w-4 h-4" />
-              {responseTime}ms
-            </span>
-          )}
-        </div>
-
-        {lastUpdate && (
-          <div className="flex items-center gap-2 text-sm text-gray-600">
-            <Clock className="w-4 h-4" />
-            <span>
-              Última actualización: {formatDistanceToNow(lastUpdate, {
-                addSuffix: true,
-                locale: es
-              })}
-            </span>
-          </div>
-        )}
-      </div>
+    <div className="flex items-center gap-2 mb-3">
+      <StatusIcon
+        className={`w-3.5 h-3.5 ${config.color} ${apiStatus === 'checking' ? 'animate-pulse' : ''}`}
+      />
+      <span className={`text-xs font-medium ${config.color}`}>{config.text}</span>
+      {responseTime !== null && (
+        <span className="text-xs text-gray-400">{responseTime}ms</span>
+      )}
     </div>
   );
 };
