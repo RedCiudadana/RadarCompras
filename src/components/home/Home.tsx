@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   Radar,
   TrendingUp,
@@ -7,10 +8,8 @@ import {
   ArrowRight,
   CheckCircle,
   Clock,
-  Database,
   Zap,
   Shield,
-  Filter,
   Bell,
   FileSearch,
   LineChart,
@@ -20,11 +19,9 @@ import { Card, CardContent } from '../ui/Card';
 import { Button } from '../ui/Button';
 import { HeroSlider } from '../ui/HeroSlider';
 
-interface HomeProps {
-  onNavigate: (view: string) => void;
-}
+export const Home: React.FC = () => {
+  const navigate = useNavigate();
 
-export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
   const heroSlides = [
     {
       title: 'Radar de Compras Públicas',
@@ -87,28 +84,28 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
       title: 'Buscador Avanzado',
       description: 'Encuentra procesos específicos filtrando por institución, monto, fecha, estado y tipo de contratación.',
       demo: 'Busca por palabras clave, filtra por rangos de monto, y encuentra exactamente lo que necesitas.',
-      action: () => onNavigate('search'),
+      path: '/busqueda',
     },
     {
       icon: Radar,
       title: 'Radar de Oportunidades',
       description: 'Visualiza en tiempo real las nuevas licitaciones y convocatorias del Estado.',
       demo: 'Identifica oportunidades de negocio antes que tu competencia con alertas automáticas.',
-      action: () => onNavigate('opportunities'),
+      path: '/oportunidades',
     },
     {
       icon: BarChart3,
       title: 'Analytics',
       description: 'Analiza el comportamiento del mercado público con gráficos y visualizaciones interactivas.',
       demo: 'Descubre qué instituciones compran más, cuáles son los montos promedio y las tendencias del sector.',
-      action: () => onNavigate('analytics'),
+      path: '/estadisticas',
     },
     {
       icon: TrendingUp,
       title: 'Tendencias',
       description: 'Identifica patrones históricos y proyecciones del gasto público por sector e institución.',
       demo: 'Comprende la evolución del mercado y planifica tu estrategia comercial basada en datos.',
-      action: () => onNavigate('trends'),
+      path: '/tendencias',
     },
   ];
 
@@ -162,7 +159,7 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
               <Card
                 key={index}
                 hover
-                onClick={feature.action}
+                onClick={() => navigate(feature.path)}
                 variant="elevated"
                 className="group cursor-pointer"
               >
@@ -251,7 +248,7 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
             <Button
               size="lg"
               variant="filled"
-              onClick={() => onNavigate('search')}
+              onClick={() => navigate('/busqueda')}
             >
               <Search className="w-5 h-5" />
               Buscar Procesos
@@ -259,7 +256,7 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
             <Button
               size="lg"
               variant="tonal"
-              onClick={() => onNavigate('opportunities')}
+              onClick={() => navigate('/oportunidades')}
             >
               <Radar className="w-5 h-5" />
               Ver Oportunidades

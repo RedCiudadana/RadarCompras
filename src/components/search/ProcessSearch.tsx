@@ -1,13 +1,14 @@
-import React, { useState, useEffect, useCallback, useMemo } from 'react';
-import { RotateCcw, ArrowUpDown, ChevronRight } from 'lucide-react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { useSearchParams, useNavigate } from 'react-router-dom';
+import { RotateCcw } from 'lucide-react';
 import { ApiStatusBar } from '../ui/ApiStatusBar';
 import { Loading } from '../ui/Loading';
 import { SearchableSelect } from '../ui/SearchableSelect';
 import { OCDSApi } from '../../services/ocdsApi';
 import { Release, ProcessFilters } from '../../types/ocds';
-import { formatCurrency, formatDate } from '../../utils/formatters';
-import entidades from '../../const/ejecutivo.json';
+import entidades from '../../const/entidades_selector.json';
 import { MODALIDADES, SUB_MODALIDADES, ESTATUS_CONCURSO } from '../../const/catalogo';
+import { ReleaseRow } from './ReleaseRow';
 
 const MONTHS = [
   { value: 1, label: 'Enero' },
@@ -36,27 +37,38 @@ const DEFAULT_FILTERS: ProcessFilters = {
   month: new Date().getMonth() + 1,
 };
 
-function statusStyle(status?: string): { bg: string; text: string } {
-  if (!status) return { bg: 'bg-gray-100', text: 'text-gray-500' };
-  const s = status.toLowerCase();
-  if (s.includes('vigent') || s.includes('activ')) return { bg: 'bg-emerald-100', text: 'text-emerald-700' };
-  if (s.includes('adjudic') || s.includes('seleccion')) return { bg: 'bg-blue-100', text: 'text-blue-700' };
-  if (s.includes('evaluac') || s.includes('espera') || s.includes('subast')) return { bg: 'bg-amber-100', text: 'text-amber-700' };
-  if (s.includes('desert') || s.includes('cancel') || s.includes('anulad') || s.includes('prescind') || s.includes('improbad')) return { bg: 'bg-red-100', text: 'text-red-600' };
-  return { bg: 'bg-gray-100', text: 'text-gray-500' };
+function filtersFromParams(params: URLSearchParams): ProcessFilters {
+  return {
+    year: params.has('year') ? Number(params.get('year')) : DEFAULT_FILTERS.year,
+    month: params.has('month') ? Number(params.get('month')) : DEFAULT_FILTERS.month,
+    entidad: params.get('entidad') ?? DEFAULT_FILTERS.entidad,
+    modalidad: params.get('modalidad') ?? DEFAULT_FILTERS.modalidad,
+    subModalidad: params.get('subModalidad') ?? DEFAULT_FILTERS.subModalidad,
+    estatus: params.has('estatus') ? Number(params.get('estatus')) : DEFAULT_FILTERS.estatus,
+  };
 }
 
-interface ProcessSearchProps {
-  onSelectProcess?: (release: Release) => void;
+function filtersToParams(filters: ProcessFilters): Record<string, string> {
+  const p: Record<string, string> = {
+    year: String(filters.year ?? DEFAULT_FILTERS.year),
+    month: String(filters.month ?? DEFAULT_FILTERS.month),
+    estatus: String(filters.estatus ?? DEFAULT_FILTERS.estatus),
+  };
+  if (filters.entidad) p.entidad = filters.entidad;
+  if (filters.modalidad) p.modalidad = filters.modalidad;
+  if (filters.subModalidad) p.subModalidad = filters.subModalidad;
+  return p;
 }
 
-export const ProcessSearch: React.FC<ProcessSearchProps> = ({ onSelectProcess }) => {
+export const ProcessSearch: React.FC = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
+
   const [releases, setReleases] = useState<Release[]>([]);
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
-  const [sortBy, setSortBy] = useState<'date' | 'amount'>('date');
-  const [filters, setFilters] = useState<ProcessFilters>(DEFAULT_FILTERS);
+  const [filters, setFilters] = useState<ProcessFilters>(() => filtersFromParams(searchParams));
 
   const subModalidadOptions = filters.modalidad ? (SUB_MODALIDADES[filters.modalidad] ?? []) : [];
   const hasSubModalidades = subModalidadOptions.length > 0;
@@ -66,15 +78,6 @@ export const ProcessSearch: React.FC<ProcessSearchProps> = ({ onSelectProcess })
     !!filters.modalidad ||
     !!filters.subModalidad ||
     (filters.estatus !== undefined && filters.estatus !== 1);
-
-  const sortedReleases = useMemo(() => {
-    return [...releases].sort((a, b) => {
-      if (sortBy === 'date') {
-        return new Date(b.date).getTime() - new Date(a.date).getTime();
-      }
-      return (b.tender?.value?.amount || 0) - (a.tender?.value?.amount || 0);
-    });
-  }, [releases, sortBy]);
 
   const loadReleases = useCallback(
     async (currentFilters: ProcessFilters, currentPage: number) => {
@@ -112,11 +115,16 @@ export const ProcessSearch: React.FC<ProcessSearchProps> = ({ onSelectProcess })
   }, [page]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
-    loadReleases(DEFAULT_FILTERS, 1);
+    const initialFilters = filtersFromParams(searchParams);
+    setFilters(initialFilters);
+    setPage(1);
+    setReleases([]);
+    loadReleases(initialFilters, 1);
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const triggerSearch = (newFilters: ProcessFilters) => {
     setFilters(newFilters);
+    setSearchParams(filtersToParams(newFilters), { replace: true });
     setPage(1);
     setReleases([]);
     loadReleases(newFilters, 1);
@@ -137,7 +145,9 @@ export const ProcessSearch: React.FC<ProcessSearchProps> = ({ onSelectProcess })
 
   const handleLoadMore = () => setPage(prev => prev + 1);
 
-  const toggleSort = () => setSortBy(s => (s === 'date' ? 'amount' : 'date'));
+  const handleSelectRelease = (release: Release) => {
+    navigate(`/busqueda/${encodeURIComponent(release.id)}`);
+  };
 
   return (
     <div className="space-y-4">
@@ -251,68 +261,27 @@ export const ProcessSearch: React.FC<ProcessSearchProps> = ({ onSelectProcess })
           <div className="flex items-center justify-between px-1">
             <span className="text-sm text-rc-text-muted">
               <span className="font-semibold text-rc-text-base font-sans text-base">
-                {sortedReleases.length}
+                {releases.length}
               </span>{' '}
               procesos
               {hasMore && <span className="text-rc-text-subtle"> · más disponibles</span>}
             </span>
-            <button
-              onClick={toggleSort}
-              className="flex items-center gap-1.5 text-xs font-medium text-rc-text-muted hover:text-rc-primary transition-colors"
-            >
-              <ArrowUpDown className="w-3.5 h-3.5" />
-              Ordenar por {sortBy === 'date' ? 'fecha' : 'monto'}
-            </button>
           </div>
 
           {/* Dense rows */}
           <div className="bg-white border border-rc-border rounded-lg overflow-hidden">
-            {sortedReleases.length === 0 && !loading ? (
+            {releases.length === 0 && !loading ? (
               <div className="px-6 py-12 text-center text-rc-text-subtle text-sm">
                 No se encontraron procesos con los filtros seleccionados.
               </div>
             ) : (
-              sortedReleases.map((release, index) => {
-                const st = statusStyle(release.tender?.status);
-                return (
-                  <button
-                    key={release.id || index}
-                    onClick={() => onSelectProcess?.(release)}
-                    className="w-full flex items-center gap-3 px-4 py-3 border-b border-rc-border last:border-b-0 hover:bg-rc-surface transition-colors text-left group"
-                  >
-                    {/* Entity + title */}
-                    <div className="flex-1 min-w-0">
-                      <div className="font-sans text-xs font-semibold uppercase tracking-wider text-rc-primary truncate leading-tight">
-                        {release.buyer?.name || '—'}
-                      </div>
-                      <div className="text-sm text-rc-text-muted truncate mt-0.5 leading-snug">
-                        {release.tender?.title || 'Sin título'}
-                      </div>
-                    </div>
-
-                    {/* Amount + date */}
-                    <div className="shrink-0 text-right">
-                      <div className="font-sans font-bold text-sm text-rc-accent tabular-nums">
-                        {formatCurrency(release.tender?.value?.amount || 0)}
-                      </div>
-                      <div className="text-xs text-rc-text-subtle mt-0.5 tabular-nums">
-                        {formatDate(release.date)}
-                      </div>
-                    </div>
-
-                    {/* Status pill */}
-                    {release.tender?.status && (
-                      <div className="shrink-0 hidden sm:block w-24 text-right">
-                        <span className={`inline-block text-xs px-2 py-0.5 rounded-full ${st.bg} ${st.text} truncate max-w-full`}>
-                          {release.tender.status}
-                        </span>
-                      </div>
-                    )}
-
-                    <ChevronRight className="w-4 h-4 text-rc-border group-hover:text-rc-text-subtle transition-colors shrink-0" />
-                  </button>
-                );
-              })
+              releases.map((release, index) => (
+                <ReleaseRow
+                  key={release.id || index}
+                  release={release}
+                  onClick={() => handleSelectRelease(release)}
+                />
+              ))
             )}
           </div>
 

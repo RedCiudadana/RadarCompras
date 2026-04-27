@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Navigation } from './components/layout/Navigation';
 import { Home } from './components/home/Home';
 import { ProcessSearch } from './components/search/ProcessSearch';
@@ -7,48 +7,22 @@ import { OpportunitiesRadar } from './components/opportunities/OpportunitiesRada
 import { Analytics } from './components/analytics/Analytics';
 import { Trends } from './components/trends/Trends';
 import { Documentation } from './components/docs/Documentation';
-import { Release } from './types/ocds';
 
-function App() {
-  const [currentView, setCurrentView] = useState('home');
-  const [selectedRelease, setSelectedRelease] = useState<Release | null>(null);
-
-  const handleSelectProcess = (release: Release) => {
-    setSelectedRelease(release);
-    setCurrentView('detail');
-  };
-
-  const handleBackFromDetail = () => {
-    setSelectedRelease(null);
-    setCurrentView('search');
-  };
-
-  const renderView = () => {
-    switch (currentView) {
-      case 'home':
-        return <Home onNavigate={setCurrentView} />;
-      case 'search':
-        return <ProcessSearch onSelectProcess={handleSelectProcess} />;
-      case 'detail':
-        return <ProcessDetail release={selectedRelease || undefined} onBack={handleBackFromDetail} />;
-      case 'opportunities':
-        return <OpportunitiesRadar onSelectProcess={handleSelectProcess} />;
-      case 'analytics':
-        return <Analytics />;
-      case 'trends':
-        return <Trends />;
-      case 'docs':
-        return <Documentation />;
-      default:
-        return <Home onNavigate={setCurrentView} />;
-    }
-  };
-
+function AppShell() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-50">
-      <Navigation currentView={currentView} onNavigate={setCurrentView} />
+      <Navigation />
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {renderView()}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/busqueda" element={<ProcessSearch />} />
+          <Route path="/busqueda/:releaseId" element={<ProcessDetail />} />
+          <Route path="/oportunidades" element={<OpportunitiesRadar />} />
+          <Route path="/estadisticas" element={<Analytics />} />
+          <Route path="/tendencias" element={<Trends />} />
+          <Route path="/docs" element={<Documentation />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
       </main>
       <footer className="bg-gradient-to-r from-gray-900 to-blue-900 text-white border-t mt-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
@@ -63,26 +37,10 @@ function App() {
             <div>
               <h3 className="text-lg font-bold mb-3">Enlaces Rápidos</h3>
               <ul className="space-y-2 text-sm">
-                <li>
-                  <button onClick={() => setCurrentView('opportunities')} className="text-gray-300 hover:text-white transition-colors">
-                    Oportunidades
-                  </button>
-                </li>
-                <li>
-                  <button onClick={() => setCurrentView('analytics')} className="text-gray-300 hover:text-white transition-colors">
-                    Analytics
-                  </button>
-                </li>
-                <li>
-                  <button onClick={() => setCurrentView('trends')} className="text-gray-300 hover:text-white transition-colors">
-                    Tendencias
-                  </button>
-                </li>
-                <li>
-                  <button onClick={() => setCurrentView('docs')} className="text-gray-300 hover:text-white transition-colors">
-                    Documentación API
-                  </button>
-                </li>
+                <li><a href="/oportunidades" className="text-gray-300 hover:text-white transition-colors">Oportunidades</a></li>
+                <li><a href="/estadisticas" className="text-gray-300 hover:text-white transition-colors">Analytics</a></li>
+                <li><a href="/tendencias" className="text-gray-300 hover:text-white transition-colors">Tendencias</a></li>
+                <li><a href="/docs" className="text-gray-300 hover:text-white transition-colors">Documentación API</a></li>
               </ul>
             </div>
             <div>
@@ -109,4 +67,10 @@ function App() {
   );
 }
 
-export default App;
+export default function App() {
+  return (
+    <BrowserRouter>
+      <AppShell />
+    </BrowserRouter>
+  );
+}

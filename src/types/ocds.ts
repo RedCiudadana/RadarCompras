@@ -18,16 +18,34 @@ export interface Period {
   endDate?: string;
 }
 
+export interface TenderItemClassification {
+  id: string;
+  scheme?: string;
+  description?: string;
+}
+
+export interface TenderItem {
+  id: string;
+  description: string;
+  classification?: TenderItemClassification;
+  quantity?: { parsedValue?: number };
+  unit?: { name: string };
+}
+
 export interface Tender {
   id: string;
   title: string;
   description?: string;
   status?: string;
+  statusDetails?: string;
+  datePublished?: string;
   value?: Money;
   procurementMethod?: string;
   procurementMethodDetails?: string;
+  mainProcurementCategory?: string;
   tenderPeriod?: Period;
   numberOfTenderers?: number;
+  items?: TenderItem[];
 }
 
 export interface Award {

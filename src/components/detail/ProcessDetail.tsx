@@ -1,16 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Building2, FileText, Layers, ExternalLink, Users } from 'lucide-react';
 import { Release } from '../../types/ocds';
+import { OCDSApi } from '../../services/ocdsApi';
 import { formatCurrency, formatDate } from '../../utils/formatters';
-
-// Local extensions for API fields present in real responses but not yet in shared types.
-// Not added to ocds.ts because these extensions exist only for display purposes.
-interface TenderItem {
-  id: string;
-  description: string;
-  quantity?: { parsedValue?: number };
-  unit?: { name: string };
-}
+import { Loading } from '../ui/Loading';
 
 interface TenderDocument {
   id: string;
@@ -19,20 +13,7 @@ interface TenderDocument {
   documentTypeDetails?: string;
 }
 
-interface ExtendedTender {
-  id?: string;
-  title?: string;
-  description?: string;
-  status?: string;
-  statusDetails?: string;
-  datePublished?: string;
-  value?: { amount: number; currency: string };
-  procurementMethod?: string;
-  procurementMethodDetails?: string;
-  mainProcurementCategory?: string;
-  tenderPeriod?: { startDate?: string; endDate?: string };
-  numberOfTenderers?: number;
-  items?: TenderItem[];
+interface ExtendedTender extends NonNullable<Release['tender']> {
   documents?: TenderDocument[];
 }
 
@@ -55,16 +36,49 @@ function statusStyle(status?: string): { bg: string; text: string } {
   return { bg: 'bg-gray-100', text: 'text-gray-500' };
 }
 
-interface ProcessDetailProps {
-  release?: Release;
-  onBack?: () => void;
-}
+export const ProcessDetail: React.FC = () => {
+  const { releaseId } = useParams<{ releaseId: string }>();
+  const navigate = useNavigate();
+  const [release, setRelease] = useState<Release | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
-export const ProcessDetail: React.FC<ProcessDetailProps> = ({ release, onBack }) => {
-  if (!release) {
+  useEffect(() => {
+    if (!releaseId) return;
+    const abortController = new AbortController();
+    setLoading(true);
+    setError(false);
+
+    OCDSApi.getRelease(decodeURIComponent(releaseId), abortController).then(({ data }) => {
+      if (abortController.signal.aborted) return;
+      if (!data) {
+        setError(true);
+      } else {
+        setRelease(data);
+      }
+      setLoading(false);
+    });
+
+    return () => abortController.abort();
+  }, [releaseId]);
+
+  if (loading) {
+    return <Loading text="Cargando proceso..." />;
+  }
+
+  if (error || !release) {
     return (
-      <div className="text-center py-16 text-rc-text-subtle text-sm">
-        No se encontró información del proceso.
+      <div className="space-y-4 max-w-4xl">
+        <button
+          onClick={() => navigate(-1)}
+          className="flex items-center gap-1.5 text-sm text-rc-text-muted hover:text-rc-primary transition-colors"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          Volver a resultados
+        </button>
+        <div className="text-center py-16 text-rc-text-subtle text-sm">
+          No se encontró información del proceso.
+        </div>
       </div>
     );
   }
@@ -81,15 +95,13 @@ export const ProcessDetail: React.FC<ProcessDetailProps> = ({ release, onBack })
   return (
     <div className="space-y-6 max-w-4xl">
       {/* Back */}
-      {onBack && (
-        <button
-          onClick={onBack}
-          className="flex items-center gap-1.5 text-sm text-rc-text-muted hover:text-rc-primary transition-colors"
-        >
-          <ArrowLeft className="w-4 h-4" />
-          Volver a resultados
-        </button>
-      )}
+      <button
+        onClick={() => navigate(-1)}
+        className="flex items-center gap-1.5 text-sm text-rc-text-muted hover:text-rc-primary transition-colors"
+      >
+        <ArrowLeft className="w-4 h-4" />
+        Volver a resultados
+      </button>
 
       {/* Header */}
       <div>
@@ -161,7 +173,7 @@ export const ProcessDetail: React.FC<ProcessDetailProps> = ({ release, onBack })
         </div>
       </section>
 
-      {/* Items / Bienes, obras o servicios */}
+      {/* Items */}
       {tender?.items && tender.items.length > 0 && (
         <section>
           <h2 className="flex items-center gap-2 text-sm font-semibold text-rc-primary uppercase tracking-wide mb-3">

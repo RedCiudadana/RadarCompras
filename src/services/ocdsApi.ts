@@ -79,6 +79,42 @@ export class OCDSApi {
     }
   }
 
+  /**
+   * Obtiene la release por id, ejemplo "GT-NOG-30129117-T639126757317034370", Usa el valor de `id` no `ocid`.
+   *
+   * @param id The "id" from the release
+   * @param abortController 
+   * @returns Release
+   */
+  static async getRelease(
+    id: string,
+    abortController: AbortController | null = null
+  ): Promise<{ data: Release|null; }> {
+    try {
+      const url = `${BASE_URL}/release/${id}`;
+      const response = await fetch(url, { signal: abortController?.signal });
+
+      if (!response.ok) {
+        throw new Error(`API Error: ${response.status}`);
+      }
+
+      const result = await response.json();
+
+      const releases = result.releases ?? [];
+
+      if (releases.length <= 0) {
+        throw new Error('Error release is empty');
+      }
+
+      return {
+        data: releases[0]
+      };
+    } catch (error) {
+      console.error('Error fetching releases:', error);
+      return { data: null };
+    }
+  }
+
   static async getRecord(ocid: string): Promise<OcdsRecord | null> {
     try {
       const url = `${BASE_URL}/record/${encodeURIComponent(ocid)}`;

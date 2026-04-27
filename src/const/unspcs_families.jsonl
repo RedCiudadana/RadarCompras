@@ -1,0 +1,420 @@
+{"code": "1010", "name": "Animales vivos"}
+{"code": "1011", "name": "Productos para animales domésticos"}
+{"code": "1012", "name": "Comida de animales"}
+{"code": "1013", "name": "Recipientes y hábitat para animales"}
+{"code": "1014", "name": "Productos de talabartería y arreo"}
+{"code": "1015", "name": "Semillas, bulbos, plántulas y esquejes"}
+{"code": "1016", "name": "Productos de floricultura y silvicultura"}
+{"code": "1017", "name": "Fertilizantes y nutrientes para plantas y herbicidas"}
+{"code": "1019", "name": "Productos para el control de plagas "}
+{"code": "1020", "name": "Rosales vivos"}
+{"code": "1021", "name": "Plantas vivas  de especies o variedades de flores altas"}
+{"code": "1022", "name": "Plantas vivas  de especies o variedades de flores bajas"}
+{"code": "1023", "name": "Crisantemos vivos"}
+{"code": "1024", "name": "Claveles vivos"}
+{"code": "1025", "name": "Orquídeas vivas"}
+{"code": "1030", "name": "Rosas frescas cortadas"}
+{"code": "1031", "name": "Bouquets cortados frescos  de especies o variedades de flores altas"}
+{"code": "1032", "name": "Bouquets cortados frescos  de especies o variedades de flores bajas"}
+{"code": "1033", "name": "Crisantemos cortados frescos"}
+{"code": "1034", "name": "Bouquets florales cortados frescos"}
+{"code": "1035", "name": "Claveles cortados frescos"}
+{"code": "1036", "name": "Orquídeas cortadas frescas"}
+{"code": "1040", "name": "Rosas cortadas secas"}
+{"code": "1041", "name": "Bouquets cortados secos  de especies o variedades de flores altas"}
+{"code": "1042", "name": "Bouquets cortados secos  de especies o variedades de flores bajas"}
+{"code": "1043", "name": "Crisantemos cortados secos"}
+{"code": "1044", "name": "Claveles cortados secos"}
+{"code": "1045", "name": "Orquídeas cortadas secas"}
+{"code": "1050", "name": "Follaje cortado fresco"}
+{"code": "1110", "name": "Minerales, minerales metálicos y metales"}
+{"code": "1111", "name": "Tierra y piedra"}
+{"code": "1112", "name": "Productos no comestibles de planta y silvicultura"}
+{"code": "1113", "name": "Productos animales no comestibles"}
+{"code": "1114", "name": "Chatarra y materiales de desecho"}
+{"code": "1115", "name": "Fibra, hilos e hilados"}
+{"code": "1116", "name": "Tejidos y materiales de cuero"}
+{"code": "1117", "name": "Aleaciones"}
+{"code": "1118", "name": "Óxido metálico"}
+{"code": "1119", "name": "Desechos metálicos y chatarra"}
+{"code": "1213", "name": "Materiales explosivos"}
+{"code": "1214", "name": "Elementos y gases"}
+{"code": "1216", "name": "Aditivos"}
+{"code": "1217", "name": "Colorantes"}
+{"code": "1218", "name": "Ceras y aceites"}
+{"code": "1219", "name": "Solventes"}
+{"code": "1235", "name": "Compuestos y mezclas"}
+{"code": "1310", "name": "Caucho y elastómeros"}
+{"code": "1311", "name": "Resinas y colofonias y otros materiales derivados de resina"}
+{"code": "1410", "name": "Materiales de papel"}
+{"code": "1411", "name": "Productos de papel"}
+{"code": "1412", "name": "Papel para uso industrial"}
+{"code": "1510", "name": "Combustibles"}
+{"code": "1511", "name": "Combustibles gaseosos y aditivos"}
+{"code": "1512", "name": "Lubricantes, aceites, grasas y anticorrosivos"}
+{"code": "1513", "name": "Combustible para reactores nucleares"}
+{"code": "2010", "name": "Maquinaria y equipo de minería y explotación de canteras"}
+{"code": "2011", "name": "Equipo de perforación y explotación de pozos"}
+{"code": "2012", "name": "Equipo para perforación y exploración de petróleo y gas"}
+{"code": "2013", "name": "Materiales para  perforación y operaciones de petróleo y gas"}
+{"code": "2014", "name": "Equipo de producción y operación de petróleo y gas"}
+{"code": "2110", "name": "Maquinaria y equipo para agricultura, silvicultura y paisajismo"}
+{"code": "2111", "name": "Equipo de pesca y acuicultura"}
+{"code": "2210", "name": "Maquinaria y equipo pesado de construcción"}
+{"code": "2310", "name": "Maquinaria para el procesamiento de materias primas"}
+{"code": "2311", "name": "Maquinaria para el procesamiento de petróleo"}
+{"code": "2312", "name": "Maquinaria y accesorios de textiles y tejidos"}
+{"code": "2313", "name": "Maquinaria y equipos lapidarios"}
+{"code": "2314", "name": "Maquinaria de reparación y accesorios para marroquinería"}
+{"code": "2315", "name": "Maquinaria, equipo y suministros de procesos industriales"}
+{"code": "2316", "name": "Máquinas, equipo y suministros para fundición"}
+{"code": "2318", "name": "Equipo industrial para alimentos y bebidas"}
+{"code": "2319", "name": "Mezcladores y sus partes y accesorios"}
+{"code": "2320", "name": "Equipamiento para transferencia de masa"}
+{"code": "2321", "name": "Maquinaria de fabricación electrónica, equipo y accesorios"}
+{"code": "2322", "name": "Equipo y maquinaria de procesamiento de pollos"}
+{"code": "2323", "name": "Equipo y maquinaria de procesamiento de madera y aserrado"}
+{"code": "2324", "name": "Maquinaria y accesorios para cortar metales"}
+{"code": "2325", "name": "Maquinaria y accesorios para el formado de metales"}
+{"code": "2326", "name": "Maquinaria y accesorios para hacer prototipos rápidos"}
+{"code": "2327", "name": "Maquinaria y accesorios y suministros para soldadura de todas las clases"}
+{"code": "2328", "name": "Maquinaria para el tratamiento de metal"}
+{"code": "2329", "name": "Herramientas de maquinado industrial"}
+{"code": "2330", "name": "Maquinaria y equipo para cable"}
+{"code": "2410", "name": "Maquinaria y equipo para manejo de materiales"}
+{"code": "2411", "name": "Recipientes y almacenamiento"}
+{"code": "2412", "name": "Materiales de empaque"}
+{"code": "2413", "name": "Refrigeración industrial"}
+{"code": "2414", "name": "Suministros de embalaje"}
+{"code": "2510", "name": "Vehículos de motor"}
+{"code": "2511", "name": "Transporte marítimo"}
+{"code": "2512", "name": "Maquinaria y equipo para ferrocarril y tranvías"}
+{"code": "2513", "name": "Aeronaves"}
+{"code": "2515", "name": "Naves espaciales"}
+{"code": "2516", "name": "Bicicletas no motorizadas"}
+{"code": "2517", "name": "Componentes y sistemas de transporte"}
+{"code": "2518", "name": "Carrocerías y remolques"}
+{"code": "2519", "name": "Equipo para servicios de transporte"}
+{"code": "2520", "name": "Sistemas  y componentes y equipos aeroespaciales"}
+{"code": "2610", "name": "Fuentes de energía"}
+{"code": "2611", "name": "Baterías y generadores y transmisión de energía cinética"}
+{"code": "2612", "name": "Alambres, cables y arneses"}
+{"code": "2613", "name": "Generación de energía"}
+{"code": "2614", "name": "Maquinaria y equipo para energía atómica o nuclear"}
+{"code": "2711", "name": "Herramientas de mano"}
+{"code": "2712", "name": "Maquinaria y equipo hidráulico"}
+{"code": "2713", "name": "Maquinaria y equipo neumático"}
+{"code": "2714", "name": "Herramientas especializadas automotrices"}
+{"code": "3010", "name": "Componentes estructurales y formas básicas"}
+{"code": "3011", "name": "Hormigón, cemento y yeso"}
+{"code": "3012", "name": "Carreteras y paisaje"}
+{"code": "3013", "name": "Productos de construcción estructurales"}
+{"code": "3014", "name": "Aislamiento"}
+{"code": "3015", "name": "Materiales para acabado de exteriores"}
+{"code": "3016", "name": "Materiales de acabado de interiores"}
+{"code": "3017", "name": "Puertas y ventanas y vidrio"}
+{"code": "3018", "name": "Instalaciones de plomería"}
+{"code": "3019", "name": "Equipo de apoyo para Construcción y Mantenimiento"}
+{"code": "3024", "name": "Componentes de construcción de estructura portátil"}
+{"code": "3025", "name": "Estructuras y materiales de minería subterránea"}
+{"code": "3026", "name": "Materiales estructurales"}
+{"code": "3110", "name": "Piezas de fundición y ensambles de piezas de fundición"}
+{"code": "3111", "name": "Extrusiones"}
+{"code": "3112", "name": "Piezas fundidas maquinadas"}
+{"code": "3113", "name": "Forjaduras"}
+{"code": "3114", "name": "Molduras"}
+{"code": "3115", "name": "Cuerda, cadena, cable, alambre y correa"}
+{"code": "3116", "name": "Ferretería"}
+{"code": "3117", "name": "Rodamientos, cojinetes ruedas y engranajes"}
+{"code": "3118", "name": "Empaques, glándulas, fundas y cubiertas"}
+{"code": "3119", "name": "Materiales de afilado pulido y alisado"}
+{"code": "3120", "name": "Adhesivos y selladores"}
+{"code": "3121", "name": "Pinturas y bases y acabados"}
+{"code": "3122", "name": "Extractos de teñir y de curtir"}
+{"code": "3123", "name": "Materia prima en placas o barras labradas"}
+{"code": "3124", "name": "Óptica industrial"}
+{"code": "3125", "name": "Sistemas de control neumático, hidráulico o eléctrico"}
+{"code": "3126", "name": "Cubiertas, cajas y envolturas"}
+{"code": "3127", "name": "Piezas hechas a máquina"}
+{"code": "3128", "name": "Componentes de placa y estampados"}
+{"code": "3129", "name": "Extrusiones maquinadas"}
+{"code": "3130", "name": "Forjas labradas"}
+{"code": "3131", "name": "Ensambles de tubería fabricada"}
+{"code": "3132", "name": "Ensambles fabricados de material en barras"}
+{"code": "3133", "name": "Ensambles estructurales fabricados"}
+{"code": "3134", "name": "Ensambles de lámina fabricado"}
+{"code": "3135", "name": "Ensambles de tubería fabricada"}
+{"code": "3136", "name": "Ensambles de placa fabricados"}
+{"code": "3137", "name": "Refractarios"}
+{"code": "3138", "name": "Imanes y materiales magnéticos"}
+{"code": "3139", "name": "Maquinados"}
+{"code": "3140", "name": "Empaques"}
+{"code": "3141", "name": "Sellos"}
+{"code": "3142", "name": "Partes sinterizadas"}
+{"code": "3210", "name": "Circuitos impresos, circuitos integrados y micro ensamblajes"}
+{"code": "3211", "name": "Dispositivo semiconductor discreto"}
+{"code": "3212", "name": "Componentes pasivos discretos"}
+{"code": "3213", "name": "Piezas de componentes y hardware electrónicos y accesorios"}
+{"code": "3214", "name": "Dispositivos de tubo electrónico y accesorios"}
+{"code": "3215", "name": "Dispositivos y componentes y accesorios de control de automatización"}
+{"code": "3910", "name": "Lámparas y bombillas y componentes para lámparas"}
+{"code": "3911", "name": "Iluminación, artefactos y accesorios"}
+{"code": "3912", "name": "Equipos, suministros y componentes eléctricos"}
+{"code": "3913", "name": "Dispositivos y accesorios y suministros de manejo de cable eléctrico"}
+{"code": "4010", "name": "Calefacción, ventilación y circulación del aire"}
+{"code": "4014", "name": "Distribución de fluidos y gas"}
+{"code": "4015", "name": "Bombas y compresores industriales"}
+{"code": "4016", "name": "Filtrado y purificación industrial"}
+{"code": "4017", "name": "Instalaciones de tubos y entubamientos"}
+{"code": "4018", "name": "Instalaciones de tubos y tuberías"}
+{"code": "4110", "name": "Equipo de laboratorio y científico"}
+{"code": "4111", "name": "Instrumentos de medida, observación y ensayo"}
+{"code": "4112", "name": "Suministros y accesorios de laboratorio"}
+{"code": "4212", "name": "Equipos y suministros veterinarios"}
+{"code": "4213", "name": "Telas y vestidos médicos"}
+{"code": "4214", "name": "Suministros, productos de tratamiento y cuidado del enfermo"}
+{"code": "4215", "name": "Equipos y suministros dentales"}
+{"code": "4216", "name": "Equipo de diálisis y suministros"}
+{"code": "4217", "name": "Productos para los servicios médicos de urgencias y campo"}
+{"code": "4218", "name": "Productos de examen y control del paciente"}
+{"code": "4219", "name": "Productos de centro médico"}
+{"code": "4220", "name": "Productos de hacer imágenes diagnósticas médicas y de medicina nuclear"}
+{"code": "4221", "name": "Ayuda para personas con desafíos físicos para vivir independiente"}
+{"code": "4222", "name": "Productos para administración intravenosa y arterial"}
+{"code": "4223", "name": "Nutrición clínica"}
+{"code": "4224", "name": "Productos medicinales de deportes y ortopédicos y prótesis"}
+{"code": "4225", "name": "Productos de rehabilitación y terapia ocupacional y física"}
+{"code": "4226", "name": "Equipo y suministros post mortem y funerarios"}
+{"code": "4227", "name": "Productos de resucitación, anestesia y respiratorio"}
+{"code": "4228", "name": "Productos para la esterilización médica"}
+{"code": "4229", "name": "Productos quirúrgicos"}
+{"code": "4230", "name": "Suministros para formación y estudios de medicina"}
+{"code": "4231", "name": "Productos para el cuidado de heridas"}
+{"code": "4232", "name": "Implantes ortopédicos quirúrgicos"}
+{"code": "4319", "name": "Dispositivos de comunicaciones y accesorios"}
+{"code": "4320", "name": "Componentes para tecnología de la información, difusión o telecomunicaciones"}
+{"code": "4321", "name": "Equipo informático y accesorios"}
+{"code": "4322", "name": "Equipos o plataformas y accesorios de redes multimedia o de voz y datos"}
+{"code": "4323", "name": "Software"}
+{"code": "4410", "name": "Maquinaria, suministros y accesorios de oficina"}
+{"code": "4411", "name": "Accesorios de oficina y escritorio"}
+{"code": "4412", "name": "Suministros de oficina"}
+{"code": "4510", "name": "Equipo de imprenta y publicación"}
+{"code": "4511", "name": "Equipos de audio y video para presentación y composición"}
+{"code": "4512", "name": "Equipo de vídeo, filmación o fotografía"}
+{"code": "4513", "name": "Medios fotográficos y de grabación"}
+{"code": "4514", "name": "Suministros fotográficos para cine"}
+{"code": "4610", "name": "Armas ligeras y munición"}
+{"code": "4611", "name": "Armas de guerra convencionales"}
+{"code": "4612", "name": "Misiles"}
+{"code": "4613", "name": "Cohetes y subsistemas"}
+{"code": "4614", "name": "Lanzadores"}
+{"code": "4615", "name": "Protección del Orden Público"}
+{"code": "4616", "name": "Seguridad y control público"}
+{"code": "4617", "name": "Seguridad, vigilancia y detección"}
+{"code": "4618", "name": "Seguridad y protección personal"}
+{"code": "4619", "name": "Protección contra incendios"}
+{"code": "4620", "name": "Equipo de entrenamiento de seguridad física e industrial, defensa y orden público"}
+{"code": "4710", "name": "Tratamiento, suministros y eliminación de agua y aguas residuales"}
+{"code": "4711", "name": "Equipo industrial de lavandería y lavado en seco"}
+{"code": "4712", "name": "Equipo de aseo"}
+{"code": "4713", "name": "Suministros de aseo y limpieza"}
+{"code": "4810", "name": "Equipos de servicios de alimentación para instituciones"}
+{"code": "4811", "name": "Máquinas expendedoras"}
+{"code": "4812", "name": "Equipo de Juego o de Apostar"}
+{"code": "4813", "name": "Equipo y materiales funerarios"}
+{"code": "4910", "name": "Coleccionables y condecoraciones"}
+{"code": "4912", "name": "Equipos y accesorios para acampada y exteriores"}
+{"code": "4913", "name": "Equipos de pesca y caza"}
+{"code": "4914", "name": "Equipos para deportes acuáticos"}
+{"code": "4915", "name": "Equipos para deportes de invierno"}
+{"code": "4916", "name": "Equipos deportivos para campos y canchas"}
+{"code": "4917", "name": "Equipos de gimnasia y boxeo"}
+{"code": "4918", "name": "Juegos, equipo de tiro y mesa"}
+{"code": "4920", "name": "Equipo para entrenamiento físico"}
+{"code": "4921", "name": "Otros deportes"}
+{"code": "4922", "name": "Equipo  y accesorios para deportes"}
+{"code": "4924", "name": "Equipo de recreo, parques infantiles y equipo y suministros de natación y de spa"}
+{"code": "5010", "name": "Frutos secos"}
+{"code": "5011", "name": "Productos de carne y aves de corral"}
+{"code": "5012", "name": "Pescados y mariscos"}
+{"code": "5013", "name": "Productos lácteos y huevos"}
+{"code": "5015", "name": "Aceites y grasas comestibles"}
+{"code": "5016", "name": "Chocolates, azúcares, edulcorantes y productos de confitería"}
+{"code": "5017", "name": "Condimentos y conservantes"}
+{"code": "5018", "name": "Productos de panadería"}
+{"code": "5019", "name": "Alimentos preparados y conservados"}
+{"code": "5020", "name": "Bebidas"}
+{"code": "5021", "name": "Tabaco y productos de fumar y substitutos"}
+{"code": "5022", "name": "Productos de cereales y legumbres"}
+{"code": "5030", "name": "Fruta fresca"}
+{"code": "5031", "name": "Fruta orgánica fresca"}
+{"code": "5032", "name": "Fruta seca"}
+{"code": "5033", "name": "Fruta orgánica seca"}
+{"code": "5034", "name": "Fruta congelada"}
+{"code": "5035", "name": "Fruta orgánica congelada"}
+{"code": "5036", "name": "Fruta en lata o en frasco"}
+{"code": "5037", "name": "Fruta orgánica en lata o en frasco"}
+{"code": "5038", "name": "Puré de frutas"}
+{"code": "5040", "name": "Vegetales frescos"}
+{"code": "5041", "name": "Vegetales orgánicos frescos"}
+{"code": "5042", "name": "Vegetales secos"}
+{"code": "5043", "name": "Vegetales orgánicos secos"}
+{"code": "5044", "name": "Vegetales congelados"}
+{"code": "5045", "name": "Vegetales orgánicos congelados"}
+{"code": "5046", "name": "Vegetales en lata o en frasco"}
+{"code": "5047", "name": "Vegetales orgánicos en lata o en frasco"}
+{"code": "5110", "name": "Medicamentos antiinfecciosos"}
+{"code": "5111", "name": "Agentes antitumorales"}
+{"code": "5112", "name": "Medicamentos cardiovasculares"}
+{"code": "5113", "name": "Medicamentos hematólogos"}
+{"code": "5114", "name": "Medicamentos para el sistema nervioso central"}
+{"code": "5115", "name": "Medicamentos para el sistema nervioso autónomo"}
+{"code": "5116", "name": "Medicamentos que afectan al sistema respiratorio"}
+{"code": "5117", "name": "Medicamentos que afectan al sistema gastrointestinal"}
+{"code": "5118", "name": "Hormonas y antagonistas hormonales"}
+{"code": "5119", "name": "Agentes que afectan el agua y los electrolitos"}
+{"code": "5120", "name": "Medicamentos inmunomoduladores"}
+{"code": "5121", "name": "Categorías de medicamentos varios"}
+{"code": "5124", "name": "Fármacos que afectan a los oídos, los ojos, la nariz y la piel"}
+{"code": "5125", "name": "Suplementos alimenticios veterinarios"}
+{"code": "5210", "name": "Revestimientos de suelos"}
+{"code": "5212", "name": "Ropa de cama, mantelerías, paños de cocina y toallas"}
+{"code": "5213", "name": "Tratamientos de ventanas"}
+{"code": "5214", "name": "Aparatos electrodomésticos"}
+{"code": "5215", "name": "Utensilios de cocina domésticos"}
+{"code": "5216", "name": "Electrónica de consumo"}
+{"code": "5217", "name": "Tratamientos de pared doméstica"}
+{"code": "5310", "name": "Ropa"}
+{"code": "5311", "name": "Calzado"}
+{"code": "5312", "name": "Maletas, bolsos de mano, mochilas y estuches"}
+{"code": "5313", "name": "Artículos de tocador y cuidado personal"}
+{"code": "5314", "name": "Fuentes y accesorios de costura"}
+{"code": "5410", "name": "Joyería"}
+{"code": "5411", "name": "Relojes"}
+{"code": "5412", "name": "Gemas"}
+{"code": "5510", "name": "Medios impresos"}
+{"code": "5511", "name": "Material electrónico de referencia"}
+{"code": "5512", "name": "Etiquetado y accesorios"}
+{"code": "5610", "name": "Muebles de alojamiento"}
+{"code": "5611", "name": "Muebles comerciales e industriales"}
+{"code": "5612", "name": "Mobiliario institucional, escolar y educativo y accesorios"}
+{"code": "5613", "name": "Muebles y accesorios para merchandising"}
+{"code": "5614", "name": "Adornos para el hogar"}
+{"code": "6010", "name": "Materiales didácticos profesionales y de desarrollo y accesorios y suministros"}
+{"code": "6011", "name": "Decoraciones y suministros del aula"}
+{"code": "6012", "name": "Equipo, accesorios y suministros de arte y manualidades"}
+{"code": "6013", "name": "Instrumentos musicales, piezas y accesorios"}
+{"code": "6014", "name": "Juguetes y juegos"}
+{"code": "7010", "name": "Pesquerías y acuicultura"}
+{"code": "7011", "name": "Horticultura"}
+{"code": "7012", "name": "Servicios de animales vivos"}
+{"code": "7013", "name": "Preparación, gestión y protección del terreno y del suelo"}
+{"code": "7014", "name": "Producción, gestión y protección de cultivos"}
+{"code": "7015", "name": "Silvicultura"}
+{"code": "7016", "name": "Fauna y flora silvestres"}
+{"code": "7017", "name": "Desarrollo y vigilancia de recursos hidráulicos"}
+{"code": "7110", "name": "Servicios de minería"}
+{"code": "7111", "name": "Servicios de perforación y prospección petrolífera y de gas"}
+{"code": "7112", "name": "Servicios de construcción y perforación de pozos"}
+{"code": "7113", "name": "Servicios de aumento de la extracción y producción de gas y petróleo"}
+{"code": "7114", "name": "Servicios de restauración y recuperación de gas y petróleo"}
+{"code": "7115", "name": "Servicios de procesamiento y gestión de datos de petróleo y gas"}
+{"code": "7116", "name": "Servicios de gerencia de proyectos en pozos de petróleo y gas"}
+{"code": "7210", "name": "Servicios de mantenimiento y reparaciones de construcciones e instalaciones"}
+{"code": "7211", "name": "Servicios de construcción de edificaciones residenciales"}
+{"code": "7212", "name": "Servicios de construcción de edificaciones no residenciales"}
+{"code": "7214", "name": "Servicios de construcción pesada"}
+{"code": "7215", "name": "Servicios de mantenimiento y construcción de comercio especializado"}
+{"code": "7310", "name": "Industrias de plásticos y productos químicos"}
+{"code": "7311", "name": "Industrias de la madera y el papel"}
+{"code": "7312", "name": "Industrias del metal y de minerales"}
+{"code": "7313", "name": "Industrias de alimentos y bebidas"}
+{"code": "7314", "name": "Industrias de fibras, textiles y de tejidos"}
+{"code": "7315", "name": "Servicios de apoyo a la fabricación"}
+{"code": "7316", "name": "Fabricación de maquinaria y equipo de transporte"}
+{"code": "7317", "name": "Fabricación de productos eléctricos e instrumentos de precisión"}
+{"code": "7318", "name": "Servicios de maquinado y procesado"}
+{"code": "7610", "name": "Servicios de descontaminación"}
+{"code": "7611", "name": "Servicios de aseo y limpieza"}
+{"code": "7612", "name": "Eliminación y tratamiento de desechos"}
+{"code": "7613", "name": "Limpieza de residuos tóxicos y peligrosos"}
+{"code": "7710", "name": "Gestión medioambiental"}
+{"code": "7711", "name": "Protección medioambiental"}
+{"code": "7712", "name": "Seguimiento, control y rehabilitación de la contaminación"}
+{"code": "7713", "name": "Servicios de seguimiento, control o rehabilitación de contaminantes"}
+{"code": "7810", "name": "Transporte de correo y carga"}
+{"code": "7811", "name": "Transporte de pasajeros"}
+{"code": "7812", "name": "Manejo y embalaje de material"}
+{"code": "7813", "name": "Almacenaje"}
+{"code": "7814", "name": "Servicios de transporte"}
+{"code": "7818", "name": "Servicios de mantenimiento o reparaciones de transportes"}
+{"code": "8010", "name": "Servicios de asesoría de gestión"}
+{"code": "8011", "name": "Servicios de recursos humanos"}
+{"code": "8012", "name": "Servicios legales"}
+{"code": "8013", "name": "Servicios inmobiliarios"}
+{"code": "8014", "name": "Comercialización y distribución"}
+{"code": "8015", "name": "Política comercial y servicios"}
+{"code": "8016", "name": "Servicios de administración de empresas"}
+{"code": "8110", "name": "Servicios profesionales de ingeniería"}
+{"code": "8111", "name": "Servicios informáticos"}
+{"code": "8112", "name": "Economía"}
+{"code": "8113", "name": "Estadística"}
+{"code": "8114", "name": "Tecnologías de fabricación"}
+{"code": "8115", "name": "Servicios de pedología"}
+{"code": "8116", "name": "Entrega de servicios de tecnología de información"}
+{"code": "8210", "name": "Publicidad"}
+{"code": "8211", "name": "Escritura y traducciones"}
+{"code": "8212", "name": "Servicios de reproducción"}
+{"code": "8213", "name": "Servicios fotográficos"}
+{"code": "8214", "name": "Diseño gráfico"}
+{"code": "8215", "name": "Artistas e intérpretes profesionales"}
+{"code": "8310", "name": "Servicios públicos"}
+{"code": "8311", "name": "Servicios de medios de telecomunicaciones"}
+{"code": "8312", "name": "Servicios de información"}
+{"code": "8410", "name": "Finanzas de desarrollo"}
+{"code": "8411", "name": "Servicios de contabilidad y auditorias"}
+{"code": "8412", "name": "Banca e inversiones"}
+{"code": "8413", "name": "Servicios de seguros y pensiones"}
+{"code": "8414", "name": "Agencias de crédito"}
+{"code": "8510", "name": "Servicios integrales de salud"}
+{"code": "8511", "name": "Prevención y control de enfermedades"}
+{"code": "8512", "name": "Práctica médica"}
+{"code": "8513", "name": "Ciencia médica, investigación y experimentación"}
+{"code": "8514", "name": "Medicina alternativa y holística"}
+{"code": "8515", "name": "Servicios alimenticios y de nutrición"}
+{"code": "8516", "name": "Servicios de mantenimiento, renovación y reparación de equipo médico quirúrgico"}
+{"code": "8517", "name": "Servicios de muerte y soporte al fallecimiento"}
+{"code": "8610", "name": "Formación profesional"}
+{"code": "8611", "name": "Sistemas educativos alternativos"}
+{"code": "8612", "name": "Instituciones educativas"}
+{"code": "8613", "name": "Servicios educativos especializados"}
+{"code": "8614", "name": "Instalaciones educativas"}
+{"code": "9010", "name": "Restaurantes y catering (servicios de comidas y bebidas)"}
+{"code": "9011", "name": "Instalaciones hoteleras, alojamientos y centros de encuentros"}
+{"code": "9012", "name": "Facilitación de viajes"}
+{"code": "9013", "name": "Artes interpretativas"}
+{"code": "9014", "name": "Deportes comerciales"}
+{"code": "9015", "name": "Servicios de entretenimiento"}
+{"code": "9110", "name": "Aspecto personal"}
+{"code": "9111", "name": "Asistencia doméstica y personal"}
+{"code": "9210", "name": "Orden público y seguridad"}
+{"code": "9211", "name": "Servicios militares o defensa nacional"}
+{"code": "9212", "name": "Seguridad y protección personal"}
+{"code": "9310", "name": "Sistemas e instituciones políticas"}
+{"code": "9311", "name": "Condiciones sociopolíticas"}
+{"code": "9312", "name": "Relaciones internacionales"}
+{"code": "9313", "name": "Ayuda y asistencia humanitaria"}
+{"code": "9314", "name": "Servicios comunitarios y sociales"}
+{"code": "9315", "name": "Servicios de administración y financiación pública"}
+{"code": "9316", "name": "Tributación"}
+{"code": "9317", "name": "Política y regulación comercial"}
+{"code": "9410", "name": "Organizaciones laborales"}
+{"code": "9411", "name": "Organizaciones religiosas"}
+{"code": "9412", "name": "Clubes"}
+{"code": "9413", "name": "Organizaciones, asociaciones y movimientos cívicos"}
+{"code": "9510", "name": "Parcelas de tierra"}
+{"code": "9511", "name": "Vías"}
+{"code": "9512", "name": "Estructuras y edificios permanentes"}
+{"code": "9513", "name": "Estructuras y edificios móviles"}
+{"code": "9514", "name": "Estructuras y edificios prefabricados"}

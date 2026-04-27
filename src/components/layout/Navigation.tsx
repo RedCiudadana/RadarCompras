@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import {
   Search,
   Radar,
@@ -13,20 +14,19 @@ import {
   Globe,
 } from 'lucide-react';
 
-interface NavigationProps {
-  currentView: string;
-  onNavigate: (view: string) => void;
-}
-
 const navItems = [
-  { id: 'search', label: 'Buscar', icon: Search },
-  { id: 'opportunities', label: 'Oportunidades', icon: Radar },
-  { id: 'analytics', label: 'Estadísticas', icon: BarChart3 },
-  { id: 'trends', label: 'Tendencias', icon: TrendingUp },
+  { path: '/busqueda', label: 'Buscar', icon: Search },
+  { path: '/oportunidades', label: 'Oportunidades', icon: Radar },
+  { path: '/estadisticas', label: 'Estadísticas', icon: BarChart3 },
+  { path: '/tendencias', label: 'Tendencias', icon: TrendingUp },
 ];
 
-export const Navigation: React.FC<NavigationProps> = ({ currentView, onNavigate }) => {
+export const Navigation: React.FC = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
+
+  const isActive = (path: string) => location.pathname.startsWith(path);
 
   return (
     <>
@@ -89,7 +89,7 @@ export const Navigation: React.FC<NavigationProps> = ({ currentView, onNavigate 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             <button
-              onClick={() => onNavigate('home')}
+              onClick={() => navigate('/')}
               className="flex items-center hover:opacity-80 transition-opacity"
             >
               <div className="bg-[rgb(var(--md-sys-color-primary))] rounded-2xl p-2.5 md-elevation-1">
@@ -104,13 +104,13 @@ export const Navigation: React.FC<NavigationProps> = ({ currentView, onNavigate 
             <div className="hidden md:flex items-center space-x-1">
               {navItems.map((item) => {
                 const Icon = item.icon;
-                const isActive = currentView === item.id;
+                const active = isActive(item.path);
                 return (
                   <button
-                    key={item.id}
-                    onClick={() => onNavigate(item.id)}
+                    key={item.path}
+                    onClick={() => navigate(item.path)}
                     className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
-                      isActive
+                      active
                         ? 'bg-[rgb(var(--md-sys-color-secondary-container))] text-[rgb(var(--md-sys-color-on-secondary-container))] md-elevation-0'
                         : 'text-[rgb(var(--md-sys-color-on-surface))] hover:bg-[rgb(var(--md-sys-color-primary))]/8'
                     }`}
@@ -139,16 +139,16 @@ export const Navigation: React.FC<NavigationProps> = ({ currentView, onNavigate 
           <div className="px-2 pt-2 pb-3 space-y-1">
             {navItems.map((item) => {
               const Icon = item.icon;
-              const isActive = currentView === item.id;
+              const active = isActive(item.path);
               return (
                 <button
-                  key={item.id}
+                  key={item.path}
                   onClick={() => {
-                    onNavigate(item.id);
+                    navigate(item.path);
                     setMobileMenuOpen(false);
                   }}
                   className={`flex items-center gap-3 w-full px-4 py-3 rounded-full text-base font-medium transition-colors ${
-                    isActive
+                    active
                       ? 'bg-[rgb(var(--md-sys-color-secondary-container))] text-[rgb(var(--md-sys-color-on-secondary-container))]'
                       : 'text-[rgb(var(--md-sys-color-on-surface))] hover:bg-[rgb(var(--md-sys-color-primary))]/8'
                   }`}

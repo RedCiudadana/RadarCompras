@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Radar, Calendar, DollarSign, TrendingUp, Filter, Bell, Sparkles, ArrowUpRight, Building2 } from 'lucide-react';
-import { Card, CardHeader, CardTitle, CardContent } from '../ui/Card';
+import { useNavigate } from 'react-router-dom';
+import { Radar, Calendar, TrendingUp, Filter, Bell, Sparkles, ArrowUpRight, Building2 } from 'lucide-react';
+import { Card, CardContent } from '../ui/Card';
 import { Badge } from '../ui/Badge';
 import { Loading } from '../ui/Loading';
 import { HeroSlider } from '../ui/HeroSlider';
@@ -10,11 +11,8 @@ import { OCDSApi } from '../../services/ocdsApi';
 import { Release } from '../../types/ocds';
 import { formatCurrency, formatDate, truncateText, getStatusColor } from '../../utils/formatters';
 
-interface OpportunitiesRadarProps {
-  onSelectProcess?: (release: Release) => void;
-}
-
-export const OpportunitiesRadar: React.FC<OpportunitiesRadarProps> = ({ onSelectProcess }) => {
+export const OpportunitiesRadar: React.FC = () => {
+  const navigate = useNavigate();
   const heroSlides = [
     {
       title: 'Radar de Oportunidades',
@@ -88,7 +86,7 @@ export const OpportunitiesRadar: React.FC<OpportunitiesRadarProps> = ({ onSelect
               <Bell className="w-5 h-5 mr-2" />
               Configurar Alertas
             </Button>
-            <Button variant="outline" className="border-white text-white hover:bg-white hover:text-emerald-700">
+            <Button variant="outlined" className="border-white text-white hover:bg-white hover:text-emerald-700">
               <Filter className="w-5 h-5 mr-2" />
               Filtros Personalizados
             </Button>
@@ -112,21 +110,21 @@ export const OpportunitiesRadar: React.FC<OpportunitiesRadarProps> = ({ onSelect
 
       <div className="flex flex-wrap gap-3">
         <Button
-          variant={selectedCategory === 'all' ? 'default' : 'outline'}
+          variant={selectedCategory === 'all' ? 'filled' : 'outlined'}
           onClick={() => setSelectedCategory('all')}
         >
           <Radar className="w-4 h-4 mr-2" />
           Todas las Oportunidades
         </Button>
         <Button
-          variant={selectedCategory === 'recent' ? 'default' : 'outline'}
+          variant={selectedCategory === 'recent' ? 'filled' : 'outlined'}
           onClick={() => setSelectedCategory('recent')}
         >
           <Calendar className="w-4 h-4 mr-2" />
           Más Recientes
         </Button>
         <Button
-          variant={selectedCategory === 'high-value' ? 'default' : 'outline'}
+          variant={selectedCategory === 'high-value' ? 'filled' : 'outlined'}
           onClick={() => setSelectedCategory('high-value')}
         >
           <TrendingUp className="w-4 h-4 mr-2" />
@@ -139,7 +137,7 @@ export const OpportunitiesRadar: React.FC<OpportunitiesRadarProps> = ({ onSelect
           <Card
             key={opp.id || index}
             hover
-            onClick={() => onSelectProcess?.(opp)}
+            onClick={() => navigate(`/busqueda/${encodeURIComponent(opp.id)}`)}
             className="group"
           >
             <CardContent>
