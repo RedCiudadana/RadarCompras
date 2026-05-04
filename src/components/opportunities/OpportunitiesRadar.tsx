@@ -1,200 +1,207 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Radar, Calendar, TrendingUp, Filter, Bell, Sparkles, ArrowUpRight, Building2 } from 'lucide-react';
-import { Card, CardContent } from '../ui/Card';
-import { Badge } from '../ui/Badge';
-import { Loading } from '../ui/Loading';
-import { HeroSlider } from '../ui/HeroSlider';
+import React, { useEffect, useRef, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import { ArrowLeft, ArrowRight, Search } from 'lucide-react';
 import { ApiStatusBar } from '../ui/ApiStatusBar';
-import { Button } from '../ui/Button';
-import { OCDSApi } from '../../services/ocdsApi';
 import { Release } from '../../types/ocds';
-import { formatCurrency, formatDate, truncateText, getStatusColor } from '../../utils/formatters';
+import {
+  CompanySize,
+  OpportunitiesParams,
+  RecommenderAPI,
+  opportunitiesParamsFromSearchParams,
+  opportunitiesParamsToSearchParams,
+} from '../../services/recommender';
+import { Stepper } from './wizard/Stepper';
+import { StepCategories } from './wizard/StepCategories';
+import { StepKeywords } from './wizard/StepKeywords';
+import { StepCompanySize } from './wizard/StepCompanySize';
+import { OpportunitiesResults } from './OpportunitiesResults';
+
+const STEP_LABELS = ['Actividad', 'Palabras clave', 'Tamaño'];
+
+type Mode = 'wizard' | 'loading' | 'results' | 'error';
 
 export const OpportunitiesRadar: React.FC = () => {
-  const navigate = useNavigate();
-  const heroSlides = [
-    {
-      title: 'Radar de Oportunidades',
-      subtitle: 'Descubre nuevas licitaciones y oportunidades de negocio',
-      gradient: 'from-emerald-600 to-teal-700',
-    },
-    {
-      title: 'Oportunidades en Tiempo Real',
-      subtitle: 'Mantente actualizado con las últimas convocatorias',
-      gradient: 'from-green-600 to-emerald-700',
-    },
-  ];
-  const [loading, setLoading] = useState(true);
-  const [recentOpportunities, setRecentOpportunities] = useState<Release[]>([]);
-  const [highValueOpportunities, setHighValueOpportunities] = useState<Release[]>([]);
-  const [selectedCategory, setSelectedCategory] = useState<'all' | 'recent' | 'high-value'>('all');
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  useEffect(() => {
-    loadOpportunities();
-  }, []);
+  const [mode, setMode] = useState<Mode>('wizard');
+  const [step, setStep] = useState<0 | 1 | 2>(0);
+  const [categories, setCategories] = useState<string[]>([]);
+  const [keywords, setKeywords] = useState<string[]>([]);
+  const [size, setSize] = useState<CompanySize | null>(null);
+  const [results, setResults] = useState<Release[]>([]);
+  const [error, setError] = useState<string | undefined>();
 
-  const loadOpportunities = async () => {
-    setLoading(true);
+  const abortRef = useRef<AbortController | null>(null);
+  const lastParamsRef = useRef<OpportunitiesParams | null>(null);
+
+  // Run recommender for a given OpportunitiesParams
+  const runRecommender = async (params: OpportunitiesParams) => {
+    abortRef.current?.abort();
+    const controller = new AbortController();
+    abortRef.current = controller;
+    lastParamsRef.current = params;
+
+    setMode('loading');
+    setError(undefined);
     try {
-      const { data } = await OCDSApi.searchReleases({}, 1, 100);
-
-      const recent = data.slice(0, 30);
-      setRecentOpportunities(recent);
-
-      const avgAmount = data.reduce((sum, r) => sum + (r.tender?.value?.amount || 0), 0) / data.length;
-      const highValue = data
-        .filter(r => (r.tender?.value?.amount || 0) > avgAmount * 1.5)
-        .slice(0, 20);
-      setHighValueOpportunities(highValue);
-    } catch (error) {
-      console.error('Error loading opportunities:', error);
-    } finally {
-      setLoading(false);
+      const { data } = await RecommenderAPI.findOpportunities(params, controller);
+      if (controller.signal.aborted) return;
+      setResults(data);
+      setMode('results');
+    } catch (e) {
+      if ((e as Error)?.name === 'AbortError') return;
+      console.error('Error finding opportunities:', e);
+      setError('No pudimos cargar las oportunidades. Intenta de nuevo.');
+      setMode('error');
     }
   };
 
-  const getDisplayedOpportunities = () => {
-    if (selectedCategory === 'recent') return recentOpportunities;
-    if (selectedCategory === 'high-value') return highValueOpportunities;
-    return recentOpportunities;
+  // Mount: read URL params, decide between wizard or results
+  useEffect(() => {
+    const parsed = opportunitiesParamsFromSearchParams(searchParams);
+    if (parsed) {
+      setCategories(parsed.categories);
+      setKeywords(parsed.keywords);
+      setSize(parsed.companySize);
+      runRecommender(parsed);
+    } else {
+      // Strip any partial/invalid params so the URL is clean while in wizard
+      if (searchParams.toString().length > 0) {
+        setSearchParams({}, { replace: true });
+      }
+      setMode('wizard');
+    }
+    return () => abortRef.current?.abort();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const canAdvance = (() => {
+    if (step === 0) return categories.length > 0;
+    if (step === 1) return true; // keywords optional
+    if (step === 2) return size !== null;
+    return false;
+  })();
+
+  const handleNext = () => {
+    if (!canAdvance) return;
+    if (step < 2) {
+      setStep((s) => (s + 1) as 0 | 1 | 2);
+      return;
+    }
+    if (size === null) return;
+    const params: OpportunitiesParams = { categories, keywords, companySize: size };
+    setSearchParams(opportunitiesParamsToSearchParams(params));
+    runRecommender(params);
   };
 
-  if (loading) {
-    return <Loading text="Cargando oportunidades..." />;
+  const handleBack = () => {
+    if (step === 0) return;
+    setStep((s) => (s - 1) as 0 | 1 | 2);
+  };
+
+  const handleEdit = () => {
+    abortRef.current?.abort();
+    setSearchParams({}, { replace: true });
+    setMode('wizard');
+    setStep(0);
+  };
+
+  const handleRetry = () => {
+    if (lastParamsRef.current) {
+      runRecommender(lastParamsRef.current);
+    }
+  };
+
+  if (mode === 'loading' || mode === 'results' || mode === 'error') {
+    const params: OpportunitiesParams = lastParamsRef.current ?? {
+      categories,
+      keywords,
+      companySize: size ?? 'small',
+    };
+    return (
+      <div className="space-y-4">
+        <ApiStatusBar />
+        {mode === 'error' ? (
+          <div className="bg-white border border-rc-border rounded-lg p-6 text-center space-y-3">
+            <p className="text-sm text-rc-text-base">{error}</p>
+            <div className="flex justify-center gap-2">
+              <button
+                onClick={handleRetry}
+                className="px-3 py-2 text-sm font-medium text-white bg-rc-primary rounded hover:bg-rc-primary/90 transition-colors"
+              >
+                Reintentar
+              </button>
+              <button
+                onClick={handleEdit}
+                className="px-3 py-2 text-sm font-medium text-rc-primary border border-rc-primary rounded hover:bg-rc-primary hover:text-white transition-colors"
+              >
+                Editar criterios
+              </button>
+            </div>
+          </div>
+        ) : (
+          <OpportunitiesResults
+            params={params}
+            releases={results}
+            loading={mode === 'loading'}
+            onEdit={handleEdit}
+          />
+        )}
+      </div>
+    );
   }
 
-  const displayedOpportunities = getDisplayedOpportunities();
-
+  // Wizard mode
   return (
-    <div className="space-y-6">
-      <HeroSlider slides={heroSlides} />
-
+    <div className="space-y-4">
       <ApiStatusBar />
 
-      <div className="bg-gradient-to-r from-emerald-600 to-teal-700 rounded-2xl p-8 text-white">
-        <div className="max-w-4xl mx-auto">
-          <div className="flex items-center gap-3 mb-4">
-            <Sparkles className="w-8 h-8" />
-            <h2 className="text-2xl font-bold">Nunca pierdas una oportunidad</h2>
-          </div>
-          <p className="text-emerald-100 text-lg mb-6">
-            Recibe alertas inteligentes directamente a tu correo para estar siempre al tanto de las mejores oportunidades de negocio.
+      <div className="bg-white border border-rc-border rounded-lg p-6 space-y-6">
+        <div>
+          <h1 className="text-xl font-bold text-rc-text-base">Configura tu radar</h1>
+          <p className="text-sm text-rc-text-muted mt-1">
+            Cuéntanos sobre tu empresa para encontrar oportunidades relevantes.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Button className="bg-white text-emerald-700 hover:bg-emerald-50">
-              <Bell className="w-5 h-5 mr-2" />
-              Configurar Alertas
-            </Button>
-            <Button variant="outlined" className="border-white text-white hover:bg-white hover:text-emerald-700">
-              <Filter className="w-5 h-5 mr-2" />
-              Filtros Personalizados
-            </Button>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6 pt-6 border-t border-emerald-500/30">
-            <div className="text-center">
-              <p className="text-3xl font-bold mb-1">{recentOpportunities.length}</p>
-              <p className="text-emerald-100 text-sm">Nuevas oportunidades</p>
-            </div>
-            <div className="text-center">
-              <p className="text-3xl font-bold mb-1">{highValueOpportunities.length}</p>
-              <p className="text-emerald-100 text-sm">Alto valor</p>
-            </div>
-            <div className="text-center">
-              <p className="text-3xl font-bold mb-1">24/7</p>
-              <p className="text-emerald-100 text-sm">Monitoreo continuo</p>
-            </div>
-          </div>
+        </div>
+
+        <Stepper steps={STEP_LABELS} current={step} />
+
+        <div>
+          {step === 0 && <StepCategories value={categories} onChange={setCategories} />}
+          {step === 1 && <StepKeywords value={keywords} onChange={setKeywords} />}
+          {step === 2 && <StepCompanySize value={size} onChange={setSize} />}
+        </div>
+
+        <div className="flex items-center justify-between pt-4 border-t border-rc-border">
+          <button
+            type="button"
+            onClick={handleBack}
+            disabled={step === 0}
+            className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-rc-text-muted border border-rc-border rounded hover:border-rc-primary hover:text-rc-primary transition-colors disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:border-rc-border disabled:hover:text-rc-text-muted"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Atrás
+          </button>
+          <button
+            type="button"
+            onClick={handleNext}
+            disabled={!canAdvance}
+            className="flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-white bg-rc-primary rounded hover:bg-rc-primary/90 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+          >
+            {step === 2 ? (
+              <>
+                <Search className="w-4 h-4" />
+                Encontrar oportunidades
+              </>
+            ) : (
+              <>
+                Continuar
+                <ArrowRight className="w-4 h-4" />
+              </>
+            )}
+          </button>
         </div>
       </div>
-
-      <div className="flex flex-wrap gap-3">
-        <Button
-          variant={selectedCategory === 'all' ? 'filled' : 'outlined'}
-          onClick={() => setSelectedCategory('all')}
-        >
-          <Radar className="w-4 h-4 mr-2" />
-          Todas las Oportunidades
-        </Button>
-        <Button
-          variant={selectedCategory === 'recent' ? 'filled' : 'outlined'}
-          onClick={() => setSelectedCategory('recent')}
-        >
-          <Calendar className="w-4 h-4 mr-2" />
-          Más Recientes
-        </Button>
-        <Button
-          variant={selectedCategory === 'high-value' ? 'filled' : 'outlined'}
-          onClick={() => setSelectedCategory('high-value')}
-        >
-          <TrendingUp className="w-4 h-4 mr-2" />
-          Alto Valor
-        </Button>
-      </div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        {displayedOpportunities.map((opp, index) => (
-          <Card
-            key={opp.id || index}
-            hover
-            onClick={() => navigate(`/busqueda/${encodeURIComponent(opp.id)}`)}
-            className="group"
-          >
-            <CardContent>
-              <div className="flex items-start justify-between mb-3">
-                <div className="flex items-center gap-2">
-                  <div className="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center">
-                    <Building2 className="w-5 h-5 text-emerald-600" />
-                  </div>
-                  {opp.tender?.status && (
-                    <Badge variant={getStatusColor(opp.tender.status) as any}>
-                      {opp.tender.status}
-                    </Badge>
-                  )}
-                </div>
-                <ArrowUpRight className="w-5 h-5 text-gray-400 group-hover:text-emerald-600 transition-colors" />
-              </div>
-
-              <h4 className="font-bold text-gray-900 mb-2 group-hover:text-emerald-700 transition-colors">
-                {truncateText(opp.tender?.title || 'Sin título', 100)}
-              </h4>
-
-              <div className="flex items-center gap-2 mb-3">
-                <Building2 className="w-4 h-4 text-gray-400" />
-                <p className="text-sm text-gray-600">
-                  {truncateText(opp.buyer?.name || 'Institución no especificada', 60)}
-                </p>
-              </div>
-
-              <div className="flex items-center justify-between pt-3 border-t">
-                <div>
-                  <p className="text-xs text-gray-500 mb-1">Monto</p>
-                  <p className="font-bold text-emerald-600 text-lg">
-                    {formatCurrency(opp.tender?.value?.amount || 0)}
-                  </p>
-                </div>
-                <div className="text-right">
-                  <p className="text-xs text-gray-500 mb-1">Publicado</p>
-                  <p className="text-sm font-semibold text-gray-900">
-                    {formatDate(opp.date)}
-                  </p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
-
-      {displayedOpportunities.length === 0 && !loading && (
-        <Card>
-          <CardContent>
-            <div className="text-center py-12">
-              <Radar className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-              <p className="text-gray-600">No se encontraron oportunidades en esta categoría</p>
-            </div>
-          </CardContent>
-        </Card>
-      )}
     </div>
   );
 };

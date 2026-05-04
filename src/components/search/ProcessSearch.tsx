@@ -8,6 +8,7 @@ import { OCDSApi } from '../../services/ocdsApi';
 import { Release, ProcessFilters } from '../../types/ocds';
 import entidades from '../../const/entidades_selector.json';
 import { MODALIDADES, SUB_MODALIDADES, ESTATUS_CONCURSO } from '../../const/catalogo';
+import { TOP_ENTIDADES_BY_FAMILIA } from '../../const/guatecompras';
 import { ReleaseRow } from './ReleaseRow';
 
 const MONTHS = [
@@ -24,6 +25,11 @@ const MONTHS = [
   { value: 11, label: 'Noviembre' },
   { value: 12, label: 'Diciembre' },
 ];
+
+const CATEGORIES = TOP_ENTIDADES_BY_FAMILIA.map((family) => ({
+  id: family.fam_code,
+  name: family.fam_nombre
+}));
 
 const currentYear = new Date().getFullYear();
 const YEARS = Array.from({ length: currentYear - 2019 }, (_, i) => currentYear - i);
@@ -131,7 +137,7 @@ export const ProcessSearch: React.FC = () => {
   };
 
   const handleFilterChange = (
-    key: 'year' | 'month' | 'entidad' | 'modalidad' | 'subModalidad' | 'estatus',
+    key: 'year' | 'month' | 'entidad' | 'modalidad' | 'subModalidad' | 'estatus' | 'category',
     value: string | number
   ) => {
     let newFilters = { ...filters, [key]: value };
@@ -205,6 +211,17 @@ export const ProcessSearch: React.FC = () => {
               options={entidades}
               value={filters.entidad || ''}
               onChange={(id) => handleFilterChange('entidad', id)}
+              placeholder="Todas las entidades"
+              searchPlaceholder="Buscar entidad..."
+            />
+          </div>
+
+          <div className="flex flex-col w-64">
+            <SearchableSelect
+              label="Categoria"
+              options={CATEGORIES}
+              value={filters.category || ''}
+              onChange={(id) => handleFilterChange('category', id)}
               placeholder="Todas las entidades"
               searchPlaceholder="Buscar entidad..."
             />

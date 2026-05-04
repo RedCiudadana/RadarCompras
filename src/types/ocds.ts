@@ -123,6 +123,10 @@ export interface ProcessFilters {
   subModalidad?: string;
   /** Estado del concurso → parámetro Estatus_concurso (ver const/catalogo.ts, default: 1=Vigente) */
   estatus?: number;
+  /** MOCK: This filter doesn't exist in the OCDS API from MINFIN,
+   * instead with a category is selected we manually filter entities
+   *  that commonly buys this categories. Check const/guatecompras.ts for more info. */
+  category?: string;
 }
 
 /** 2.3.9 Estatus del concurso — catálogo completo según /politica */

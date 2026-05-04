@@ -10,7 +10,6 @@ const UNSPSC_MAP: Record<string, string> = Object.fromEntries(
 
 function getFamilyNames(release: Release): string[] {
   const items = release.tender?.items;
-  console.log(items);
   if (!items || items.length === 0) return [];
   const seen = new Set<string>();
   const names: string[] = [];
@@ -36,12 +35,30 @@ function statusStyle(status?: string): { bg: string; text: string } {
   return { bg: 'bg-gray-100', text: 'text-gray-500' };
 }
 
+function escapeRegex(s: string): string {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function highlight(text: string, terms?: string[]): React.ReactNode {
+  if (!terms || terms.length === 0 || !text) return text;
+  const cleaned = terms.map(t => t.trim()).filter(Boolean);
+  if (cleaned.length === 0) return text;
+  const re = new RegExp(`(${cleaned.map(escapeRegex).join('|')})`, 'gi');
+  const parts = text.split(re);
+  return parts.map((part, i) =>
+    i % 2 === 1
+      ? <mark key={i} className="bg-rc-accent/20 text-rc-text-base rounded px-0.5">{part}</mark>
+      : <React.Fragment key={i}>{part}</React.Fragment>
+  );
+}
+
 interface ReleaseRowProps {
   release: Release;
   onClick?: () => void;
+  highlightKeywords?: string[];
 }
 
-export const ReleaseRow: React.FC<ReleaseRowProps> = ({ release, onClick }) => {
+export const ReleaseRow: React.FC<ReleaseRowProps> = ({ release, onClick, highlightKeywords }) => {
   const tender = release.tender;
   const displayStatus = tender?.statusDetails ?? tender?.status;
   const st = statusStyle(displayStatus);
@@ -57,12 +74,12 @@ export const ReleaseRow: React.FC<ReleaseRowProps> = ({ release, onClick }) => {
       <div className="flex-1 min-w-0">
         {/* Buyer */}
         <div className="font-sans text-xs uppercase tracking-wider text-rc-text-subtle truncate leading-tight">
-          {release.buyer?.name || '—'}
+          {release.buyer?.name ? highlight(release.buyer.name, highlightKeywords) : '—'}
         </div>
 
         {/* Tender title */}
         <div className="text font-medium text-rc-text-base mt-0.5 leading-snug line-clamp-2">
-          {tender?.title || 'Sin título'}
+          {tender?.title ? highlight(tender.title, highlightKeywords) : 'Sin título'}
         </div>
 
         {/* Families + date row */}

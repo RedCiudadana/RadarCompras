@@ -2,6 +2,8 @@ import { Release, Record as OcdsRecord, ProcessFilters, StatusRelease } from '..
 
 const BASE_URL = 'https://ocds.guatecompras.gt';
 
+import { TOP_ENTIDADES_BY_FAMILIA, TopFamilia } from '../const/guatecompras';
+
 export class OCDSApi {
   /**
    * Búsqueda y lista de releases por ciertos criterios.
@@ -51,12 +53,73 @@ export class OCDSApi {
         params.append('Entidad', filters.entidad);
       }
 
+      let category: null | TopFamilia = null;
+      // Check ProcessFilters.category description for more info.
+      // We overwrite entity to match categories.
+      if (filters.category) {
+        category = TOP_ENTIDADES_BY_FAMILIA
+          .find((family) => family.fam_code === filters.category) || null;
+      }
+
       if (filters.modalidad) {
         params.append('Modalidad_compradora', filters.modalidad);
       }
 
       if (filters.subModalidad) {
         params.append('Sub_modalidad_compradora', filters.subModalidad);
+      }
+
+      if (category) {
+        const data: Release[] = [];
+        const entities = category.top_entidades.slice(0, 5);
+        // Sum the pct of family only cover up 90%;
+        let pct_family = 0;
+
+
+        for (const entity of entities) {
+          if (pct_family > 0.9) {
+            break;
+          }
+
+          params.set('Entidad', entity.gcuc_entidad_id);
+
+          const url = `${BASE_URL}/release/search?${params.toString()}`;
+          const response = await fetch(url, { signal: abortController?.signal });
+
+          if (!response.ok) {
+            throw new Error(`API Error: ${response.status}`);
+          }
+
+          const result = await response.json();
+
+          pct_family += entity.pct_familia;
+
+          if (result.releases && result.releases.length > 0) {
+            data.push(...result.releases);
+          }
+        }
+
+        const filteredData = data.filter((release: Release) => {
+          const items = release.tender?.items || [];
+
+          if (items.length <= 0) {
+            return false;
+          }
+
+          debugger;
+          const hasCategory = items?.find(item => item.classification?.id.startsWith(category.fam_code));
+
+          return hasCategory;
+        });
+
+        console.debug(`[BETA]: This is a optimistic search of tender that match de category.`);
+        console.debug(`[BETA]: Found ${data.length || 0} from with ${filteredData.length} match de classification.`);
+
+        return {
+          data: filteredData,
+          hasMore: false,
+          total: (filteredData ?? []).length,
+        };
       }
 
       const url = `${BASE_URL}/release/search?${params.toString()}`;
