@@ -11,17 +11,17 @@ const OPTIONS: SizeOption[] = [
   {
     value: 'small',
     label: 'Pequeña',
-    description: 'Compra Directa y Baja Cuantía (hasta ~Q90,000).',
+    description: 'Hasta ~Q90,000',
   },
   {
     value: 'medium',
     label: 'Mediana',
-    description: 'Cotización Pública (Q90,000 – Q900,000).',
+    description: 'Desde Q90,000 a Q900,000).',
   },
   {
     value: 'large',
     label: 'Grande',
-    description: 'Licitación Pública (Q900,000 en adelante).',
+    description: 'Desde Q900,000',
   },
 ];
 
