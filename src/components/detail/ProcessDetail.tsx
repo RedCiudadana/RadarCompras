@@ -5,19 +5,11 @@ import { Release } from '../../types/ocds';
 import { OCDSApi } from '../../services/ocdsApi';
 import { formatCurrency, formatDate } from '../../utils/formatters';
 import { Loading } from '../ui/Loading';
+import { MarketContext } from './MarketContext';
+import { getBuyerEntidadId, getFamilyCode } from '../../utils/marketContext';
+import { UNSPCS_MAP } from '../../const/unspcsMap';
 
-interface TenderDocument {
-  id: string;
-  title: string;
-  url: string;
-  documentTypeDetails?: string;
-}
-
-interface ExtendedTender extends NonNullable<Release['tender']> {
-  documents?: TenderDocument[];
-}
-
-type ReleaseDetail = Omit<Release, 'tender'> & { tender?: ExtendedTender };
+type ReleaseDetail = Omit<Release, 'tender'> & { tender?: NonNullable<Release['tender']> };
 
 const CATEGORY_LABEL: Record<string, string> = {
   works: 'Obras',
@@ -87,7 +79,8 @@ export const ProcessDetail: React.FC = () => {
   const tender = detail.tender;
   const st = statusStyle(tender?.statusDetails ?? tender?.status);
   const displayStatus = tender?.statusDetails ?? tender?.status;
-  const amount = tender?.value?.amount ?? 0;
+  const amount = detail?.awards?.reduce((acc, award) => acc += award.value.amount, 0);
+  const currency = detail?.awards ? detail?.awards[0].value.currency || 'GTQ' : undefined;
   const category = tender?.mainProcurementCategory
     ? (CATEGORY_LABEL[tender.mainProcurementCategory] ?? tender.mainProcurementCategory)
     : null;
@@ -156,10 +149,25 @@ export const ProcessDetail: React.FC = () => {
         {amount > 0 && (
           <div>
             <span className="text-xs font-medium text-rc-text-subtle uppercase tracking-wide block mb-0.5">Monto</span>
-            <span className="font-bold text-rc-accent">{formatCurrency(amount, tender?.value?.currency)}</span>
+            <span className="font-bold text-rc-accent">{formatCurrency(amount, currency)}</span>
           </div>
         )}
       </div>
+
+      {(() => {
+        const entidadId = getBuyerEntidadId(detail.parties);
+        const familyCode = getFamilyCode(tender?.items);
+        if (!entidadId || !familyCode) return null;
+        const categoryName = UNSPCS_MAP[familyCode] ?? familyCode;
+        return (
+          <MarketContext
+            entidadId={entidadId}
+            familyCode={familyCode}
+            buyerName={detail.buyer?.name ?? ''}
+            categoryName={categoryName}
+          />
+        );
+      })()}
 
       {/* Buyer */}
       <section>
@@ -190,9 +198,9 @@ export const ProcessDetail: React.FC = () => {
                 <div className="flex-1 min-w-0">
                   <p className="text-sm text-rc-text-base">{item.description}</p>
                 </div>
-                {(item.quantity?.parsedValue != null || item.unit?.name) && (
+                {(item.quantity != null || item.unit?.name) && (
                   <span className="shrink-0 text-xs text-rc-text-muted bg-rc-surface px-2 py-0.5 rounded">
-                    {item.quantity?.parsedValue != null ? `${item.quantity.parsedValue} ` : ''}
+                    {item.quantity != null ? `${item.quantity} ` : ''}
                     {item.unit?.name ?? ''}
                   </span>
                 )}

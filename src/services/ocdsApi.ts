@@ -221,7 +221,7 @@ export class OCDSApi {
   static calculateStats(releases: Release[]) {
     const totalProcesses = releases.length;
     const totalAmount = releases.reduce((sum, r) =>
-      sum + (r.tender?.value?.amount || 0), 0
+      sum + (r.awards?.reduce((acc, aw) => acc += aw.value.amount || 0, 0) || 0), 0
     );
 
     const buyerCounts: { [key: string]: number } = {};

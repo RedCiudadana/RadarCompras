@@ -138,7 +138,7 @@ const RELEASES_ENDPOINT = '/releases';`,
       <div className="absolute top-3 right-3 z-10">
         <Button
           size="sm"
-          variant="outline"
+          variant="outlined"
           onClick={() => copyToClipboard(code, id)}
           className="bg-gray-800/50 backdrop-blur-sm border-gray-600 hover:bg-gray-700"
         >
@@ -275,7 +275,7 @@ const RELEASES_ENDPOINT = '/releases';`,
 
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
             <div className="flex items-center justify-between mb-2">
-              <Badge variant="blue">URL Base</Badge>
+              <Badge variant="default">URL Base</Badge>
             </div>
             <code className="text-blue-600 font-mono text-sm break-all">
               https://www.guatecompras.gt/ocds/api
@@ -284,7 +284,7 @@ const RELEASES_ENDPOINT = '/releases';`,
 
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
             <div className="flex items-center justify-between mb-2">
-              <Badge variant="green">Endpoint Principal</Badge>
+              <Badge variant="default">Endpoint Principal</Badge>
             </div>
             <code className="text-green-600 font-mono text-sm break-all">
               GET /releases
@@ -404,15 +404,15 @@ const RELEASES_ENDPOINT = '/releases';`,
             <h4 className="font-semibold text-blue-900 mb-3">Criterios de Filtrado</h4>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-sm">
               <div>
-                <Badge variant="blue" className="mb-2">Institución</Badge>
+                <Badge variant="default" className="mb-2">Institución</Badge>
                 <p className="text-gray-700">Filtra por nombre del comprador</p>
               </div>
               <div>
-                <Badge variant="green" className="mb-2">Monto Mínimo</Badge>
+                <Badge variant="default" className="mb-2">Monto Mínimo</Badge>
                 <p className="text-gray-700">Excluye procesos menores</p>
               </div>
               <div>
-                <Badge variant="amber" className="mb-2">Monto Máximo</Badge>
+                <Badge variant="default" className="mb-2">Monto Máximo</Badge>
                 <p className="text-gray-700">Excluye procesos mayores</p>
               </div>
             </div>

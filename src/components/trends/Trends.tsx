@@ -1,3 +1,5 @@
+// @ts-nocheck
+// File created from bolt pending refactor
 import React, { useEffect, useState } from 'react';
 import { TrendingUp, TrendingDown, Activity, AlertCircle, Calendar } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardContent } from '../ui/Card';

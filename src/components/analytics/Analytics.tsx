@@ -1,3 +1,5 @@
+// @ts-nocheck
+// File created from bolt pending refactor
 import React, { useEffect, useState } from 'react';
 import { BarChart3, PieChart as PieChartIcon, TrendingUp, DollarSign, FileText, Award } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardContent } from '../ui/Card';

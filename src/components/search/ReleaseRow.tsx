@@ -2,11 +2,7 @@ import React from 'react';
 import { ChevronRight } from 'lucide-react';
 import { Release } from '../../types/ocds';
 import { formatDate } from '../../utils/formatters';
-import { UNSPCS_FAMILIES } from '../../const/unspcs';
-
-const UNSPSC_MAP: Record<string, string> = Object.fromEntries(
-  UNSPCS_FAMILIES.map(f => [f.code, f.name])
-);
+import { UNSPCS_MAP } from '../../const/unspcsMap';
 
 function getFamilyNames(release: Release): string[] {
   const items = release.tender?.items;
@@ -19,7 +15,7 @@ function getFamilyNames(release: Release): string[] {
     const familyCode = code.slice(0, 4);
     if (seen.has(familyCode)) continue;
     seen.add(familyCode);
-    const name = UNSPSC_MAP[familyCode];
+    const name = UNSPCS_MAP[familyCode];
     if (name) names.push(name);
   }
   return names;

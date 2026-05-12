@@ -1,92 +1,10 @@
-export interface Money {
-  amount: number;
-  currency: string;
-}
-
-export interface Organization {
-  id: string;
-  name: string;
-  identifier?: {
-    id: string;
-    scheme: string;
-    legalName: string;
-  };
-}
-
-export interface Period {
-  startDate?: string;
-  endDate?: string;
-}
-
-export interface TenderItemClassification {
-  id: string;
-  scheme?: string;
-  description?: string;
-}
-
-export interface TenderItem {
-  id: string;
-  description: string;
-  classification?: TenderItemClassification;
-  quantity?: { parsedValue?: number };
-  unit?: { name: string };
-}
-
-export interface Tender {
-  id: string;
-  title: string;
-  description?: string;
-  status?: string;
-  statusDetails?: string;
-  datePublished?: string;
-  value?: Money;
-  procurementMethod?: string;
-  procurementMethodDetails?: string;
-  mainProcurementCategory?: string;
-  tenderPeriod?: Period;
-  numberOfTenderers?: number;
-  items?: TenderItem[];
-}
-
-export interface Award {
-  id: string;
-  title?: string;
-  status: string;
-  date?: string;
-  value?: Money;
-  suppliers: Organization[];
-  contractPeriod?: Period;
-}
-
-export interface Contract {
-  id: string;
-  awardID: string;
-  title?: string;
-  status?: string;
-  period?: Period;
-  value?: Money;
-  dateSigned?: string;
-}
-
 export interface CompiledRelease {
   ocid: string;
   id: string;
   date: string;
   tag: string[];
   initiationType: string;
-  buyer: Organization;
-  tender?: Tender;
-  awards?: Award[];
-  contracts?: Contract[];
-}
-
-export interface Release {
-  ocid: string;
-  id: string;
-  date: string;
-  tag: string[];
-  initiationType: string;
-  buyer: Organization;
+  buyer: Buyer;
   tender?: Tender;
   awards?: Award[];
   contracts?: Contract[];
@@ -96,6 +14,276 @@ export interface Record {
   ocid: string;
   releases: Release[];
   compiledRelease: CompiledRelease;
+}
+
+export interface Release {
+  id: string
+  ocid: string
+  date: string
+  publishedDate: string
+  language: string
+  tag: string[]
+  initiationType: string
+  parties: Party[]
+  buyer: Buyer
+  bids: Bids
+  tender: Tender
+  awards: Award[]
+  contracts: Contract[]
+  sources: Source[]
+  dataSegmentation: DataSegmentation
+}
+
+export interface Party {
+  name: string
+  id: string
+  identifier: Identifier
+  address: Address
+  contactPoint: ContactPoint
+  roles: string[]
+  additionalContactPoints: AdditionalContactPoint[]
+  memberOf: MemberOf[]
+  details: Details
+}
+
+export interface Identifier {
+  id: string
+  scheme: string
+}
+
+export interface Address {
+  streetAddress: string
+  locality: string
+  region: string
+  countryName: string
+}
+
+export interface ContactPoint {
+  name: string
+  email: string
+  telephone: string
+  faxNumber: string
+  url: string
+}
+
+export interface AdditionalContactPoint {
+  name: string
+  email: string
+  telephone: string
+  availableLanguage: string[]
+}
+
+export interface MemberOf {
+  name: string
+  id: string
+}
+
+export interface Details {
+  level: Level
+  legalEntityTypeDetail: LegalEntityTypeDetail
+  entityType: EntityType
+  type: Type
+}
+
+export interface Level {
+  id: string
+  description: string
+}
+
+export interface LegalEntityTypeDetail {
+  id: string
+  description: string
+}
+
+export interface EntityType {
+  id: string
+  description: string
+}
+
+export interface Type {
+  id: string
+  description: string
+}
+
+export interface Buyer {
+  name: string
+  id: string
+}
+
+export interface Bids {
+  details: Detail[]
+}
+
+export interface Detail {
+  id: string
+  date: string
+  status: string
+  value: Value
+  tenderers: Tenderer[]
+}
+
+export interface Value {
+  amount: number
+  currency: string
+}
+
+export interface Tenderer {
+  name: string
+  id: string
+}
+
+export interface Tender {
+  id: string
+  title: string
+  status: string
+  statusDetails: string
+  datePublished: string
+  procuringEntity: ProcuringEntity
+  items: Item[]
+  procurementMethod: string
+  procurementMethodDetails: string
+  mainProcurementCategory: string
+  additionalProcurementCategories: string[]
+  submissionMethod: string[]
+  submissionMethodDetails: string
+  tenderPeriod: TenderPeriod
+  numberOfTenderers: number
+  tenderers: TenderParty[]
+  documents: Document[]
+}
+
+export interface ProcuringEntity {
+  name: string
+  id: string
+}
+
+export interface Item {
+  id: string
+  description: string
+  classification: Classification
+  quantity: number
+  unit: Unit
+  attributes: Attribute[]
+}
+
+export interface Classification {
+  id: string
+  scheme: string
+}
+
+export interface Unit {
+  name: string
+}
+
+export interface Attribute {
+  name: string
+  id: string
+  value: string
+}
+
+export interface TenderPeriod {
+  startDate: string
+  endDate: string
+}
+
+export interface TenderParty {
+  name: string
+  id: string
+}
+
+export interface Document {
+  id: string
+  documentType: string
+  title: string
+  url: string
+  format: string
+  language: string
+  description: string
+  datePublished: string
+  documentTypeDetails: string
+}
+
+export interface Award {
+  id: string
+  title: string
+  status: string
+  statusDetails: string
+  date: string
+  value: ValueWithCurrency
+  suppliers: Supplier[]
+}
+
+export interface ValueWithCurrency {
+  amount: number
+  currency: string
+}
+
+export interface Supplier {
+  name: string
+  id: string
+}
+
+export interface Contract {
+  id: string
+  awardID: string
+  title: string
+  contractNumber: string
+  status: string
+  statusDetails: string
+  dateSigned: string
+  period: Period
+  value: ValueWithCurrency
+  documents: Document2[]
+  implementation: Implementation
+}
+
+export interface Period {
+  startDate: string
+  endDate: string
+}
+
+export interface Document2 {
+  id: string
+  documentType: string
+  title: string
+  url: string
+  format: string
+  language: string
+  description: string
+  datePublished: string
+  documentTypeDetails: string
+}
+
+export interface Implementation {
+  transactions: Transaction[]
+}
+
+export interface Transaction {
+  id: string
+  value: ValueWithCurrency
+  payer: Payer
+  payee: Payee
+}
+
+export interface Payer {
+  name: string
+  id: string
+}
+
+export interface Payee {
+  name: string
+  id: string
+}
+
+export interface Source {
+  name: string
+  id: string
+  url: string
+}
+
+export interface DataSegmentation {
+  id: string
+  criteria: string[]
 }
 
 export interface SearchResponse {

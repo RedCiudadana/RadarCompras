@@ -1,0 +1,254 @@
+{
+    "ocid": "ocds-xqjsxa-29846285",
+    "date": "2026-04-01T10:34:09-06:00",
+    "publishedDate": "2026-04-02T01:00:27-06:00",
+    "language": "es",
+    "tag": [
+        "tender"
+    ],
+    "initiationType": "tender",
+    "parties": [
+        {
+            "identifier": {
+                "scheme": "GT-CISP",
+                "id": "12100503"
+            },
+            "address": {
+                "streetAddress": "LA DEMOCRACIA",
+                "locality": "LA DEMOCRACIA",
+                "region": "ESCUINTLA",
+                "countryName": "GUATEMALA"
+            },
+            "contactPoint": {
+                "name": "MUNICIPALIDAD DE LA DEMOCRACIA, ESCUINTLA",
+                "email": "dafimunidemo2024@gmail.com",
+                "telephone": "54608098"
+            },
+            "roles": [
+                "buyer"
+            ],
+            "details": {
+                "level": {
+                    "description": "Municipalidad",
+                    "id": "59"
+                },
+                "entityType": {
+                    "description": "Gobiernos Locales (Municipalidades, Mancomunidades, etc.)",
+                    "id": "6"
+                },
+                "type": {
+                    "description": "Sector Público",
+                    "id": "1"
+                }
+            },
+            "id": "GT-CISP-12100503",
+            "name": "MUNICIPALIDAD DE LA DEMOCRACIA, ESCUINTLA"
+        },
+        {
+            "identifier": {
+                "scheme": "GT-GCUC",
+                "id": "207-3"
+            },
+            "address": {
+                "streetAddress": "edificio municipal la democracia, escuintla",
+                "locality": "LA DEMOCRACIA",
+                "region": "ESCUINTLA",
+                "countryName": "GUATEMALA"
+            },
+            "contactPoint": {
+                "name": "DIRECCION MUNICIPAL DE PLANIFICACION",
+                "email": "dmplademocraciaescuintla@gmail.com",
+                "telephone": "54608098"
+            },
+            "roles": [
+                "buyer"
+            ],
+            "memberOf": [
+                {
+                    "id": "GT-CISP-12100503",
+                    "name": "MUNICIPALIDAD DE LA DEMOCRACIA, ESCUINTLA"
+                }
+            ],
+            "details": {
+                "entityType": {
+                    "id": "0"
+                },
+                "type": {
+                    "id": "0"
+                }
+            },
+            "id": "GT-GCUC-207-3",
+            "name": "DIRECCION MUNICIPAL DE PLANIFICACION"
+        }
+    ],
+    "buyer": {
+        "id": "GT-NIT-4143957",
+        "name": "MUNICIPALIDAD DE LA DEMOCRACIA, ESCUINTLA"
+    },
+    "tender": {
+        "title": "ARRENDAMIENTO DE MAQUINARIA PARA DRAGADO DE RIO MONTERRAMOS DEL MUNICIPIO DE LA DEMOCRACIA, ESCUINTLA",
+        "status": "active",
+        "statusDetails": "Vigente",
+        "datePublished": "2026-04-01T10:34:08-06:00",
+        "procuringEntity": {
+            "id": "GT-NIT-4143957",
+            "name": "MUNICIPALIDAD DE LA DEMOCRACIA, ESCUINTLA"
+        },
+        "items": [
+            {
+                "description": "ARRENDAMIENTO DE MAQUINARIA PARA DRAGADO DE RIO MONTERRAMOS DEL MUNICIPIO DE LA DEMOCRACIA, ESCUINTLA",
+                "classification": {
+                    "scheme": "UNSPSC",
+                    "id": "72141701"
+                },
+                "quantity": 1900.0,
+                "unit": {
+                    "name": "Hora"
+                },
+                "attributes": [
+                    {
+                        "value": "Obligatorio salvo excepciones",
+                        "id": "091DE07C40FE851DD973A907DB1E33C0",
+                        "name": "Tipo de obligatoriedad"
+                    },
+                    {
+                        "value": "ARRENDAMIENTO DE MAQUINARIA PARA DRAGADO DE RIO MONTERRAMOS DEL MUNICIPIO DE LA DEMOCRACIA, ESCUINTLA",
+                        "id": "16B5CEFFE552AF3A8DDCBE6CDE85E9B2",
+                        "name": "Características"
+                    }
+                ],
+                "id": "673393B97BE3F4E2F10244E173A6EF99"
+            }
+        ],
+        "procurementMethod": "open",
+        "procurementMethodDetails": "Arrendamientos por Licitación Pública(Art.43 inciso d )",
+        "mainProcurementCategory": "services",
+        "submissionMethod": [
+            "electronicSubmission"
+        ],
+        "tenderPeriod": {
+            "startDate": "2026-04-01T10:34:08-06:00"
+        },
+        "numberOfTenderers": 0,
+        "documents": [
+            {
+                "title": "Proyecto de bases",
+                "url": "http://www.guatecompras.gt/concursos/files/5970/29846285@PREBASES%20LICITACION%20RIO%20MONTERRAMOS.pdf",
+                "format": "application/pdf",
+                "language": "es",
+                "datePublished": "2026-03-27T17:19:21-06:00",
+                "documentTypeDetails": "Proyecto de bases",
+                "id": "2A84EDAECB1F23CCE9417BB5181114F8"
+            },
+            {
+                "documentType": "purchaseRequest",
+                "title": "Solicitud o requerimiento de bien, servicio o suministro",
+                "url": "http://www.guatecompras.gt/concursos/files/5970/29846285@18%20Solicitud%20o%20Requerimiento.pdf",
+                "format": "application/pdf",
+                "language": "es",
+                "datePublished": "2026-04-01T10:34:08-06:00",
+                "documentTypeDetails": "Solicitud o requerimiento de bien, servicio o suministro",
+                "id": "E15FF9AA65C13717110B652EBE3112B6"
+            },
+            {
+                "title": "Anuncio, convocatoria o invitación",
+                "url": "http://www.guatecompras.gt/concursos/files/5970/29846285@8%20Anuncio%20o%20invitacion.pdf",
+                "format": "application/pdf",
+                "language": "es",
+                "datePublished": "2026-04-01T10:34:08-06:00",
+                "documentTypeDetails": "Anuncio, convocatoria o invitación",
+                "id": "988BC3392DD9FC2B8E170E9078AFC726"
+            },
+            {
+                "documentType": "purchaseRequest",
+                "title": "Bases, especificaciones generales o términos de referencia",
+                "url": "http://www.guatecompras.gt/concursos/files/5970/29846285@9%20BASES%20especificaciones%20generales.pdf",
+                "format": "application/pdf",
+                "language": "es",
+                "datePublished": "2026-04-01T10:34:08-06:00",
+                "documentTypeDetails": "Bases, especificaciones generales o términos de referencia",
+                "id": "6A722B4123619C2E410CA87A94E75C3C"
+            },
+            {
+                "title": "Dictamen técnico",
+                "url": "http://www.guatecompras.gt/concursos/files/5970/29846285@12%20Distamen%20Tecnico.pdf",
+                "format": "application/pdf",
+                "language": "es",
+                "datePublished": "2026-04-01T10:34:08-06:00",
+                "documentTypeDetails": "Dictamen técnico",
+                "id": "D0E24281791BC255E5FA6910ADFE943D"
+            },
+            {
+                "title": "Opinión Jurídica  o dictamen jurídico",
+                "url": "http://www.guatecompras.gt/concursos/files/5970/29846285@15%20Dictamen%20Juridico%20Monterramos.pdf",
+                "format": "application/pdf",
+                "language": "es",
+                "datePublished": "2026-04-01T10:34:08-06:00",
+                "documentTypeDetails": "Opinión Jurídica  o dictamen jurídico",
+                "id": "61AA885AAE8626CEB705088BEDB95BB4"
+            },
+            {
+                "title": "Resolución de aprobación de bases",
+                "url": "http://www.guatecompras.gt/concursos/files/5970/29846285@17%20Resolucion%20Aprobacion%20de%20bases.pdf",
+                "format": "application/pdf",
+                "language": "es",
+                "datePublished": "2026-04-01T10:34:08-06:00",
+                "documentTypeDetails": "Resolución de aprobación de bases",
+                "id": "5F80ACEF2B9F14710C3CB53A84272585"
+            },
+            {
+                "title": "Estudios, diseños o planos",
+                "url": "http://www.guatecompras.gt/concursos/files/5970/29846285@13%20Esrtudios%20o%20planos.pdf",
+                "format": "application/pdf",
+                "language": "es",
+                "datePublished": "2026-04-01T10:34:08-06:00",
+                "documentTypeDetails": "Estudios, diseños o planos",
+                "id": "471331DB7467EA329180721A54F52719"
+            },
+            {
+                "documentType": "biddingDocuments",
+                "title": "Modelo de oferta (formulario)",
+                "url": "http://www.guatecompras.gt/concursos/files/5970/29846285@14%20MODELO%20DE%20OFERTA%20LICITACION.pdf",
+                "format": "application/pdf",
+                "language": "es",
+                "datePublished": "2026-04-01T10:34:08-06:00",
+                "documentTypeDetails": "Modelo de oferta (formulario)",
+                "id": "5B206447B1AAC44202AAB341BA0C554C"
+            },
+            {
+                "title": "Proyecto de contrato",
+                "url": "http://www.guatecompras.gt/concursos/files/5970/29846285@16%20PROYECTO%20DE%20CONTRATO.pdf",
+                "format": "application/pdf",
+                "language": "es",
+                "datePublished": "2026-04-01T10:34:08-06:00",
+                "documentTypeDetails": "Proyecto de contrato",
+                "id": "81255C6F29BA5566A4242C7130B7D226"
+            },
+            {
+                "title": "Proyecto de Especificaciones Técnicas ",
+                "url": "http://www.guatecompras.gt/concursos/files/5970/29846285@Especificaciones%20tecnicas%20MONTERRAMOS.pdf",
+                "format": "application/pdf",
+                "language": "es",
+                "datePublished": "2026-03-27T17:19:21-06:00",
+                "documentTypeDetails": "Proyecto de Especificaciones Técnicas ",
+                "id": "277BB2EA5C75628780F8609CA84CEB23"
+            }
+        ],
+        "id": "GT-NOG-29846285"
+    },
+    "sources": [
+        {
+            "url": "https://www.guatecompras.gt",
+            "id": "GUATECOMPRAS",
+            "name": "Sistema de Información de Contrataciones y Adquisiciones del Estado"
+        }
+    ],
+    "dataSegmentation": {
+        "criteria": [
+            "añoPublicaciónConvocatoria",
+            "mesPublicaciónConvocatoria"
+        ],
+        "id": "2026-04"
+    },
+    "id": "GT-NOG-29846285-T639106884279802489"
+}

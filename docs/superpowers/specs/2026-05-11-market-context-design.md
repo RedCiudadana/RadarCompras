@@ -49,10 +49,10 @@ This answers the critical question: **"Is this tender's budget realistic and com
 **API Method:** `OCDSApi.searchReleases(filters, page)`
 
 **Filter logic:**
-1. Buyer ID: from current tender's `release.buyer.id`
+1. Buyer ID: lookup in the parties array to the item with roles contain buyer and identifier.schema = GT-GCUC, use the valude  identifier.id.split('-')[0]
 2. Category (UNSPCS family): extracted from current tender's `release.tender.items[].classification.id` (first 4 chars = family code)
 3. Date range: last 4 months from today
-4. Status: completed/awarded tenders only (with `awards` data)
+4. Status: StatusRelease.Adjudicado and StatusRelease.Vigente tenders only (with `awards` data)
 
 **Client-side filtering:**
 - Fetch tenders matching buyer + category
