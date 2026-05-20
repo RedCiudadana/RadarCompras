@@ -52,3 +52,28 @@ export const getStatusLabel = (status?: string): string => {
   if (!status) return 'Sin estado';
   return status;
 };
+
+export const formatAbbreviatedCurrency = (amount: number, currency = 'GTQ'): string => {
+  const million = amount / 1_000_000;
+  const billion = amount / 1_000_000_000;
+
+  let value: number;
+  let unit: string;
+
+  if (Math.abs(billion) >= 1) {
+    value = billion;
+    unit = 'B';
+  } else if (Math.abs(million) >= 1) {
+    value = million;
+    unit = 'M';
+  } else {
+    return formatCurrency(amount, currency);
+  }
+
+  const formatted = new Intl.NumberFormat('es-GT', {
+    minimumFractionDigits: value < 100 ? 2 : 0,
+    maximumFractionDigits: 2,
+  }).format(value);
+
+  return `${formatted}${unit} ${currency}`;
+};

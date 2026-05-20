@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Building2, FileText, Layers, ExternalLink, Users } from 'lucide-react';
+import { ArrowLeft, Building2, FileText, Layers, ExternalLink, Users, Link, Link2, Link2Off } from 'lucide-react';
 import { Release } from '../../types/ocds';
 import { OCDSApi } from '../../services/ocdsApi';
 import { formatCurrency, formatDate } from '../../utils/formatters';
@@ -8,6 +8,7 @@ import { Loading } from '../ui/Loading';
 import { MarketContext } from './MarketContext';
 import { getBuyerEntidadId, getFamilyCode } from '../../utils/marketContext';
 import { UNSPCS_MAP } from '../../const/unspcsMap';
+import { getNog } from '../../utils/ocds';
 
 type ReleaseDetail = Omit<Release, 'tender'> & { tender?: NonNullable<Release['tender']> };
 
@@ -131,12 +132,13 @@ export const ProcessDetail: React.FC = () => {
             <span className="text-rc-text-base font-medium">{formatDate(tender?.datePublished ?? detail.date)}</span>
           </div>
         )}
-        {tender?.tenderPeriod?.startDate && (
+        {/* tender?.tenderPeriod?.startDate is the same of datePublished, pending confirm data with MINFIN */}
+        {/* {tender?.tenderPeriod?.startDate && (
           <div>
             <span className="text-xs font-medium text-rc-text-subtle uppercase tracking-wide block mb-0.5">Inicio del concurso</span>
             <span className="text-rc-text-base font-medium">{formatDate(tender.tenderPeriod.startDate)}</span>
           </div>
-        )}
+        )} */}
         {typeof tender?.numberOfTenderers === 'number' && tender.numberOfTenderers > 0 && (
           <div>
             <span className="text-xs font-medium text-rc-text-subtle uppercase tracking-wide block mb-0.5">Oferentes</span>
@@ -150,6 +152,16 @@ export const ProcessDetail: React.FC = () => {
           <div>
             <span className="text-xs font-medium text-rc-text-subtle uppercase tracking-wide block mb-0.5">Monto</span>
             <span className="font-bold text-rc-accent">{formatCurrency(amount, currency)}</span>
+          </div>
+        )}
+        {detail.ocid && (
+          <div>
+            <span className="text-xs font-medium text-rc-text-subtle uppercase tracking-wide block mb-0.5">NOG</span>
+            <span className="text-rc-accent font-medium">
+              <a className='flex items-center gap-1' href={`https://www.guatecompras.gt/concursos/consultaConcurso.aspx?nog=${getNog(detail.ocid)}`} target='_blank'>
+                {getNog(detail.ocid)} <ExternalLink size={14} />
+              </a>
+            </span>
           </div>
         )}
       </div>

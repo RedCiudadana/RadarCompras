@@ -1,3 +1,5 @@
+export const OCDS_PREFIX = 'ocds-xqjsxa';
+
 export interface CompiledRelease {
   ocid: string;
   id: string;
