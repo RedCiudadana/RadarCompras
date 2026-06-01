@@ -1,0 +1,124 @@
+{
+  "categories": [
+    {
+      "rank": 1,
+      "segment_code": "72",
+      "segment_name": "Infraestructura",
+      "total_amount_gtq": 17062372804.15,
+      "pct_of_total": 33.97,
+      "item_count": 11855864
+    },
+    {
+      "rank": 2,
+      "segment_code": "81",
+      "segment_name": "Industria/Manufactura",
+      "total_amount_gtq": 4852676426.18,
+      "pct_of_total": 9.66,
+      "item_count": 989196
+    },
+    {
+      "rank": 3,
+      "segment_code": "83",
+      "segment_name": "Salud y Sociales",
+      "total_amount_gtq": 2930222703.44,
+      "pct_of_total": 5.83,
+      "item_count": 514750
+    },
+    {
+      "rank": 4,
+      "segment_code": "30",
+      "segment_name": "Transporte/Logística",
+      "total_amount_gtq": 2548183233.56,
+      "pct_of_total": 5.07,
+      "item_count": 11181661
+    },
+    {
+      "rank": 5,
+      "segment_code": "51",
+      "segment_name": "Medicamentos",
+      "total_amount_gtq": 2375428518.47,
+      "pct_of_total": 4.73,
+      "item_count": 518058415
+    },
+    {
+      "rank": 6,
+      "segment_code": "80",
+      "segment_name": "Gestión/Negocios",
+      "total_amount_gtq": 2048521734.74,
+      "pct_of_total": 4.08,
+      "item_count": 2475298
+    },
+    {
+      "rank": 7,
+      "segment_code": "78",
+      "segment_name": "Transporte/Almacenamiento",
+      "total_amount_gtq": 1474004930.43,
+      "pct_of_total": 2.93,
+      "item_count": 1761775
+    },
+    {
+      "rank": 8,
+      "segment_code": "56",
+      "segment_name": "Telecomunicaciones",
+      "total_amount_gtq": 1328231123.07,
+      "pct_of_total": 2.64,
+      "item_count": 418480
+    },
+    {
+      "rank": 9,
+      "segment_code": "50",
+      "segment_name": "Alimentos",
+      "total_amount_gtq": 1259927984.78,
+      "pct_of_total": 2.51,
+      "item_count": 356031949
+    },
+    {
+      "rank": 10,
+      "segment_code": "43",
+      "segment_name": "Equipos TIC",
+      "total_amount_gtq": 1250522789.83,
+      "pct_of_total": 2.49,
+      "item_count": 3515040
+    },
+    {
+      "rank": 11,
+      "segment_code": "42",
+      "segment_name": "Otros",
+      "total_amount_gtq": 1227571436.06,
+      "pct_of_total": 2.44,
+      "item_count": 201260463
+    },
+    {
+      "rank": 12,
+      "segment_code": "85",
+      "segment_name": "Otros",
+      "total_amount_gtq": 1191369090.8,
+      "pct_of_total": 2.37,
+      "item_count": 5148239
+    },
+    {
+      "rank": 13,
+      "segment_code": "84",
+      "segment_name": "Otros",
+      "total_amount_gtq": 754631931.44,
+      "pct_of_total": 1.5,
+      "item_count": 8292556
+    },
+    {
+      "rank": 14,
+      "segment_code": "60",
+      "segment_name": "Otros",
+      "total_amount_gtq": 696368196.42,
+      "pct_of_total": 1.39,
+      "item_count": 4026178
+    },
+    {
+      "rank": 15,
+      "segment_code": "25",
+      "segment_name": "Otros",
+      "total_amount_gtq": 657885459.56,
+      "pct_of_total": 1.31,
+      "item_count": 375197
+    }
+  ]
+}

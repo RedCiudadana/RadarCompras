@@ -23,7 +23,7 @@ function statusStyle(status?: string): { bg: string; text: string } {
   if (!status) return { bg: 'bg-gray-100', text: 'text-gray-500' };
   const s = status.toLowerCase();
   if (s.includes('vigent') || s.includes('activ')) return { bg: 'bg-emerald-100', text: 'text-emerald-700' };
-  if (s.includes('adjudic') || s.includes('seleccion')) return { bg: 'bg-blue-100', text: 'text-blue-700' };
+  if (s.includes('adjudic') || s.includes('seleccion')) return { bg: 'bg-blue-100', text: 'text-blue' };
   if (s.includes('evaluac') || s.includes('espera') || s.includes('subast')) return { bg: 'bg-amber-100', text: 'text-amber-700' };
   if (s.includes('desert') || s.includes('cancel') || s.includes('anulad') || s.includes('prescind') || s.includes('improbad')) return { bg: 'bg-red-100', text: 'text-red-600' };
   return { bg: 'bg-gray-100', text: 'text-gray-500' };
@@ -64,12 +64,12 @@ export const ProcessDetail: React.FC = () => {
       <div className="space-y-4 max-w-4xl">
         <button
           onClick={() => navigate(-1)}
-          className="flex items-center gap-1.5 text-sm text-rc-text-muted hover:text-rc-primary transition-colors"
+          className="flex items-center gap-1.5 text-sm text-rc-text-base/60 hover:text-blue transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />
           Volver a resultados
         </button>
-        <div className="text-center py-16 text-rc-text-subtle text-sm">
+        <div className="text-center py-16 text-rc-text-base/60 text-sm">
           No se encontró información del proceso.
         </div>
       </div>
@@ -91,7 +91,7 @@ export const ProcessDetail: React.FC = () => {
       {/* Back */}
       <button
         onClick={() => navigate(-1)}
-        className="flex items-center gap-1.5 text-sm text-rc-text-muted hover:text-rc-primary transition-colors"
+        className="flex items-center gap-1.5 text-sm text-rc-text-base/60 hover:text-blue transition-colors"
       >
         <ArrowLeft className="w-4 h-4" />
         Volver a resultados
@@ -109,39 +109,39 @@ export const ProcessDetail: React.FC = () => {
             </span>
           )}
         </div>
-        <p className="text-xs text-rc-text-subtle font-mono">{detail.ocid}</p>
+        <p className="text-xs text-rc-text-base/60 font-mono">{detail.ocid}</p>
       </div>
 
       {/* Key facts strip */}
-      <div className="flex flex-wrap gap-x-6 gap-y-3 py-4 border-y border-rc-border text-sm">
+      <div className="flex flex-wrap gap-x-6 gap-y-3 py-4 border-y border-neutral-400 text-sm">
         {tender?.procurementMethodDetails && (
           <div>
-            <span className="text-xs font-medium text-rc-text-subtle uppercase tracking-wide block mb-0.5">Modalidad</span>
+            <span className="text-xs font-medium text-rc-text-base/60 uppercase tracking-wide block mb-0.5">Modalidad</span>
             <span className="text-rc-text-base font-medium">{tender.procurementMethodDetails}</span>
           </div>
         )}
         {category && (
           <div>
-            <span className="text-xs font-medium text-rc-text-subtle uppercase tracking-wide block mb-0.5">Tipo</span>
+            <span className="text-xs font-medium text-rc-text-base/60 uppercase tracking-wide block mb-0.5">Tipo</span>
             <span className="text-rc-text-base font-medium">{category}</span>
           </div>
         )}
         {(tender?.datePublished ?? detail.date) && (
           <div>
-            <span className="text-xs font-medium text-rc-text-subtle uppercase tracking-wide block mb-0.5">Publicado</span>
+            <span className="text-xs font-medium text-rc-text-base/60 uppercase tracking-wide block mb-0.5">Publicado</span>
             <span className="text-rc-text-base font-medium">{formatDate(tender?.datePublished ?? detail.date)}</span>
           </div>
         )}
         {/* tender?.tenderPeriod?.startDate is the same of datePublished, pending confirm data with MINFIN */}
         {/* {tender?.tenderPeriod?.startDate && (
           <div>
-            <span className="text-xs font-medium text-rc-text-subtle uppercase tracking-wide block mb-0.5">Inicio del concurso</span>
+            <span className="text-xs font-medium text-rc-text-base/60 uppercase tracking-wide block mb-0.5">Inicio del concurso</span>
             <span className="text-rc-text-base font-medium">{formatDate(tender.tenderPeriod.startDate)}</span>
           </div>
         )} */}
         {typeof tender?.numberOfTenderers === 'number' && tender.numberOfTenderers > 0 && (
           <div>
-            <span className="text-xs font-medium text-rc-text-subtle uppercase tracking-wide block mb-0.5">Oferentes</span>
+            <span className="text-xs font-medium text-rc-text-base/60 uppercase tracking-wide block mb-0.5">Oferentes</span>
             <span className="text-rc-text-base font-medium flex items-center gap-1">
               <Users className="w-3.5 h-3.5" />
               {tender.numberOfTenderers}
@@ -150,14 +150,14 @@ export const ProcessDetail: React.FC = () => {
         )}
         {amount > 0 && (
           <div>
-            <span className="text-xs font-medium text-rc-text-subtle uppercase tracking-wide block mb-0.5">Monto</span>
-            <span className="font-bold text-rc-accent">{formatCurrency(amount, currency)}</span>
+            <span className="text-xs font-medium text-rc-text-base/60 uppercase tracking-wide block mb-0.5">Monto</span>
+            <span className="font-bold text-orange">{formatCurrency(amount, currency)}</span>
           </div>
         )}
         {detail.ocid && (
           <div>
-            <span className="text-xs font-medium text-rc-text-subtle uppercase tracking-wide block mb-0.5">NOG</span>
-            <span className="text-rc-accent font-medium">
+            <span className="text-xs font-medium text-rc-text-base/60 uppercase tracking-wide block mb-0.5">NOG</span>
+            <span className="text-orange font-medium">
               <a className='flex items-center gap-1' href={`https://www.guatecompras.gt/concursos/consultaConcurso.aspx?nog=${getNog(detail.ocid)}`} target='_blank'>
                 {getNog(detail.ocid)} <ExternalLink size={14} />
               </a>
@@ -183,35 +183,35 @@ export const ProcessDetail: React.FC = () => {
 
       {/* Buyer */}
       <section>
-        <h2 className="flex items-center gap-2 text-sm font-semibold text-rc-primary uppercase tracking-wide mb-3">
+        <h2 className="flex items-center gap-2 text-sm font-semibold text-blue uppercase tracking-wide mb-3">
           <Building2 className="w-4 h-4" />
           Entidad compradora
         </h2>
-        <div className="bg-white border border-rc-border rounded-lg px-4 py-3">
+        <div className="bg-white border border-neutral-400 rounded-lg px-4 py-3">
           <p className="font-semibold text-rc-text-base">{detail.buyer?.name || 'N/A'}</p>
-          <p className="text-xs text-rc-text-subtle mt-0.5 font-mono">{detail.buyer?.id || ''}</p>
+          <p className="text-xs text-rc-text-base/60 mt-0.5 font-mono">{detail.buyer?.id || ''}</p>
         </div>
       </section>
 
       {/* Items */}
       {tender?.items && tender.items.length > 0 && (
         <section>
-          <h2 className="flex items-center gap-2 text-sm font-semibold text-rc-primary uppercase tracking-wide mb-3">
+          <h2 className="flex items-center gap-2 text-sm font-semibold text-blue uppercase tracking-wide mb-3">
             <Layers className="w-4 h-4" />
             Bienes, obras o servicios a licitar
           </h2>
-          <div className="bg-white border border-rc-border rounded-lg overflow-hidden">
+          <div className="bg-white border border-neutral-400 rounded-lg overflow-hidden">
             {tender.items.map((item, i) => (
               <div
                 key={item.id || i}
-                className="flex items-start gap-4 px-4 py-3 border-b border-rc-border last:border-b-0"
+                className="flex items-start gap-4 px-4 py-3 border-b border-neutral-400 last:border-b-0"
               >
-                <span className="shrink-0 text-xs font-mono text-rc-text-subtle mt-0.5">{i + 1}</span>
+                <span className="shrink-0 text-xs font-mono text-rc-text-base/60 mt-0.5">{i + 1}</span>
                 <div className="flex-1 min-w-0">
                   <p className="text-sm text-rc-text-base">{item.description}</p>
                 </div>
                 {(item.quantity != null || item.unit?.name) && (
-                  <span className="shrink-0 text-xs text-rc-text-muted bg-rc-surface px-2 py-0.5 rounded">
+                  <span className="shrink-0 text-xs text-rc-text-base/60 bg-neutral px-2 py-0.5 rounded">
                     {item.quantity != null ? `${item.quantity} ` : ''}
                     {item.unit?.name ?? ''}
                   </span>
@@ -225,24 +225,24 @@ export const ProcessDetail: React.FC = () => {
       {/* Documents */}
       {tender?.documents && tender.documents.length > 0 && (
         <section>
-          <h2 className="flex items-center gap-2 text-sm font-semibold text-rc-primary uppercase tracking-wide mb-3">
+          <h2 className="flex items-center gap-2 text-sm font-semibold text-blue uppercase tracking-wide mb-3">
             <FileText className="w-4 h-4" />
             Documentos ({tender.documents.length})
           </h2>
-          <div className="bg-white border border-rc-border rounded-lg overflow-hidden">
+          <div className="bg-white border border-neutral-400 rounded-lg overflow-hidden">
             {tender.documents.map((doc, i) => (
               <a
                 key={doc.id || i}
                 href={doc.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 px-4 py-2.5 border-b border-rc-border last:border-b-0 hover:bg-rc-surface transition-colors group"
+                className="flex items-center gap-3 px-4 py-2.5 border-b border-neutral-400 last:border-b-0 hover:bg-neutral transition-colors group"
               >
-                <FileText className="w-3.5 h-3.5 shrink-0 text-rc-text-subtle group-hover:text-rc-primary transition-colors" />
-                <span className="flex-1 text-sm text-rc-text-base group-hover:text-rc-primary transition-colors truncate">
+                <FileText className="w-3.5 h-3.5 shrink-0 text-rc-text-base/60 group-hover:text-blue transition-colors" />
+                <span className="flex-1 text-sm text-rc-text-base group-hover:text-blue transition-colors truncate">
                   {doc.documentTypeDetails ?? doc.title}
                 </span>
-                <ExternalLink className="w-3.5 h-3.5 shrink-0 text-rc-text-subtle opacity-0 group-hover:opacity-100 transition-opacity" />
+                <ExternalLink className="w-3.5 h-3.5 shrink-0 text-rc-text-base/60 opacity-0 group-hover:opacity-100 transition-opacity" />
               </a>
             ))}
           </div>

@@ -42,24 +42,24 @@ export const StepKeywords: React.FC<StepKeywordsProps> = ({ value, onChange }) =
     <div className="space-y-3">
       <div>
         <h3 className="text-lg font-semibold text-rc-text-base">Palabras clave</h3>
-        <p className="text-sm text-rc-text-muted mt-1">
+        <p className="text-sm text-rc-text-base/60 mt-1">
           Opcional. Las palabras clave resaltan coincidencias en los resultados.
         </p>
       </div>
 
-      <div className="border border-rc-border rounded-lg p-2 bg-white focus-within:ring-2 focus-within:ring-rc-primary/30 focus-within:border-rc-primary transition-colors">
+      <div className="border border-neutral-400 rounded-lg p-2 bg-white focus-within:ring-2 focus-within:ring-blue/30 focus-within:border-blue transition-colors">
         <div className="flex flex-wrap gap-1.5 items-center">
           {value.map(kw => (
             <span
               key={kw}
-              className="inline-flex items-center gap-1 bg-rc-primary/10 text-rc-primary text-xs font-medium px-2 py-1 rounded"
+              className="inline-flex items-center gap-1 bg-blue/10 text-blue text-xs font-medium px-2 py-1 rounded"
             >
               {kw}
               <button
                 type="button"
                 onClick={() => remove(kw)}
                 aria-label={`Quitar ${kw}`}
-                className="hover:bg-rc-primary/20 rounded p-0.5"
+                className="hover:bg-blue/20 rounded p-0.5"
               >
                 <X className="w-3 h-3" />
               </button>
@@ -77,8 +77,8 @@ export const StepKeywords: React.FC<StepKeywordsProps> = ({ value, onChange }) =
         </div>
       </div>
 
-      <p className="text-xs text-rc-text-subtle">
-        Presiona <kbd className="px-1.5 py-0.5 border border-rc-border rounded text-[10px] font-sans">Espacio</kbd> o <kbd className="px-1.5 py-0.5 border border-rc-border rounded text-[10px] font-sans">Enter</kbd> para agregar una palabra clave.
+      <p className="text-xs text-rc-text-base/60">
+        Presiona <kbd className="px-1.5 py-0.5 border border-neutral-400 rounded text-[10px] font-sans">Espacio</kbd> o <kbd className="px-1.5 py-0.5 border border-neutral-400 rounded text-[10px] font-sans">Enter</kbd> para agregar una palabra clave.
       </p>
     </div>
   );

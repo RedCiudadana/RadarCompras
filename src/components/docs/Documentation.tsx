@@ -144,8 +144,8 @@ const RELEASES_ENDPOINT = '/releases';`,
         >
           {copiedCode === id ? (
             <>
-              <CheckCircle className="w-4 h-4 mr-1 text-green-400" />
-              <span className="text-green-400">Copiado</span>
+              <CheckCircle className="w-4 h-4 mr-1 text-green" />
+              <span className="text-green">Copiado</span>
             </>
           ) : (
             <>
@@ -170,7 +170,7 @@ const RELEASES_ENDPOINT = '/releases';`,
           <CardContent className="pt-6">
             <div className="flex items-center gap-3 mb-3">
               <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
-                <Globe className="w-6 h-6 text-blue-600" />
+                <Globe className="w-6 h-6 text-blue" />
               </div>
               <h3 className="font-bold text-gray-900">API REST</h3>
             </div>
@@ -184,7 +184,7 @@ const RELEASES_ENDPOINT = '/releases';`,
           <CardContent className="pt-6">
             <div className="flex items-center gap-3 mb-3">
               <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
-                <Zap className="w-6 h-6 text-green-600" />
+                <Zap className="w-6 h-6 text-green" />
               </div>
               <h3 className="font-bold text-gray-900">Tiempo Real</h3>
             </div>
@@ -212,7 +212,7 @@ const RELEASES_ENDPOINT = '/releases';`,
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <Book className="w-6 h-6 text-blue-600" />
+            <Book className="w-6 h-6 text-blue" />
             ¿Qué es OCDS?
           </CardTitle>
         </CardHeader>
@@ -225,25 +225,25 @@ const RELEASES_ENDPOINT = '/releases';`,
           </p>
 
           <div className="bg-blue-50 border-l-4 border-blue-600 p-4 rounded-r-lg">
-            <h4 className="font-semibold text-blue-900 mb-2 flex items-center gap-2">
+            <h4 className="font-semibold text-blue mb-2 flex items-center gap-2">
               <Database className="w-5 h-5" />
               Beneficios del Estándar OCDS
             </h4>
-            <ul className="space-y-2 text-sm text-blue-900">
+            <ul className="space-y-2 text-sm text-blue">
               <li className="flex items-start gap-2">
-                <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0 text-blue-600" />
+                <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0 text-blue" />
                 <span>Transparencia y rendición de cuentas en el gasto público</span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0 text-blue-600" />
+                <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0 text-blue" />
                 <span>Detección de irregularidades y prevención de la corrupción</span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0 text-blue-600" />
+                <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0 text-blue" />
                 <span>Mejor acceso al mercado para proveedores</span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0 text-blue-600" />
+                <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0 text-blue" />
                 <span>Datos interoperables entre diferentes sistemas</span>
               </li>
             </ul>
@@ -253,7 +253,7 @@ const RELEASES_ENDPOINT = '/releases';`,
             href="https://standard.open-contracting.org/latest/es/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium"
+            className="inline-flex items-center gap-2 text-blue hover:text-blue font-medium"
           >
             Documentación oficial OCDS
             <ExternalLink className="w-4 h-4" />
@@ -264,7 +264,7 @@ const RELEASES_ENDPOINT = '/releases';`,
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <Server className="w-6 h-6 text-blue-600" />
+            <Server className="w-6 h-6 text-blue" />
             Endpoint del API
           </CardTitle>
         </CardHeader>
@@ -277,7 +277,7 @@ const RELEASES_ENDPOINT = '/releases';`,
             <div className="flex items-center justify-between mb-2">
               <Badge variant="default">URL Base</Badge>
             </div>
-            <code className="text-blue-600 font-mono text-sm break-all">
+            <code className="text-blue font-mono text-sm break-all">
               https://www.guatecompras.gt/ocds/api
             </code>
           </div>
@@ -286,7 +286,7 @@ const RELEASES_ENDPOINT = '/releases';`,
             <div className="flex items-center justify-between mb-2">
               <Badge variant="default">Endpoint Principal</Badge>
             </div>
-            <code className="text-green-600 font-mono text-sm break-all">
+            <code className="text-green font-mono text-sm break-all">
               GET /releases
             </code>
           </div>
@@ -305,7 +305,7 @@ const RELEASES_ENDPOINT = '/releases';`,
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <Code className="w-6 h-6 text-blue-600" />
+            <Code className="w-6 h-6 text-blue" />
             Implementación: Búsqueda de Releases
           </CardTitle>
         </CardHeader>
@@ -320,17 +320,17 @@ const RELEASES_ENDPOINT = '/releases';`,
             <div className="bg-gradient-to-br from-blue-50 to-white p-4 rounded-lg border border-blue-100">
               <h4 className="font-semibold text-gray-900 mb-3">Parámetros de Búsqueda</h4>
               <ul className="space-y-2 text-sm text-gray-700">
-                <li><code className="bg-blue-100 px-2 py-0.5 rounded text-blue-800">offset</code> - Punto de inicio para paginación</li>
-                <li><code className="bg-blue-100 px-2 py-0.5 rounded text-blue-800">limit</code> - Número máximo de resultados</li>
-                <li><code className="bg-blue-100 px-2 py-0.5 rounded text-blue-800">q</code> - Palabra clave de búsqueda</li>
+                <li><code className="bg-blue-100 px-2 py-0.5 rounded text-blue">offset</code> - Punto de inicio para paginación</li>
+                <li><code className="bg-blue-100 px-2 py-0.5 rounded text-blue">limit</code> - Número máximo de resultados</li>
+                <li><code className="bg-blue-100 px-2 py-0.5 rounded text-blue">q</code> - Palabra clave de búsqueda</li>
               </ul>
             </div>
 
             <div className="bg-gradient-to-br from-green-50 to-white p-4 rounded-lg border border-green-100">
               <h4 className="font-semibold text-gray-900 mb-3">Respuesta del API</h4>
               <ul className="space-y-2 text-sm text-gray-700">
-                <li><code className="bg-green-100 px-2 py-0.5 rounded text-green-800">releases[]</code> - Array de procesos</li>
-                <li><code className="bg-green-100 px-2 py-0.5 rounded text-green-800">hasMore</code> - Indicador de más datos</li>
+                <li><code className="bg-green-100 px-2 py-0.5 rounded text-green">releases[]</code> - Array de procesos</li>
+                <li><code className="bg-green-100 px-2 py-0.5 rounded text-green">hasMore</code> - Indicador de más datos</li>
               </ul>
             </div>
           </div>
@@ -340,7 +340,7 @@ const RELEASES_ENDPOINT = '/releases';`,
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <Database className="w-6 h-6 text-blue-600" />
+            <Database className="w-6 h-6 text-blue" />
             Estructura de Datos OCDS
           </CardTitle>
         </CardHeader>
@@ -354,12 +354,12 @@ const RELEASES_ENDPOINT = '/releases';`,
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mt-6">
             <div className="bg-gradient-to-br from-blue-50 to-white p-4 rounded-lg border border-blue-100">
-              <h5 className="font-semibold text-blue-900 mb-2 text-sm">Identificación</h5>
+              <h5 className="font-semibold text-blue mb-2 text-sm">Identificación</h5>
               <p className="text-xs text-gray-700"><code>ocid</code> - ID único del proceso de contratación</p>
             </div>
 
             <div className="bg-gradient-to-br from-green-50 to-white p-4 rounded-lg border border-green-100">
-              <h5 className="font-semibold text-green-900 mb-2 text-sm">Comprador</h5>
+              <h5 className="font-semibold text-green mb-2 text-sm">Comprador</h5>
               <p className="text-xs text-gray-700"><code>buyer</code> - Institución que realiza la compra</p>
             </div>
 
@@ -389,7 +389,7 @@ const RELEASES_ENDPOINT = '/releases';`,
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <Code className="w-6 h-6 text-blue-600" />
+            <Code className="w-6 h-6 text-blue" />
             Filtrado de Datos en el Cliente
           </CardTitle>
         </CardHeader>
@@ -401,7 +401,7 @@ const RELEASES_ENDPOINT = '/releases';`,
           <CodeBlock code={codeExamples.filterExample} id="filterExample" />
 
           <div className="bg-gradient-to-br from-blue-50 to-white p-4 rounded-lg border border-blue-100 mt-4">
-            <h4 className="font-semibold text-blue-900 mb-3">Criterios de Filtrado</h4>
+            <h4 className="font-semibold text-blue mb-3">Criterios de Filtrado</h4>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-sm">
               <div>
                 <Badge variant="default" className="mb-2">Institución</Badge>
@@ -423,7 +423,7 @@ const RELEASES_ENDPOINT = '/releases';`,
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <ExternalLink className="w-6 h-6 text-blue-600" />
+            <ExternalLink className="w-6 h-6 text-blue" />
             Recursos Adicionales
           </CardTitle>
         </CardHeader>
@@ -438,7 +438,7 @@ const RELEASES_ENDPOINT = '/releases';`,
               <h4 className="font-semibold text-gray-900">Portal OCDS Guatecompras</h4>
               <p className="text-sm text-gray-600">Documentación oficial del API</p>
             </div>
-            <ExternalLink className="w-5 h-5 text-blue-600" />
+            <ExternalLink className="w-5 h-5 text-blue" />
           </a>
 
           <a
@@ -451,7 +451,7 @@ const RELEASES_ENDPOINT = '/releases';`,
               <h4 className="font-semibold text-gray-900">Documentación OCDS</h4>
               <p className="text-sm text-gray-600">Estándar completo en español</p>
             </div>
-            <ExternalLink className="w-5 h-5 text-green-600" />
+            <ExternalLink className="w-5 h-5 text-green" />
           </a>
 
           <a
@@ -477,7 +477,7 @@ const RELEASES_ENDPOINT = '/releases';`,
             </div>
             <div>
               <h3 className="text-xl font-bold mb-2">¿Necesitas más información?</h3>
-              <p className="text-blue-100 mb-4">
+              <p className="text-blue mb-4">
                 Esta documentación cubre la integración principal con el API de OCDS. Para consultas
                 específicas sobre implementación o datos, revisa el código fuente en{' '}
                 <code className="bg-white/20 px-2 py-1 rounded">src/services/ocdsApi.ts</code>

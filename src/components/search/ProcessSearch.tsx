@@ -160,15 +160,15 @@ export const ProcessSearch: React.FC = () => {
       <ApiStatusBar />
 
       {/* Filter bar */}
-      <div className="bg-white border border-rc-border rounded-lg p-4">
+      <div className="bg-white border border-neutral-400 rounded-lg p-4">
         <div className="flex flex-wrap items-end gap-2">
           {/* Año */}
           <div className="flex flex-col">
-            <label className="text-xs font-medium text-rc-text-muted mb-1">Año</label>
+            <label className="text-xs font-medium text-rc-text-base/60 mb-1">Año</label>
             <select
               value={filters.year}
               onChange={(e) => handleFilterChange('year', Number(e.target.value))}
-              className="px-3 py-2 border border-rc-border rounded text-sm bg-white text-rc-text-base focus:outline-none focus:ring-2 focus:ring-rc-primary/30 focus:border-rc-primary"
+              className="px-3 py-2 border border-neutral-400 rounded text-sm bg-white text-rc-text-base focus:outline-none focus:ring-2 focus:ring-blue/30 focus:border-blue"
             >
               {YEARS.map(y => (
                 <option key={y} value={y}>{y}</option>
@@ -178,11 +178,11 @@ export const ProcessSearch: React.FC = () => {
 
           {/* Mes */}
           <div className="flex flex-col">
-            <label className="text-xs font-medium text-rc-text-muted mb-1">Mes</label>
+            <label className="text-xs font-medium text-rc-text-base/60 mb-1">Mes</label>
             <select
               value={filters.month}
               onChange={(e) => handleFilterChange('month', Number(e.target.value))}
-              className="px-3 py-2 border border-rc-border rounded text-sm bg-white text-rc-text-base focus:outline-none focus:ring-2 focus:ring-rc-primary/30 focus:border-rc-primary"
+              className="px-3 py-2 border border-neutral-400 rounded text-sm bg-white text-rc-text-base focus:outline-none focus:ring-2 focus:ring-blue/30 focus:border-blue"
             >
               {MONTHS.map(m => (
                 <option key={m.value} value={m.value}>{m.label}</option>
@@ -192,11 +192,11 @@ export const ProcessSearch: React.FC = () => {
 
           {/* Estatus */}
           <div className="flex flex-col">
-            <label className="text-xs font-medium text-rc-text-muted mb-1">Estatus</label>
+            <label className="text-xs font-medium text-rc-text-base/60 mb-1">Estatus</label>
             <select
               value={filters.estatus ?? 1}
               onChange={(e) => handleFilterChange('estatus', Number(e.target.value))}
-              className="px-3 py-2 border border-rc-border rounded text-sm bg-white text-rc-text-base focus:outline-none focus:ring-2 focus:ring-rc-primary/30 focus:border-rc-primary"
+              className="px-3 py-2 border border-neutral-400 rounded text-sm bg-white text-rc-text-base focus:outline-none focus:ring-2 focus:ring-blue/30 focus:border-blue"
             >
               {ESTATUS_CONCURSO.map(e => (
                 <option key={e.id} value={e.id}>{e.name}</option>
@@ -244,7 +244,7 @@ export const ProcessSearch: React.FC = () => {
             <button
               onClick={resetFilters}
               title="Limpiar filtros"
-              className="flex items-center gap-1.5 px-3 py-2 text-xs font-medium text-rc-text-muted border border-rc-border rounded hover:border-rc-primary hover:text-rc-primary transition-colors"
+              className="flex items-center gap-1.5 px-3 py-2 text-xs font-medium text-rc-text-base/60 border border-neutral-400 rounded hover:border-blue hover:text-blue transition-colors"
             >
               <RotateCcw className="w-3.5 h-3.5" />
               Limpiar
@@ -254,7 +254,7 @@ export const ProcessSearch: React.FC = () => {
 
         {/* Sub-modalidad — solo cuando modalidad 6 está seleccionada */}
         {hasSubModalidades && (
-          <div className="mt-3 pt-3 border-t border-rc-border">
+          <div className="mt-3 pt-3 border-t border-neutral-400">
             <div className="w-72">
               <SearchableSelect
                 label="Sub-modalidad (Casos de Excepción)"
@@ -276,19 +276,19 @@ export const ProcessSearch: React.FC = () => {
         <>
           {/* Results header */}
           <div className="flex items-center justify-between px-1">
-            <span className="text-sm text-rc-text-muted">
+            <span className="text-sm text-rc-text-base/60">
               <span className="font-semibold text-rc-text-base font-sans text-base">
                 {releases.length}
               </span>{' '}
               procesos
-              {hasMore && <span className="text-rc-text-subtle"> · más disponibles</span>}
+              {hasMore && <span className="text-rc-text-base/60"> · más disponibles</span>}
             </span>
           </div>
 
           {/* Dense rows */}
-          <div className="bg-white border border-rc-border rounded-lg overflow-hidden">
+          <div className="bg-white border border-neutral-400 rounded-lg overflow-hidden">
             {releases.length === 0 && !loading ? (
-              <div className="px-6 py-12 text-center text-rc-text-subtle text-sm">
+              <div className="px-6 py-12 text-center text-rc-text-base/60 text-sm">
                 No se encontraron procesos con los filtros seleccionados.
               </div>
             ) : (
@@ -306,7 +306,7 @@ export const ProcessSearch: React.FC = () => {
             <div className="flex justify-center">
               <button
                 onClick={handleLoadMore}
-                className="px-6 py-2 text-sm font-medium text-rc-primary border border-rc-primary rounded hover:bg-rc-primary hover:text-white transition-colors"
+                className="px-6 py-2 text-sm font-medium text-blue border border-blue rounded hover:bg-blue hover:text-white transition-colors"
               >
                 Cargar más procesos
               </button>
@@ -314,7 +314,7 @@ export const ProcessSearch: React.FC = () => {
           )}
 
           {loading && page > 1 && (
-            <div className="text-center text-sm text-rc-text-subtle py-4">Cargando más procesos...</div>
+            <div className="text-center text-sm text-rc-text-base/60 py-4">Cargando más procesos...</div>
           )}
         </>
       )}

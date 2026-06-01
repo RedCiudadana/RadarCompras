@@ -112,9 +112,7 @@ export const Home: React.FC = () => {
 
   return (
     <div className="space-y-16">
-      <HeroSlider slides={heroSlides} />
-
-      <section>
+      <section className="max-w-6xl mx-auto px-4 p-8 md:p-12">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-medium text-[rgb(var(--md-sys-color-on-surface))] mb-4">
             Por qué usar Radar de Compras Públicas
@@ -143,56 +141,58 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      <section className="bg-[rgb(var(--md-sys-color-primary-container))]/30 rounded-3xl p-8 md:p-12">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-medium text-[rgb(var(--md-sys-color-on-surface))] mb-4">
-            Funcionalidades de la Plataforma
-          </h2>
-          <p className="text-[rgb(var(--md-sys-color-on-surface-variant))] text-lg max-w-3xl mx-auto">
-            Herramientas diseñadas para que encuentres oportunidades y tomes decisiones basadas en datos
-          </p>
-        </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {features.map((feature, index) => {
-            const Icon = feature.icon;
-            return (
-              <Card
-                key={index}
-                hover
-                onClick={() => navigate(feature.path)}
-                variant="elevated"
-                className="group cursor-pointer"
-              >
-                <CardContent className="p-6">
-                  <div className="flex items-start gap-4 mb-4">
-                    <div className="inline-flex items-center justify-center w-16 h-16 bg-[rgb(var(--md-sys-color-primary-container))] rounded-3xl md-elevation-1 group-hover:md-elevation-2 transition-all flex-shrink-0">
-                      <Icon className="w-8 h-8 text-[rgb(var(--md-sys-color-on-primary-container))]" />
+      <div className="bg-white w-full">
+        <section className="max-w-6xl mx-auto px-4 p-8 md:p-12">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-medium text-[rgb(var(--md-sys-color-on-surface))] mb-4">
+              Funcionalidades de la Plataforma
+            </h2>
+            <p className="text-[rgb(var(--md-sys-color-on-surface-variant))] text-lg max-w-3xl mx-auto">
+              Herramientas diseñadas para que encuentres oportunidades y tomes decisiones basadas en datos
+            </p>
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {features.map((feature, index) => {
+              const Icon = feature.icon;
+              return (
+                <Card
+                  key={index}
+                  hover
+                  onClick={() => navigate(feature.path)}
+                  variant="elevated"
+                  className="group cursor-pointer"
+                >
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-4 mb-4">
+                      <div className="inline-flex items-center justify-center w-16 h-16 bg-[rgb(var(--md-sys-color-primary-container))] rounded-3xl md-elevation-1 group-hover:md-elevation-2 transition-all flex-shrink-0">
+                        <Icon className="w-8 h-8 text-[rgb(var(--md-sys-color-on-primary-container))]" />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-2xl font-medium text-[rgb(var(--md-sys-color-on-surface))] mb-2">
+                          {feature.title}
+                        </h3>
+                        <p className="text-[rgb(var(--md-sys-color-on-surface-variant))] leading-relaxed mb-3">{feature.description}</p>
+                      </div>
                     </div>
-                    <div className="flex-1">
-                      <h3 className="text-2xl font-medium text-[rgb(var(--md-sys-color-on-surface))] mb-2">
-                        {feature.title}
-                      </h3>
-                      <p className="text-[rgb(var(--md-sys-color-on-surface-variant))] leading-relaxed mb-3">{feature.description}</p>
+                    <div className="bg-[rgb(var(--md-sys-color-surface-variant))] rounded-2xl p-4 mb-4">
+                      <div className="flex items-start gap-2">
+                        <FileSearch className="w-5 h-5 text-[rgb(var(--md-sys-color-primary))] flex-shrink-0 mt-0.5" />
+                        <p className="text-sm text-[rgb(var(--md-sys-color-on-surface-variant))] italic">{feature.demo}</p>
+                      </div>
                     </div>
-                  </div>
-                  <div className="bg-[rgb(var(--md-sys-color-surface-variant))] rounded-2xl p-4 mb-4">
-                    <div className="flex items-start gap-2">
-                      <FileSearch className="w-5 h-5 text-[rgb(var(--md-sys-color-primary))] flex-shrink-0 mt-0.5" />
-                      <p className="text-sm text-[rgb(var(--md-sys-color-on-surface-variant))] italic">{feature.demo}</p>
+                    <div className="flex items-center text-[rgb(var(--md-sys-color-primary))] font-medium group-hover:text-[rgb(var(--md-sys-color-primary))]">
+                      <span>Explorar herramienta</span>
+                      <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform" />
                     </div>
-                  </div>
-                  <div className="flex items-center text-[rgb(var(--md-sys-color-primary))] font-medium group-hover:text-[rgb(var(--md-sys-color-primary))]">
-                    <span>Explorar herramienta</span>
-                    <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform" />
-                  </div>
-                </CardContent>
-              </Card>
-            );
-          })}
-        </div>
-      </section>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </section>
+      </div>
 
-      <section className="bg-[rgb(var(--md-sys-color-primary))] rounded-3xl p-8 md:p-12 text-[rgb(var(--md-sys-color-on-primary))] md-elevation-2">
+      <section className="max-w-6xl mx-auto px-4 p-8 md:p-12">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-medium mb-4">Datos Oficiales en Tiempo Real</h2>
           <p className="opacity-90 text-lg mb-10">
@@ -236,48 +236,50 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      <section className="bg-[rgb(var(--md-sys-color-surface))] rounded-3xl p-8 md:p-12 md-elevation-2">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-medium text-[rgb(var(--md-sys-color-on-surface))] mb-4">
-            Comienza a Usar la Plataforma
-          </h2>
-          <p className="text-[rgb(var(--md-sys-color-on-surface-variant))] text-lg mb-8">
-            Acceso gratuito a toda la información de compras públicas de Guatemala. Sin registro ni tarjeta de crédito.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
-            <Button
-              size="lg"
-              variant="filled"
-              onClick={() => navigate('/busqueda')}
-            >
-              <Search className="w-5 h-5" />
-              Buscar Procesos
-            </Button>
-            <Button
-              size="lg"
-              variant="tonal"
-              onClick={() => navigate('/oportunidades')}
-            >
-              <Radar className="w-5 h-5" />
-              Ver Oportunidades
-            </Button>
+      <div className="bg-white w-full">
+        <section className="max-w-6xl mx-auto px-4 p-8 md:p-12">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-medium text-[rgb(var(--md-sys-color-on-surface))] mb-4">
+              Comienza a Usar la Plataforma
+            </h2>
+            <p className="text-[rgb(var(--md-sys-color-on-surface-variant))] text-lg mb-8">
+              Acceso gratuito a toda la información de compras públicas de Guatemala. Sin registro ni tarjeta de crédito.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+              <Button
+                size="lg"
+                variant="filled"
+                onClick={() => navigate('/busqueda')}
+              >
+                <Search className="w-5 h-5" />
+                Buscar Procesos
+              </Button>
+              <Button
+                size="lg"
+                variant="tonal"
+                onClick={() => navigate('/oportunidades')}
+              >
+                <Radar className="w-5 h-5" />
+                Ver Oportunidades
+              </Button>
+            </div>
+            <div className="flex items-center justify-center gap-6 text-sm text-[rgb(var(--md-sys-color-on-surface-variant))]">
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-5 h-5 text-green" />
+                <span>Sin registro</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-5 h-5 text-green" />
+                <span>Acceso inmediato</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-5 h-5 text-green" />
+                <span>Totalmente gratis</span>
+              </div>
+            </div>
           </div>
-          <div className="flex items-center justify-center gap-6 text-sm text-[rgb(var(--md-sys-color-on-surface-variant))]">
-            <div className="flex items-center gap-2">
-              <CheckCircle className="w-5 h-5 text-green-600" />
-              <span>Sin registro</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle className="w-5 h-5 text-green-600" />
-              <span>Acceso inmediato</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle className="w-5 h-5 text-green-600" />
-              <span>Totalmente gratis</span>
-            </div>
-          </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
   );
 };

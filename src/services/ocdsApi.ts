@@ -106,7 +106,6 @@ export class OCDSApi {
             return false;
           }
 
-          debugger;
           const hasCategory = items?.find(item => item.classification?.id.startsWith(category.fam_code));
 
           return hasCategory;

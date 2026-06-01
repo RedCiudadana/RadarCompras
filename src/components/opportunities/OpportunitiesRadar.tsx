@@ -122,18 +122,18 @@ export const OpportunitiesRadar: React.FC = () => {
       <div className="space-y-4">
         <ApiStatusBar />
         {mode === 'error' ? (
-          <div className="bg-white border border-rc-border rounded-lg p-6 text-center space-y-3">
+          <div className="bg-white border border-neutral-400 rounded-lg p-6 text-center space-y-3">
             <p className="text-sm text-rc-text-base">{error}</p>
             <div className="flex justify-center gap-2">
               <button
                 onClick={handleRetry}
-                className="px-3 py-2 text-sm font-medium text-white bg-rc-primary rounded hover:bg-rc-primary/90 transition-colors"
+                className="px-3 py-2 text-sm font-medium text-white bg-blue rounded hover:bg-blue/90 transition-colors"
               >
                 Reintentar
               </button>
               <button
                 onClick={handleEdit}
-                className="px-3 py-2 text-sm font-medium text-rc-primary border border-rc-primary rounded hover:bg-rc-primary hover:text-white transition-colors"
+                className="px-3 py-2 text-sm font-medium text-blue border border-blue rounded hover:bg-blue hover:text-white transition-colors"
               >
                 Editar criterios
               </button>
@@ -156,10 +156,10 @@ export const OpportunitiesRadar: React.FC = () => {
     <div className="space-y-4">
       <ApiStatusBar />
 
-      <div className="bg-white border border-rc-border rounded-lg p-6 space-y-6">
+      <div className="bg-white border border-neutral-400 rounded-lg p-6 space-y-6">
         <div>
           <h1 className="text-xl font-bold text-rc-text-base">Configura tu radar</h1>
-          <p className="text-sm text-rc-text-muted mt-1">
+          <p className="text-sm text-rc-text-base/60 mt-1">
             Cuéntanos sobre tu empresa para encontrar oportunidades relevantes.
           </p>
         </div>
@@ -172,12 +172,12 @@ export const OpportunitiesRadar: React.FC = () => {
           {step === 2 && <StepCompanySize value={size} onChange={setSize} />}
         </div>
 
-        <div className="flex items-center justify-between pt-4 border-t border-rc-border">
+        <div className="flex items-center justify-between pt-4 border-t border-neutral-400">
           <button
             type="button"
             onClick={handleBack}
             disabled={step === 0}
-            className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-rc-text-muted border border-rc-border rounded hover:border-rc-primary hover:text-rc-primary transition-colors disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:border-rc-border disabled:hover:text-rc-text-muted"
+            className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-rc-text-base/60 border border-neutral-400 rounded hover:border-blue hover:text-blue transition-colors disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:border-neutral-400 disabled:hover:text-rc-text-base/60"
           >
             <ArrowLeft className="w-4 h-4" />
             Atrás
@@ -186,7 +186,7 @@ export const OpportunitiesRadar: React.FC = () => {
             type="button"
             onClick={handleNext}
             disabled={!canAdvance}
-            className="flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-white bg-rc-primary rounded hover:bg-rc-primary/90 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+            className="flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-white bg-blue rounded hover:bg-blue/90 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
           >
             {step === 2 ? (
               <>

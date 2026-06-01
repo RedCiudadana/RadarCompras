@@ -15,7 +15,7 @@ export const Loading: React.FC<LoadingProps> = ({ size = 'md', text }) => {
 
   return (
     <div className="flex flex-col items-center justify-center p-8">
-      <Loader2 className={`${sizeClasses[size]} animate-spin text-blue-600`} />
+      <Loader2 className={`${sizeClasses[size]} animate-spin text-blue`} />
       {text && <p className="mt-2 text-gray-600">{text}</p>}
     </div>
   );

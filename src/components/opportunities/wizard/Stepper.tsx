@@ -14,11 +14,11 @@ export const Stepper: React.FC<StepperProps> = ({ steps, current }) => {
         const isDone = i < current;
         const circle =
           isDone
-            ? 'bg-rc-primary text-white border-rc-primary'
+            ? 'bg-blue text-white border-blue'
             : isCurrent
-              ? 'bg-white text-rc-primary border-rc-primary'
-              : 'bg-white text-rc-text-subtle border-rc-border';
-        const labelColor = isCurrent || isDone ? 'text-rc-text-base' : 'text-rc-text-subtle';
+              ? 'bg-white text-blue border-blue'
+              : 'bg-white text-rc-text-base/60 border-neutral-400';
+        const labelColor = isCurrent || isDone ? 'text-rc-text-base' : 'text-rc-text-base/60';
         return (
           <li key={label} className={`flex items-center ${i < steps.length - 1 ? 'flex-1' : ''}`}>
             <div className="flex items-center gap-2">
@@ -30,8 +30,8 @@ export const Stepper: React.FC<StepperProps> = ({ steps, current }) => {
               </span>
               <span className={`text-sm font-medium ${labelColor} hidden sm:inline`}>{label}</span>
             </div>
-            {i < steps.length - 1 && (
-              <div className={`flex-1 h-px mx-3 ${isDone ? 'bg-rc-primary' : 'bg-rc-border'}`} />
+            {true && (
+              <div className={`flex-1 h-px mx-3 ${isDone ? 'bg-blue' : 'bg-gray-200'}`} />
             )}
           </li>
         );

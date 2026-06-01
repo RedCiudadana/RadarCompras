@@ -1,0 +1,244 @@
+{
+  "rank": [
+    {
+      "rank": 1,
+      "name": "INSTITUTO GUATEMALTECO DE SEGURIDAD SOCIAL -IGSS-",
+      "total_processes": 92460,
+      "pct_of_total": 64.55,
+      "monthly_series": [
+        {
+          "month": "2026-01",
+          "processes": 16106
+        },
+        {
+          "month": "2026-02",
+          "processes": 21406
+        },
+        {
+          "month": "2026-03",
+          "processes": 43246
+        },
+        {
+          "month": "2026-04",
+          "processes": 11702
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "name": "MINISTERIO DE SALUD PÚBLICA",
+      "total_processes": 20618,
+      "pct_of_total": 14.39,
+      "monthly_series": [
+        {
+          "month": "2026-01",
+          "processes": 3831
+        },
+        {
+          "month": "2026-02",
+          "processes": 4776
+        },
+        {
+          "month": "2026-03",
+          "processes": 9890
+        },
+        {
+          "month": "2026-04",
+          "processes": 2121
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "name": "MINISTERIO DE GOBERNACIÓN",
+      "total_processes": 2905,
+      "pct_of_total": 2.03,
+      "monthly_series": [
+        {
+          "month": "2026-01",
+          "processes": 840
+        },
+        {
+          "month": "2026-02",
+          "processes": 575
+        },
+        {
+          "month": "2026-03",
+          "processes": 1361
+        },
+        {
+          "month": "2026-04",
+          "processes": 129
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "name": "INSTITUTO NACIONAL DE ELECTRIFICACIÓN -INDE",
+      "total_processes": 2369,
+      "pct_of_total": 1.65,
+      "monthly_series": [
+        {
+          "month": "2026-01",
+          "processes": 476
+        },
+        {
+          "month": "2026-02",
+          "processes": 707
+        },
+        {
+          "month": "2026-03",
+          "processes": 1023
+        },
+        {
+          "month": "2026-04",
+          "processes": 163
+        }
+      ]
+    },
+    {
+      "rank": 5,
+      "name": "MINISTERIO DE LA DEFENSA NACIONAL",
+      "total_processes": 1720,
+      "pct_of_total": 1.2,
+      "monthly_series": [
+        {
+          "month": "2026-01",
+          "processes": 482
+        },
+        {
+          "month": "2026-02",
+          "processes": 337
+        },
+        {
+          "month": "2026-03",
+          "processes": 656
+        },
+        {
+          "month": "2026-04",
+          "processes": 245
+        }
+      ]
+    },
+    {
+      "rank": 6,
+      "name": "MINISTERIO DE COMUNICACIONES, INFRAESTRUCTURA Y VIVIENDA",
+      "total_processes": 1206,
+      "pct_of_total": 0.84,
+      "monthly_series": [
+        {
+          "month": "2026-01",
+          "processes": 201
+        },
+        {
+          "month": "2026-02",
+          "processes": 278
+        },
+        {
+          "month": "2026-03",
+          "processes": 599
+        },
+        {
+          "month": "2026-04",
+          "processes": 128
+        }
+      ]
+    },
+    {
+      "rank": 7,
+      "name": "ORGANISMO JUDICIAL",
+      "total_processes": 1056,
+      "pct_of_total": 0.74,
+      "monthly_series": [
+        {
+          "month": "2026-01",
+          "processes": 98
+        },
+        {
+          "month": "2026-02",
+          "processes": 180
+        },
+        {
+          "month": "2026-03",
+          "processes": 717
+        },
+        {
+          "month": "2026-04",
+          "processes": 61
+        }
+      ]
+    },
+    {
+      "rank": 8,
+      "name": "MINISTERIO PÚBLICO",
+      "total_processes": 711,
+      "pct_of_total": 0.5,
+      "monthly_series": [
+        {
+          "month": "2026-01",
+          "processes": 409
+        },
+        {
+          "month": "2026-02",
+          "processes": 44
+        },
+        {
+          "month": "2026-03",
+          "processes": 234
+        },
+        {
+          "month": "2026-04",
+          "processes": 24
+        }
+      ]
+    },
+    {
+      "rank": 9,
+      "name": "SUPERINTENDENCIA DE ADMINISTRACION TRIBUTARIA -SAT-",
+      "total_processes": 698,
+      "pct_of_total": 0.49,
+      "monthly_series": [
+        {
+          "month": "2026-01",
+          "processes": 51
+        },
+        {
+          "month": "2026-02",
+          "processes": 104
+        },
+        {
+          "month": "2026-03",
+          "processes": 424
+        },
+        {
+          "month": "2026-04",
+          "processes": 119
+        }
+      ]
+    },
+    {
+      "rank": 10,
+      "name": "MINISTERIO DE EDUCACIÓN",
+      "total_processes": 685,
+      "pct_of_total": 0.48,
+      "monthly_series": [
+        {
+          "month": "2026-01",
+          "processes": 81
+        },
+        {
+          "month": "2026-02",
+          "processes": 172
+        },
+        {
+          "month": "2026-03",
+          "processes": 312
+        },
+        {
+          "month": "2026-04",
+          "processes": 120
+        }
+      ]
+    }
+  ]
+}

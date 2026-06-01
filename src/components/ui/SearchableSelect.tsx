@@ -113,7 +113,7 @@ export const SearchableSelect: React.FC<SearchableSelectProps> = ({
                   onClick={() => handleSelect(option.id)}
                   className={`px-3 py-2 text-sm cursor-pointer hover:bg-blue-50 ${
                     option.id === value
-                      ? 'bg-blue-50 text-blue-700 font-medium'
+                      ? 'bg-blue-50 text-blue font-medium'
                       : 'text-gray-900'
                   }`}
                 >

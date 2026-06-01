@@ -4,7 +4,6 @@ import { OCDSApi } from '../../services/ocdsApi';
 
 export const ApiStatusBar: React.FC = () => {
   const [apiStatus, setApiStatus] = useState<'checking' | 'online' | 'offline' | 'error'>('checking');
-  const [responseTime, setResponseTime] = useState<number | null>(null);
 
   useEffect(() => {
     checkApiStatus();
@@ -20,14 +19,11 @@ export const ApiStatusBar: React.FC = () => {
 
       if (data && data.length >= 0) {
         setApiStatus('online');
-        setResponseTime(endTime - startTime);
       } else {
         setApiStatus('error');
-        setResponseTime(null);
       }
     } catch {
       setApiStatus('offline');
-      setResponseTime(null);
     }
   };
 
@@ -37,7 +33,7 @@ export const ApiStatusBar: React.FC = () => {
         return {
           icon: CheckCircle2,
           text: 'Guatecompras OCDS en línea',
-          color: 'text-green-600',
+          color: 'text-green',
           bgColor: 'bg-green-50',
           borderColor: 'border-green-200',
         };
@@ -77,9 +73,6 @@ export const ApiStatusBar: React.FC = () => {
         className={`w-3.5 h-3.5 ${config.color} ${apiStatus === 'checking' ? 'animate-pulse' : ''}`}
       />
       <span className={`text-xs font-medium ${config.color}`}>{config.text}</span>
-      {responseTime !== null && (
-        <span className="text-xs text-gray-400">{responseTime}ms</span>
-      )}
     </div>
   );
 };

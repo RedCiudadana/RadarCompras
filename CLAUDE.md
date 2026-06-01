@@ -46,9 +46,9 @@ There is no router library. `App.tsx` manages a `currentView` string state and r
 ### Styling
 
 Tailwind CSS with a custom `rc-*` color token set defined in `tailwind.config.js`:
-- `rc-primary` — `#1a3d52` (deep teal, main brand color)
-- `rc-accent` — `#c47d1a` (amber, CTAs and amount emphasis)
-- `rc-border`, `rc-surface`, `rc-text-base`, `rc-text-muted`, `rc-text-subtle`
+- `blue` — `#1a3d52` (deep teal, main brand color)
+- `orange` — `#c47d1a` (amber, CTAs and amount emphasis)
+- `neutral-400`, `neutral`, `rc-text-base`, `rc-base/60`, `rc-base/90`
 
 Font: Figtree (single family, hierarchy via weight/size — no separate display font). Design target: dense data dashboard, not a marketing page. No gradients, no glassmorphism, no hero sliders.
 

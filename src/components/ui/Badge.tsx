@@ -13,7 +13,7 @@ export const Badge: React.FC<BadgeProps> = ({
 }) => {
   const variantClasses = {
     default: 'bg-[rgb(var(--md-sys-color-surface-variant))] text-[rgb(var(--md-sys-color-on-surface-variant))]',
-    success: 'bg-green-100 text-green-900',
+    success: 'bg-green-100 text-green',
     info: 'bg-[rgb(var(--md-sys-color-primary-container))] text-[rgb(var(--md-sys-color-on-primary-container))]',
     error: 'bg-red-100 text-red-900',
     warning: 'bg-amber-100 text-amber-900',

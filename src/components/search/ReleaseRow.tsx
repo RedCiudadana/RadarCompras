@@ -25,7 +25,7 @@ function statusStyle(status?: string): { bg: string; text: string } {
   if (!status) return { bg: 'bg-gray-100', text: 'text-gray-500' };
   const s = status.toLowerCase();
   if (s.includes('vigent') || s.includes('activ')) return { bg: 'bg-emerald-100', text: 'text-emerald-700' };
-  if (s.includes('adjudic') || s.includes('seleccion')) return { bg: 'bg-blue-100', text: 'text-blue-700' };
+  if (s.includes('adjudic') || s.includes('seleccion')) return { bg: 'bg-blue-100', text: 'text-blue' };
   if (s.includes('evaluac') || s.includes('espera') || s.includes('subast')) return { bg: 'bg-amber-100', text: 'text-amber-700' };
   if (s.includes('desert') || s.includes('cancel') || s.includes('anulad') || s.includes('prescind') || s.includes('improbad')) return { bg: 'bg-red-100', text: 'text-red-600' };
   return { bg: 'bg-gray-100', text: 'text-gray-500' };
@@ -43,7 +43,7 @@ function highlight(text: string, terms?: string[]): React.ReactNode {
   const parts = text.split(re);
   return parts.map((part, i) =>
     i % 2 === 1
-      ? <mark key={i} className="bg-rc-accent/20 text-rc-text-base rounded px-0.5">{part}</mark>
+      ? <mark key={i} className="bg-orange/20 text-rc-text-base rounded px-0.5">{part}</mark>
       : <React.Fragment key={i}>{part}</React.Fragment>
   );
 }
@@ -64,12 +64,12 @@ export const ReleaseRow: React.FC<ReleaseRowProps> = ({ release, onClick, highli
   return (
     <button
       onClick={onClick}
-      className="w-full flex items-start gap-3 px-4 py-3 border-b border-rc-border last:border-b-0 hover:bg-rc-surface transition-colors text-left group"
+      className="w-full flex items-start gap-3 px-4 py-3 border-b border-neutral-400 last:border-b-0 hover:bg-neutral transition-colors text-left group"
     >
       {/* Main content */}
       <div className="flex-1 min-w-0">
         {/* Buyer */}
-        <div className="font-sans text-xs uppercase tracking-wider text-rc-text-subtle truncate leading-tight">
+        <div className="font-sans text-xs uppercase tracking-wider text-rc-text-base/60 truncate leading-tight">
           {release.buyer?.name ? highlight(release.buyer.name, highlightKeywords) : '—'}
         </div>
 
@@ -84,16 +84,16 @@ export const ReleaseRow: React.FC<ReleaseRowProps> = ({ release, onClick, highli
             families.slice(0, 3).map(name => (
               <span
                 key={name}
-                className="inline-block text-xs px-1.5 py-0.5 rounded bg-rc-primary text-white max-w-[180px]"
+                className="inline-block text-xs px-1.5 py-0.5 rounded bg-blue text-white max-w-[180px]"
               >
                 {name}
               </span>
             ))
           ) : null}
           {families.length > 3 && (
-            <span className="text-xs text-rc-text-subtle">+{families.length - 3}</span>
+            <span className="text-xs text-rc-text-base/60">+{families.length - 3}</span>
           )}
-          <span className="text-xs text-rc-text-subtle tabular-nums ml-auto">
+          <span className="text-xs text-rc-text-base/60 tabular-nums ml-auto">
             {formatDate(publishDate)}
           </span>
         </div>
@@ -106,7 +106,7 @@ export const ReleaseRow: React.FC<ReleaseRowProps> = ({ release, onClick, highli
             {displayStatus}
           </span>
         )}
-        <ChevronRight className="w-4 h-4 text-rc-border group-hover:text-rc-text-subtle transition-colors" />
+        <ChevronRight className="w-4 h-4 text-neutral-400 group-hover:text-rc-text-base/60 transition-colors" />
       </div>
     </button>
   );

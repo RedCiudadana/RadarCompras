@@ -141,7 +141,7 @@ export const Analytics: React.FC = () => {
                 </p>
               </div>
               <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
-                <DollarSign className="w-6 h-6 text-blue-600" />
+                <DollarSign className="w-6 h-6 text-blue" />
               </div>
             </div>
           </CardContent>
@@ -157,7 +157,7 @@ export const Analytics: React.FC = () => {
                 </p>
               </div>
               <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
-                <FileText className="w-6 h-6 text-green-600" />
+                <FileText className="w-6 h-6 text-green" />
               </div>
             </div>
           </CardContent>
@@ -202,7 +202,7 @@ export const Analytics: React.FC = () => {
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <BarChart3 className="w-6 h-6 text-blue-600" />
+            <BarChart3 className="w-6 h-6 text-blue" />
             Top 10 Instituciones por Monto Contratado
           </CardTitle>
         </CardHeader>
@@ -226,7 +226,7 @@ export const Analytics: React.FC = () => {
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <PieChartIcon className="w-6 h-6 text-blue-600" />
+              <PieChartIcon className="w-6 h-6 text-blue" />
               Distribución por Estado
             </CardTitle>
           </CardHeader>
@@ -255,7 +255,7 @@ export const Analytics: React.FC = () => {
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <PieChartIcon className="w-6 h-6 text-blue-600" />
+              <PieChartIcon className="w-6 h-6 text-blue" />
               Métodos de Contratación
             </CardTitle>
           </CardHeader>

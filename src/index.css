@@ -3,15 +3,15 @@
 @tailwind utilities;
 
 :root {
-  --rc-primary: #1a3d52;
-  --rc-primary-hover: #2a5470;
-  --rc-accent: #c47d1a;
-  --rc-accent-hover: #a86714;
-  --rc-surface: #f6f8fa;
-  --rc-border: #d1d9e0;
+  --blue: #1a3d52;
+  --blue-800: #2a5470;
+  --orange: #c47d1a;
+  --orange-800: #a86714;
+  --neutral: #f6f8fa;
+  --neutral-400: #d1d9e0;
   --rc-text-base: #0f1923;
-  --rc-text-muted: #4a5e6d;
-  --rc-text-subtle: #7a8f9e;
+  --rc-base/60: #4a5e6d;
+  --rc-base/90: #7a8f9e;
 }
 
 @layer base {

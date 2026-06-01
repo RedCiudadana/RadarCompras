@@ -1,0 +1,124 @@
+{
+  "items": [
+    {
+      "rank": 1,
+      "unspsc_id": "72141003",
+      "description": "MEJORAMIENTO CAMINO RURAL SECTOR EL PORTON, ALDEA CHIQUIN, CHUARRANCHO, GUATEMAL",
+      "total_amount_gtq": 7469277293.7,
+      "pct_of_total": 14.87,
+      "item_count": 8034341
+    },
+    {
+      "rank": 2,
+      "unspsc_id": "72141104",
+      "description": "SUPERVISIÓN TÉCNICA, ADMINISTRATIVA Y AMBIENTAL DEL PROYECTO: MEJORAMIENTO CAMIN",
+      "total_amount_gtq": 4778882883.68,
+      "pct_of_total": 9.52,
+      "item_count": 2574
+    },
+    {
+      "rank": 3,
+      "unspsc_id": "81101513",
+      "description": "CONSTRUCCION INSTALACIONES DEPORTIVAS Y RECREATIVAS CASERIO BUENOS AIRES SAN PAB",
+      "total_amount_gtq": 3452688729.0,
+      "pct_of_total": 6.87,
+      "item_count": 495888
+    },
+    {
+      "rank": 4,
+      "unspsc_id": "83101806",
+      "description": "INSTALACION ELÉCTRICA ILUMINACIÓN",
+      "total_amount_gtq": 1549657626.87,
+      "pct_of_total": 3.09,
+      "item_count": 12872
+    },
+    {
+      "rank": 5,
+      "unspsc_id": "72141103",
+      "description": "REPLANTEO Y LEVANTAMIENTO TOPOGRÁFICO",
+      "total_amount_gtq": 1187181997.11,
+      "pct_of_total": 2.36,
+      "item_count": 1521708
+    },
+    {
+      "rank": 6,
+      "unspsc_id": "72141107",
+      "description": "REPARACION Y MANTENIMIENTO DEL PUENTE ZEPOCTUM UBICADO EN BARRIO SANTA ANA, ESQU",
+      "total_amount_gtq": 930285220.37,
+      "pct_of_total": 1.85,
+      "item_count": 28960
+    },
+    {
+      "rank": 7,
+      "unspsc_id": "56121805",
+      "description": "DISEÑO  DEL PROYECTO: PUENTE VEHICULAR BELICE II Y SUS APROXIMACIONES, GUATEMALA",
+      "total_amount_gtq": 894056096.67,
+      "pct_of_total": 1.78,
+      "item_count": 11
+    },
+    {
+      "rank": 8,
+      "unspsc_id": "30121705",
+      "description": "11. BANQUETA PEATONAL ANCHO DE 0.80 M",
+      "total_amount_gtq": 848332316.52,
+      "pct_of_total": 1.69,
+      "item_count": 1832297
+    },
+    {
+      "rank": 9,
+      "unspsc_id": "78101902",
+      "description": "SERVICIO MARITIMO PORTUARIO DE MARCHAMO DE SEGURIDAD Y TRAZABILIDAD DE CONTENEDO",
+      "total_amount_gtq": 825466806.0,
+      "pct_of_total": 1.64,
+      "item_count": 2
+    },
+    {
+      "rank": 10,
+      "unspsc_id": "80101507",
+      "description": "Consultoría para implementación de sistemas informáticos",
+      "total_amount_gtq": 793801036.14,
+      "pct_of_total": 1.58,
+      "item_count": 330
+    },
+    {
+      "rank": 11,
+      "unspsc_id": "72101507",
+      "description": "POR REMODELACIÓN DE SERVICIOS SANITARIOS DE LA CONSULTA EXTERNA PARA USO DE AFIL",
+      "total_amount_gtq": 526866475.26,
+      "pct_of_total": 1.05,
+      "item_count": 80280
+    },
+    {
+      "rank": 12,
+      "unspsc_id": "30111601",
+      "description": "ADQUISICION DE PRODUCTOS DE CEMENTO",
+      "total_amount_gtq": 525879745.75,
+      "pct_of_total": 1.05,
+      "item_count": 2286193
+    },
+    {
+      "rank": 13,
+      "unspsc_id": "72141101",
+      "description": "AMPLIACION PISTA DE ATERRIZAJE, SAN JOSE, ESCUINTLA",
+      "total_amount_gtq": 522984912.74,
+      "pct_of_total": 1.04,
+      "item_count": 1
+    },
+    {
+      "rank": 14,
+      "unspsc_id": "83101807",
+      "description": "AMPLIACION REDES Y LINEAS ELECTRICAS DE DISTRIBUCION DE EMPRESA ELECTRICA MUNICI",
+      "total_amount_gtq": 515748534.87,
+      "pct_of_total": 1.03,
+      "item_count": 4
+    },
+    {
+      "rank": 15,
+      "unspsc_id": "81101503",
+      "description": "Mejoramiento Infraestructura Portuaria Rompeolas Este y Oeste, Puerto Quetzal",
+      "total_amount_gtq": 477947452.4,
+      "pct_of_total": 0.95,
+      "item_count": 1
+    }
+  ]
+}

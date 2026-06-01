@@ -1,0 +1,244 @@
+{
+  "rank": [
+    {
+      "rank": 1,
+      "name": "J.I. COHEN, SOCIEDAD ANONIMA",
+      "total_adjudicaciones": 8512,
+      "pct_of_total": 7.24,
+      "monthly_series": [
+        {
+          "month": "2026-01",
+          "adjudicaciones": 2118
+        },
+        {
+          "month": "2026-02",
+          "adjudicaciones": 1259
+        },
+        {
+          "month": "2026-03",
+          "adjudicaciones": 4341
+        },
+        {
+          "month": "2026-04",
+          "adjudicaciones": 794
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "name": "AGENCIA FARMACEUTICA INTERNACIONAL SOCIEDAD ANONIMA",
+      "total_adjudicaciones": 2420,
+      "pct_of_total": 2.06,
+      "monthly_series": [
+        {
+          "month": "2026-01",
+          "adjudicaciones": 509
+        },
+        {
+          "month": "2026-02",
+          "adjudicaciones": 404
+        },
+        {
+          "month": "2026-03",
+          "adjudicaciones": 1230
+        },
+        {
+          "month": "2026-04",
+          "adjudicaciones": 277
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "name": "SERVICIOS QUIRURGICOS SOCIEDAD ANONIMA",
+      "total_adjudicaciones": 2313,
+      "pct_of_total": 1.97,
+      "monthly_series": [
+        {
+          "month": "2026-01",
+          "adjudicaciones": 312
+        },
+        {
+          "month": "2026-02",
+          "adjudicaciones": 750
+        },
+        {
+          "month": "2026-03",
+          "adjudicaciones": 1032
+        },
+        {
+          "month": "2026-04",
+          "adjudicaciones": 219
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "name": "CENTRO DISTRIBUIDOR SOCIEDAD ANONIMA",
+      "total_adjudicaciones": 2224,
+      "pct_of_total": 1.89,
+      "monthly_series": [
+        {
+          "month": "2026-01",
+          "adjudicaciones": 477
+        },
+        {
+          "month": "2026-02",
+          "adjudicaciones": 330
+        },
+        {
+          "month": "2026-03",
+          "adjudicaciones": 1219
+        },
+        {
+          "month": "2026-04",
+          "adjudicaciones": 198
+        }
+      ]
+    },
+    {
+      "rank": 5,
+      "name": "REUS PHARMA, SOCIEDAD ANÓNIMA",
+      "total_adjudicaciones": 1923,
+      "pct_of_total": 1.64,
+      "monthly_series": [
+        {
+          "month": "2026-01",
+          "adjudicaciones": 149
+        },
+        {
+          "month": "2026-02",
+          "adjudicaciones": 428
+        },
+        {
+          "month": "2026-03",
+          "adjudicaciones": 1180
+        },
+        {
+          "month": "2026-04",
+          "adjudicaciones": 166
+        }
+      ]
+    },
+    {
+      "rank": 6,
+      "name": "LABYMED, SOCIEDAD ANONIMA",
+      "total_adjudicaciones": 1907,
+      "pct_of_total": 1.62,
+      "monthly_series": [
+        {
+          "month": "2026-01",
+          "adjudicaciones": 264
+        },
+        {
+          "month": "2026-02",
+          "adjudicaciones": 532
+        },
+        {
+          "month": "2026-03",
+          "adjudicaciones": 964
+        },
+        {
+          "month": "2026-04",
+          "adjudicaciones": 147
+        }
+      ]
+    },
+    {
+      "rank": 7,
+      "name": "AVIV FARMACEUTICA, SOCIEDAD ANONIMA",
+      "total_adjudicaciones": 1592,
+      "pct_of_total": 1.35,
+      "monthly_series": [
+        {
+          "month": "2026-01",
+          "adjudicaciones": 142
+        },
+        {
+          "month": "2026-02",
+          "adjudicaciones": 361
+        },
+        {
+          "month": "2026-03",
+          "adjudicaciones": 976
+        },
+        {
+          "month": "2026-04",
+          "adjudicaciones": 113
+        }
+      ]
+    },
+    {
+      "rank": 8,
+      "name": "PRODUCTOS ROCHE GUATEMALA, SOCIEDAD ANÓNIMA",
+      "total_adjudicaciones": 1510,
+      "pct_of_total": 1.29,
+      "monthly_series": [
+        {
+          "month": "2026-01",
+          "adjudicaciones": 162
+        },
+        {
+          "month": "2026-02",
+          "adjudicaciones": 354
+        },
+        {
+          "month": "2026-03",
+          "adjudicaciones": 780
+        },
+        {
+          "month": "2026-04",
+          "adjudicaciones": 214
+        }
+      ]
+    },
+    {
+      "rank": 9,
+      "name": "MEDICINA CORPORATIVA DE DIALISIS, SOCIEDAD ANONIMA",
+      "total_adjudicaciones": 1307,
+      "pct_of_total": 1.11,
+      "monthly_series": [
+        {
+          "month": "2026-01",
+          "adjudicaciones": 335
+        },
+        {
+          "month": "2026-02",
+          "adjudicaciones": 378
+        },
+        {
+          "month": "2026-03",
+          "adjudicaciones": 506
+        },
+        {
+          "month": "2026-04",
+          "adjudicaciones": 88
+        }
+      ]
+    },
+    {
+      "rank": 10,
+      "name": "NIPRO MEDICAL CORPORATION - SUCURSAL DE GUATEMALA",
+      "total_adjudicaciones": 1301,
+      "pct_of_total": 1.11,
+      "monthly_series": [
+        {
+          "month": "2026-01",
+          "adjudicaciones": 422
+        },
+        {
+          "month": "2026-02",
+          "adjudicaciones": 258
+        },
+        {
+          "month": "2026-03",
+          "adjudicaciones": 539
+        },
+        {
+          "month": "2026-04",
+          "adjudicaciones": 82
+        }
+      ]
+    }
+  ]
+}

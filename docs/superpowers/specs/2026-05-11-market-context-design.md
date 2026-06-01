@@ -101,15 +101,15 @@ Positioned after the "Key facts strip" and before the "Buyer" section. This give
   - Category name sourced from `UNSPCS_FAMILIES` constant (same as ReleaseRow)
 
 ### Table
-- **Container:** Reuse existing `.bg-white border border-rc-border rounded-lg overflow-hidden` styling (matches Items section)
+- **Container:** Reuse existing `.bg-white border border-neutral-400 rounded-lg overflow-hidden` styling (matches Items section)
 - **Columns:** Date | Awarded Amount | Winner | Status
-- **Row styling:** `.flex items-center gap-4 px-4 py-3 border-b border-rc-border last:border-b-0`
+- **Row styling:** `.flex items-center gap-4 px-4 py-3 border-b border-neutral-400 last:border-b-0`
 - **Column widths:** Flexible, responsive
 - **Text styling:** 
   - Date: `text-sm text-rc-text-base`
-  - Amount: `font-semibold text-rc-accent` (emphasize currency like in key facts)
+  - Amount: `font-semibold text-orange` (emphasize currency like in key facts)
   - Winner: `text-sm text-rc-text-base`
-  - Status: `text-xs text-rc-text-subtle`
+  - Status: `text-xs text-rc-text-base/60`
 - **Sort order:** Date descending (most recent first)
 
 ### Footer Text
@@ -126,7 +126,7 @@ If no comparable tenders found:
 │                                                         │
 └─────────────────────────────────────────────────────────┘
 ```
-- Centered, `text-sm text-rc-text-subtle`
+- Centered, `text-sm text-rc-text-base/60`
 
 ### Loading State
 While fetching comparables (async):
@@ -150,7 +150,7 @@ If API call fails:
 │                                                         │
 └─────────────────────────────────────────────────────────┘
 ```
-- `text-xs text-rc-text-subtle`, graceful fallback (no error page)
+- `text-xs text-rc-text-base/60`, graceful fallback (no error page)
 
 ---
 
