@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(grep -E \"\\\\.tsx?$\")",
+      "mcp__firefox-devtools__new_page",
+      "mcp__firefox-devtools__get_firefox_info",
+      "mcp__firefox-devtools__restart_firefox",
+      "Bash(git stash *)"
+    ]
+  }
+}

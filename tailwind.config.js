@@ -6,9 +6,12 @@ export default {
       colors: {
         green: '#19a887',
         sky: '#1687dd',
+        'sky-neutral': '#daecfa',
         blue: '#03324f',
         neutral: '#f0f4fa',
         orange: '#fca136',
+        'rc-blue': '#1a3d52',
+        'rc-orange': '#c47d1a',
         rc: {
           'text-base': '#03324f',
         },

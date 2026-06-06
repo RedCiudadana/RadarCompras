@@ -35,7 +35,7 @@ function AppShell() {
     <div className="min-h-screen bg-neutral">
       <Navigation />
       {!isHOME && <HeroSlider title={banner.title} backgroundImage={banner.slider} />}
-      {isHOME ? <Home /> : (<main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8 pt-20">
+      {isHOME ? <Home /> : (<main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8 pt-20 ">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/busqueda" element={<ProcessSearch />} />

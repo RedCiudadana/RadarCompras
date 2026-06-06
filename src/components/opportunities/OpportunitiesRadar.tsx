@@ -15,6 +15,7 @@ import { StepCategories } from './wizard/StepCategories';
 import { StepKeywords } from './wizard/StepKeywords';
 import { StepCompanySize } from './wizard/StepCompanySize';
 import { OpportunitiesResults } from './OpportunitiesResults';
+import { Button } from '../ui/Button';
 
 const STEP_LABELS = ['Actividad', 'Palabras clave', 'Tamaño'];
 
@@ -182,11 +183,12 @@ export const OpportunitiesRadar: React.FC = () => {
             <ArrowLeft className="w-4 h-4" />
             Atrás
           </button>
-          <button
-            type="button"
+          <Button
+            variant="sky"
+            size="sm"
             onClick={handleNext}
             disabled={!canAdvance}
-            className="flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-white bg-blue rounded hover:bg-blue/90 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+            className="ml-4"
           >
             {step === 2 ? (
               <>
@@ -199,7 +201,7 @@ export const OpportunitiesRadar: React.FC = () => {
                 <ArrowRight className="w-4 h-4" />
               </>
             )}
-          </button>
+          </Button>
         </div>
       </div>
     </div>

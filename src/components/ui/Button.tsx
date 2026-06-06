@@ -2,7 +2,7 @@ import React from 'react';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
-  variant?: 'filled' | 'outlined' | 'text' | 'elevated' | 'tonal';
+  variant?: 'filled' | 'outlined' | 'text' | 'elevated' | 'tonal' | 'sky' | 'blue';
   size?: 'sm' | 'md' | 'lg';
   fullWidth?: boolean;
 }
@@ -15,7 +15,7 @@ export const Button: React.FC<ButtonProps> = ({
   className = '',
   ...props
 }) => {
-  const baseClasses = 'font-medium uppercase tracking-wide transition-all duration-200 focus:outline-none disabled:opacity-38 disabled:cursor-not-allowed relative overflow-hidden';
+  const baseClasses = 'font-medium tracking-wide transition-all duration-200 focus:outline-none disabled:opacity-40 disabled:cursor-not-allowed relative overflow-hidden';
 
   const variantClasses = {
     filled: 'bg-[rgb(var(--md-sys-color-primary))] text-[rgb(var(--md-sys-color-on-primary))] md-elevation-0 hover:md-elevation-1 active:md-elevation-0 rounded-full',
@@ -23,10 +23,12 @@ export const Button: React.FC<ButtonProps> = ({
     tonal: 'bg-[rgb(var(--md-sys-color-secondary-container))] text-[rgb(var(--md-sys-color-on-secondary-container))] md-elevation-0 hover:md-elevation-1 active:md-elevation-0 rounded-full',
     outlined: 'border border-[rgb(var(--md-sys-color-outline))] text-[rgb(var(--md-sys-color-primary))] hover:bg-[rgb(var(--md-sys-color-primary))]/8 active:bg-[rgb(var(--md-sys-color-primary))]/12 rounded-full',
     text: 'text-[rgb(var(--md-sys-color-primary))] hover:bg-[rgb(var(--md-sys-color-primary))]/8 active:bg-[rgb(var(--md-sys-color-primary))]/12 rounded-full',
+    sky: 'flex items-center gap-1.5 font-medium text-white bg-sky rounded hover:bg-sky/90 transition-colors',
+    blue: 'flex items-center gap-1.5 font-medium text-white bg-blue rounded hover:bg-blue/90 transition-colors'
   };
 
   const sizeClasses = {
-    sm: 'px-4 py-2 text-xs min-h-[32px]',
+    sm: 'px-4 py-2 text-sm min-h-[32px]',
     md: 'px-6 py-2.5 text-sm min-h-[40px]',
     lg: 'px-8 py-3 text-base min-h-[48px]',
   };
