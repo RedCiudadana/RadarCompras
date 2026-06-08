@@ -1,6 +1,8 @@
 import React from 'react';
 import { Search } from 'lucide-react';
 import { Button } from '../ui/Button';
+import summaryData from '../../data/outputs/summary.json';
+import { formatNumber, formatAbbreviatedCurrency } from '../../utils/formatters';
 
 interface KPIStat {
   label: string;
@@ -13,11 +15,13 @@ interface HeroSectionProps {
   onCTAClick?: (actionType: string) => void;
 }
 
+const { totals } = summaryData;
+
 const defaultKPIs: KPIStat[] = [
-  { label: 'Procesos', value: '20' },
-  { label: 'Meses', value: '14' },
-  { label: 'Entidades', value: '20' },
-  { label: 'Monto Total', value: 'Q10.8LM' },
+  { label: 'Procesos registrados', value: formatNumber(totals.processes) },
+  { label: 'Entidades compradoras', value: formatNumber(totals.unique_buyers) },
+  { label: 'Proveedores', value: formatNumber(totals.unique_suppliers) },
+  { label: 'Monto total', value: formatAbbreviatedCurrency(totals.total_amount_gtq) },
 ];
 
 export const HeroSection: React.FC<HeroSectionProps> = ({
@@ -33,17 +37,18 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   };
 
   return (
-    <div className="bg-gradient-to-r from-rc-blue via-blue-700 to-blue-900 text-white relative overflow-visible">
+    <div className="text-white relative overflow-visible">
       {/* Background pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <svg className="w-full h-full" viewBox="0 0 1200 600" preserveAspectRatio="none">
+      <div className="absolute inset-0">
+        {/* <svg className="w-full h-full" viewBox="0 0 1200 600" preserveAspectRatio="none">
           <defs>
             <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
               <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" strokeWidth="0.5" />
             </pattern>
           </defs>
           <rect width="1200" height="600" fill="url(#grid)" />
-        </svg>
+        </svg> */}
+        <img src="/slider_home.png" alt="" className="w-full h-full" />
       </div>
 
       {/* Wave divider */}
@@ -57,7 +62,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         </svg>
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-4 py-16 sm:py-20 md:py-24 pb-20">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 py-16 sm:py-20 md:py-24 pb-20 min-h-[85vh]">
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
             Radar de Compras Públicas<br />para Mipymes
@@ -98,7 +103,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           </div>
 
           {/* Search Bar */}
-          <form onSubmit={handleSearch} className="max-w-2xl mx-auto">
+          {/* Currently OCDS API don't support this feature */}
+          <form onSubmit={handleSearch} className="max-w-2xl mx-auto hidden">
             <div className="relative">
               <input
                 type="text"

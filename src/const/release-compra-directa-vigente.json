@@ -1,0 +1,202 @@
+{
+	"releases": [
+		{
+			"ocid": "ocds-xqjsxa-30714915",
+			"date": "2026-06-05T11:11:09-06:00",
+			"publishedDate": "2026-06-06T01:00:33-06:00",
+			"language": "es",
+			"tag": [
+				"tender"
+			],
+			"initiationType": "tender",
+			"parties": [
+				{
+					"identifier": {
+						"scheme": "GT-CISP",
+						"id": "11400068"
+					},
+					"address": {
+						"streetAddress": "7a. Avenida 22-72, Centro cívico, Zona 1",
+						"locality": "GUATEMALA",
+						"region": "GUATEMALA",
+						"countryName": "GUATEMALA"
+					},
+					"contactPoint": {
+						"name": "INSTITUTO GUATEMALTECO DE SEGURIDAD SOCIAL -IGSS-",
+						"email": "guatecompras.igss@igssgt.org",
+						"telephone": "24121224 ext. 1233-39",
+						"faxNumber": "24121224 ext. 1235 1238"
+					},
+					"roles": [
+						"buyer"
+					],
+					"details": {
+						"level": {
+							"description": "Instituto",
+							"id": "52"
+						},
+						"entityType": {
+							"description": "Entidades Descentralizadas, Autónomas y de Seguridad Social",
+							"id": "5"
+						},
+						"type": {
+							"description": "Sector Público",
+							"id": "1"
+						}
+					},
+					"id": "GT-CISP-11400068",
+					"name": "INSTITUTO GUATEMALTECO DE SEGURIDAD SOCIAL -IGSS-"
+				},
+				{
+					"identifier": {
+						"scheme": "GT-GCUC",
+						"id": "52-15"
+					},
+					"address": {
+						"streetAddress": "19 avenida 7-14 zona 6",
+						"locality": "GUATEMALA",
+						"region": "GUATEMALA",
+						"countryName": "GUATEMALA"
+					},
+					"contactPoint": {
+						"name": "HOSPITAL GENERAL \"DOCTOR JUAN JOSÉ ARÉVALO BERMEJO\"",
+						"email": "compras.jjab@igssgt.org",
+						"telephone": "2282431-39",
+						"faxNumber": "2280157-2280163"
+					},
+					"roles": [
+						"buyer"
+					],
+					"memberOf": [
+						{
+							"id": "GT-CISP-11400068",
+							"name": "INSTITUTO GUATEMALTECO DE SEGURIDAD SOCIAL -IGSS-"
+						}
+					],
+					"details": {
+						"entityType": {
+							"description": "Entidades Descentralizadas, Autónomas y de Seguridad Social",
+							"id": "5"
+						},
+						"type": {
+							"description": "Sector Público",
+							"id": "1"
+						}
+					},
+					"id": "GT-GCUC-52-15",
+					"name": "HOSPITAL GENERAL \"DOCTOR JUAN JOSÉ ARÉVALO BERMEJO\""
+				}
+			],
+			"buyer": {
+				"id": "GT-NIT-2342855",
+				"name": "INSTITUTO GUATEMALTECO DE SEGURIDAD SOCIAL -IGSS-"
+			},
+			"tender": {
+				"title": "EVENTO: \t641-2026<br />CÓDIGO IGSS: \t352030<br />CÓDIGO PpR:\t68721<br />PEDIDO SIAF: \t4823-2026<br />REFERENCIA:\t27438<br />ELECTRODIAGNÓSTICO;ESTUDIO;ELECTROMIOGRAMA BÁSICO CONVENCIONAL EXTREMIDAD SUPERIOR BILATERAL (ADULTO)",
+				"status": "active",
+				"statusDetails": "Vigente",
+				"datePublished": "2026-06-01T13:04:15-06:00",
+				"procuringEntity": {
+					"id": "GT-NIT-2342855",
+					"name": "INSTITUTO GUATEMALTECO DE SEGURIDAD SOCIAL -IGSS-"
+				},
+				"items": [
+					{
+						"description": "Electromiograma básico convencional, extremidad superior bilateral",
+						"classification": {
+							"scheme": "UNSPSC",
+							"id": "85111607"
+						},
+						"quantity": {
+							"source": "270.0",
+							"parsedValue": 270
+						},
+						"unit": {
+							"name": "Unidad - 1 Unidad"
+						},
+						"attributes": [
+							{
+								"value": "Obligatorio salvo excepciones",
+								"id": "D22095E8299940EBCDAC6CB5689456FF",
+								"name": "Tipo de obligatoriedad"
+							},
+							{
+								"value": " Tipo: Servicio; ",
+								"id": "2A1299418286D175FFB646E6F77E2A52",
+								"name": "Características"
+							}
+						],
+						"id": "5FF28D20E907ECF2D7FBC6F9E4BFF458"
+					}
+				],
+				"procurementMethod": "open",
+				"procurementMethodDetails": "Compra Directa con Oferta Electrónica (Art. 43 LCE Inciso b)",
+				"mainProcurementCategory": "services",
+				"submissionMethod": [
+					"electronicSubmission"
+				],
+				"tenderPeriod": {
+					"startDate": "2026-06-01T13:04:15-06:00"
+				},
+				"numberOfTenderers": 0,
+				"documents": [
+					{
+						"documentType": "purchaseRequest",
+						"title": "Solicitud o requerimiento de bien, servicio o suministro",
+						"url": "http://www.guatecompras.gt/concursos/files/6143/30714915@SIAF%204823-2026%20CODIGO%20352030.pdf",
+						"format": "application/pdf",
+						"language": "es",
+						"datePublished": "2026-06-01T13:04:15-06:00",
+						"documentTypeDetails": "Solicitud o requerimiento de bien, servicio o suministro",
+						"id": "EBE9E5D60F31543B0DE2B228AE32CEDA"
+					},
+					{
+						"documentType": "purchaseRequest",
+						"title": "Bases, especificaciones generales o términos de referencia",
+						"url": "http://www.guatecompras.gt/concursos/files/6143/30714915@ESPECIFICACIONES%20TECNICAS%20O%20TERMINOS%20DE%20REFERENCIA%20SERVICIOS%20DE%20NEUROLOGIA.pdf",
+						"format": "application/pdf",
+						"language": "es",
+						"datePublished": "2026-06-01T13:04:15-06:00",
+						"documentTypeDetails": "Bases, especificaciones generales o términos de referencia",
+						"id": "9C1157409C996FDFBE9FF0EE7011423B"
+					},
+					{
+						"documentType": "purchaseRequest",
+						"title": "Bases, especificaciones generales o términos de referencia",
+						"url": "http://www.guatecompras.gt/concursos/files/6143/30714915@BASES%20EVENTO%20641-2026.pdf",
+						"format": "application/pdf",
+						"language": "es",
+						"datePublished": "2026-06-01T13:04:15-06:00",
+						"documentTypeDetails": "Bases, especificaciones generales o términos de referencia",
+						"id": "40A220E14858F69A19C5E689EC2C0756"
+					},
+					{
+						"title": "Documentos de respaldo",
+						"url": "http://www.guatecompras.gt/concursos/files/6143/30714915@PRORROGA%20DE%20EVENTO%20ACUERDO%2022-2025.pdf",
+						"format": "application/pdf",
+						"language": "es",
+						"datePublished": "2026-06-05T11:11:09-06:00",
+						"documentTypeDetails": "Documentos de respaldo",
+						"id": "F5F4154A259240D110F45A651399C1A8"
+					}
+				],
+				"id": "GT-NOG-30714915"
+			},
+			"sources": [
+				{
+					"url": "https://www.guatecompras.gt",
+					"id": "GUATECOMPRAS",
+					"name": "Sistema de Información de Contrataciones y Adquisiciones del Estado"
+				}
+			],
+			"dataSegmentation": {
+				"criteria": [
+					"añoPublicaciónConvocatoria",
+					"mesPublicaciónConvocatoria"
+				],
+				"id": "2026-06"
+			},
+			"id": "GT-NOG-30714915-T639163044334632707"
+		}
+	]
+}

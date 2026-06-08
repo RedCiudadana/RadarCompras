@@ -3,14 +3,15 @@
 export interface CatalogItem {
   id: string;
   name: string;
+  shortName?: string;
 }
 
 /** 2.3.7 Identificadores del Catálogo de Modalidades (Modalidad_compradora) */
 export const MODALIDADES: CatalogItem[] = [
-  { id: '1',  name: 'Compra Directa con Oferta Electrónica (Art. 43 LCE Inciso b)' },
+  { id: '1',  name: 'Compra Directa con Oferta Electrónica (Art. 43 LCE Inciso b)', shortName: 'Compra Directa' },
   { id: '2',  name: 'Adquisición Directa por Ausencia de Oferta' },
-  { id: '3',  name: 'Cotización (Art. 38 LCE)' },
-  { id: '4',  name: 'Licitación Pública (Art. 17 LCE)' },
+  { id: '3',  name: 'Cotización (Art. 38 LCE)', shortName: 'Cotización' },
+  { id: '4',  name: 'Licitación Pública (Art. 17 LCE)', shortName: 'Licitación Pública' },
   { id: '5',  name: 'Contrato Abierto (Art. 46 LCE)' },
   { id: '6',  name: 'Casos de Excepción (Art. 44 LCE)' },
   { id: '7',  name: 'Procedimientos regulados por el artículo 54 LCE' },

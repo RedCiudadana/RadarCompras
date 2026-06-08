@@ -14,7 +14,19 @@ const SLIDERS_CONFIG: Record<string, { title: string; slider: string; }> = {
   '/': {
     title: 'Radar de Compras',
     slider: '/slider_27.png'
-  }
+  },
+  '/busqueda': {
+    title: 'Búsqueda de compras',
+    slider: '/slider_buscar.png'
+  },
+  '/oportunidades': {
+    title: 'Análisis de oportunidades',
+    slider: '/slider_oportunidades.png'
+  },
+  '/tendencias': {
+    title: 'Tendencias',
+    slider: '/slider_tendencias.png'
+  },
 };
 
 const DEFAULT_SLIDER_CONFIG = {

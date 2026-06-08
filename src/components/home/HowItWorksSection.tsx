@@ -26,13 +26,13 @@ export const HowItWorksSection: React.FC<HowItWorksSectionProps> = () => {
             </div>
             <div className="flex-1 text-center">
               <img src="/iconos/radar.png" className="bg-neutral p-2 rounded-full size-16 mx-auto mb-4" />
-              <h4 className="text-2xl font-bold text-black">1. Explora</h4>
-              <p className="text-sm text-rc-text-base">Busca procesos de contratación por sector, institución, monto o ubicación que se ajusten a tu perfil empresarial</p>
+              <h4 className="text-2xl font-bold text-black">2. Identifica</h4>
+              <p className="text-sm text-rc-text-base">Revisa detalles, requisitos y fechas límite de cada oportunidad. Filtra por proesos aptos para Mypymes.</p>
             </div>
             <div className="flex-1 text-center">
               <img src="/iconos/participa.png" className="bg-neutral p-2 rounded-full size-16 mx-auto mb-4" />
-              <h4 className="text-2xl font-bold text-black">1. Explora</h4>
-              <p className="text-sm text-rc-text-base">Busca procesos de contratación por sector, institución, monto o ubicación que se ajusten a tu perfil empresarial</p>
+              <h4 className="text-2xl font-bold text-black">3. Participa</h4>
+              <p className="text-sm text-rc-text-base">Accede al proceso oficial en Guatecompras y presenta tu oferta cumpliendo con los requisitos establecidos</p>
             </div>
           </div>
         </div>
