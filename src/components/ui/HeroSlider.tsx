@@ -122,7 +122,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat'
       }}
-      className='min-h-12 md:min-h-80 flex justify-center items-center'>
+      className='min-h-80 flex justify-center items-center'>
         <h1 className='text-3xl font-bold text-white'>{title || 'Radar de Compras Públicas'}</h1>
       </div>
     )
