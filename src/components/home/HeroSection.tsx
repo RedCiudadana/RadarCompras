@@ -30,6 +30,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   onCTAClick
 }) => {
   const [searchQuery, setSearchQuery] = React.useState('');
+  const period = summaryData.period;
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -100,6 +101,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 <div className="text-sm text-blue-100">{stat.label}</div>
               </div>
             ))}
+          </div>
+
+          <div>
+            <p className="text-xs text-white">
+              Período: {period.start} a {period.end}. Fuente OCDS Minfin
+            </p>
           </div>
 
           {/* Search Bar */}

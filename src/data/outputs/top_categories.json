@@ -3,122 +3,122 @@
     {
       "rank": 1,
       "segment_code": "72",
-      "segment_name": "Infraestructura",
-      "total_amount_gtq": 17062372804.15,
-      "pct_of_total": 33.97,
-      "item_count": 11855864
+      "segment_name": "Servicios de Edificación, Construcción de Instalaciones y Mantenimiento",
+      "total_amount_gtq": 29481247756.79,
+      "pct_of_total": 26.38,
+      "item_count": 27337456
     },
     {
       "rank": 2,
-      "segment_code": "81",
-      "segment_name": "Industria/Manufactura",
-      "total_amount_gtq": 4852676426.18,
-      "pct_of_total": 9.66,
-      "item_count": 989196
+      "segment_code": "51",
+      "segment_name": "Medicamentos y Productos Farmacéuticos",
+      "total_amount_gtq": 8756002935.57,
+      "pct_of_total": 7.84,
+      "item_count": 1989163309
     },
     {
       "rank": 3,
-      "segment_code": "83",
-      "segment_name": "Salud y Sociales",
-      "total_amount_gtq": 2930222703.44,
-      "pct_of_total": 5.83,
-      "item_count": 514750
+      "segment_code": "81",
+      "segment_name": "Servicios Basados en Ingeniería, Investigación y Tecnología",
+      "total_amount_gtq": 8729002608.4,
+      "pct_of_total": 7.81,
+      "item_count": 2477182
     },
     {
       "rank": 4,
-      "segment_code": "30",
-      "segment_name": "Transporte/Logística",
-      "total_amount_gtq": 2548183233.56,
-      "pct_of_total": 5.07,
-      "item_count": 11181661
+      "segment_code": "83",
+      "segment_name": "Servicios Públicos y Servicios Relacionados con el Sector Público",
+      "total_amount_gtq": 7165043225.52,
+      "pct_of_total": 6.41,
+      "item_count": 2197332
     },
     {
       "rank": 5,
-      "segment_code": "51",
-      "segment_name": "Medicamentos",
-      "total_amount_gtq": 2375428518.47,
-      "pct_of_total": 4.73,
-      "item_count": 518058415
+      "segment_code": "30",
+      "segment_name": "Componentes y Suministros para Estructuras, Edificación, Construcción y Obras Civiles",
+      "total_amount_gtq": 5724558432.57,
+      "pct_of_total": 5.12,
+      "item_count": 26103851
     },
     {
       "rank": 6,
-      "segment_code": "80",
-      "segment_name": "Gestión/Negocios",
-      "total_amount_gtq": 2048521734.74,
-      "pct_of_total": 4.08,
-      "item_count": 2475298
+      "segment_code": "86",
+      "segment_name": "Servicios Educativos y de Formación",
+      "total_amount_gtq": 3903678343.39,
+      "pct_of_total": 3.49,
+      "item_count": 1123793
     },
     {
       "rank": 7,
-      "segment_code": "78",
-      "segment_name": "Transporte/Almacenamiento",
-      "total_amount_gtq": 1474004930.43,
-      "pct_of_total": 2.93,
-      "item_count": 1761775
+      "segment_code": "85",
+      "segment_name": "Servicios de Salud",
+      "total_amount_gtq": 3776555255.35,
+      "pct_of_total": 3.38,
+      "item_count": 12772925
     },
     {
       "rank": 8,
-      "segment_code": "56",
-      "segment_name": "Telecomunicaciones",
-      "total_amount_gtq": 1328231123.07,
-      "pct_of_total": 2.64,
-      "item_count": 418480
+      "segment_code": "42",
+      "segment_name": "Equipo Médico, Accesorios y Suministros",
+      "total_amount_gtq": 3125569483.23,
+      "pct_of_total": 2.8,
+      "item_count": 460868064
     },
     {
       "rank": 9,
-      "segment_code": "50",
-      "segment_name": "Alimentos",
-      "total_amount_gtq": 1259927984.78,
-      "pct_of_total": 2.51,
-      "item_count": 356031949
+      "segment_code": "80",
+      "segment_name": "Servicios de Gestión, Servicios Profesionales de Empresa y Servicios Administrativos",
+      "total_amount_gtq": 3068653073.75,
+      "pct_of_total": 2.75,
+      "item_count": 13731906
     },
     {
       "rank": 10,
-      "segment_code": "43",
-      "segment_name": "Equipos TIC",
-      "total_amount_gtq": 1250522789.83,
-      "pct_of_total": 2.49,
-      "item_count": 3515040
+      "segment_code": "0",
+      "segment_name": "Segmento 0",
+      "total_amount_gtq": 2789110570.55,
+      "pct_of_total": 2.5,
+      "item_count": 4201
     },
     {
       "rank": 11,
-      "segment_code": "42",
-      "segment_name": "Otros",
-      "total_amount_gtq": 1227571436.06,
-      "pct_of_total": 2.44,
-      "item_count": 201260463
+      "segment_code": "50",
+      "segment_name": "Alimentos, Bebidas y Tabaco",
+      "total_amount_gtq": 2701656696.38,
+      "pct_of_total": 2.42,
+      "item_count": 459665759
     },
     {
       "rank": 12,
-      "segment_code": "85",
-      "segment_name": "Otros",
-      "total_amount_gtq": 1191369090.8,
-      "pct_of_total": 2.37,
-      "item_count": 5148239
+      "segment_code": "43",
+      "segment_name": "Difusión de Tecnologías de Información y Telecomunicaciones",
+      "total_amount_gtq": 2524309641.79,
+      "pct_of_total": 2.26,
+      "item_count": 10384105
     },
     {
       "rank": 13,
-      "segment_code": "84",
-      "segment_name": "Otros",
-      "total_amount_gtq": 754631931.44,
-      "pct_of_total": 1.5,
-      "item_count": 8292556
+      "segment_code": "25",
+      "segment_name": "Vehículos Comerciales, Militares y Particulares, Accesorios y Componentes",
+      "total_amount_gtq": 2338367546.64,
+      "pct_of_total": 2.09,
+      "item_count": 1715293
     },
     {
       "rank": 14,
-      "segment_code": "60",
-      "segment_name": "Otros",
-      "total_amount_gtq": 696368196.42,
-      "pct_of_total": 1.39,
-      "item_count": 4026178
+      "segment_code": "78",
+      "segment_name": "Servicios de Transporte, Almacenaje y Correo",
+      "total_amount_gtq": 2259351162.41,
+      "pct_of_total": 2.02,
+      "item_count": 5295356
     },
     {
       "rank": 15,
-      "segment_code": "25",
-      "segment_name": "Otros",
-      "total_amount_gtq": 657885459.56,
-      "pct_of_total": 1.31,
-      "item_count": 375197
+      "segment_code": "41",
+      "segment_name": "Equipos y Suministros de Laboratorio, de Medición, de Observación y de Pruebas",
+      "total_amount_gtq": 2005156797.15,
+      "pct_of_total": 1.79,
+      "item_count": 130911116
     }
   ]
 }

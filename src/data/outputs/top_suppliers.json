@@ -3,9 +3,57 @@
     {
       "rank": 1,
       "name": "J.I. COHEN, SOCIEDAD ANONIMA",
-      "total_adjudicaciones": 8512,
-      "pct_of_total": 7.24,
+      "total_adjudicaciones": 24523,
+      "pct_of_total": 6.21,
       "monthly_series": [
+        {
+          "month": "2025-01",
+          "adjudicaciones": 441
+        },
+        {
+          "month": "2025-02",
+          "adjudicaciones": 1059
+        },
+        {
+          "month": "2025-03",
+          "adjudicaciones": 1863
+        },
+        {
+          "month": "2025-04",
+          "adjudicaciones": 1091
+        },
+        {
+          "month": "2025-05",
+          "adjudicaciones": 898
+        },
+        {
+          "month": "2025-06",
+          "adjudicaciones": 1181
+        },
+        {
+          "month": "2025-07",
+          "adjudicaciones": 1657
+        },
+        {
+          "month": "2025-08",
+          "adjudicaciones": 2306
+        },
+        {
+          "month": "2025-09",
+          "adjudicaciones": 1484
+        },
+        {
+          "month": "2025-10",
+          "adjudicaciones": 1080
+        },
+        {
+          "month": "2025-11",
+          "adjudicaciones": 1317
+        },
+        {
+          "month": "2025-12",
+          "adjudicaciones": 1634
+        },
         {
           "month": "2026-01",
           "adjudicaciones": 2118
@@ -27,9 +75,57 @@
     {
       "rank": 2,
       "name": "AGENCIA FARMACEUTICA INTERNACIONAL SOCIEDAD ANONIMA",
-      "total_adjudicaciones": 2420,
-      "pct_of_total": 2.06,
+      "total_adjudicaciones": 9288,
+      "pct_of_total": 2.35,
       "monthly_series": [
+        {
+          "month": "2025-01",
+          "adjudicaciones": 160
+        },
+        {
+          "month": "2025-02",
+          "adjudicaciones": 528
+        },
+        {
+          "month": "2025-03",
+          "adjudicaciones": 785
+        },
+        {
+          "month": "2025-04",
+          "adjudicaciones": 406
+        },
+        {
+          "month": "2025-05",
+          "adjudicaciones": 533
+        },
+        {
+          "month": "2025-06",
+          "adjudicaciones": 759
+        },
+        {
+          "month": "2025-07",
+          "adjudicaciones": 1467
+        },
+        {
+          "month": "2025-08",
+          "adjudicaciones": 480
+        },
+        {
+          "month": "2025-09",
+          "adjudicaciones": 323
+        },
+        {
+          "month": "2025-10",
+          "adjudicaciones": 581
+        },
+        {
+          "month": "2025-11",
+          "adjudicaciones": 329
+        },
+        {
+          "month": "2025-12",
+          "adjudicaciones": 517
+        },
         {
           "month": "2026-01",
           "adjudicaciones": 509
@@ -51,9 +147,57 @@
     {
       "rank": 3,
       "name": "SERVICIOS QUIRURGICOS SOCIEDAD ANONIMA",
-      "total_adjudicaciones": 2313,
-      "pct_of_total": 1.97,
+      "total_adjudicaciones": 7717,
+      "pct_of_total": 1.95,
       "monthly_series": [
+        {
+          "month": "2025-01",
+          "adjudicaciones": 122
+        },
+        {
+          "month": "2025-02",
+          "adjudicaciones": 218
+        },
+        {
+          "month": "2025-03",
+          "adjudicaciones": 715
+        },
+        {
+          "month": "2025-04",
+          "adjudicaciones": 401
+        },
+        {
+          "month": "2025-05",
+          "adjudicaciones": 443
+        },
+        {
+          "month": "2025-06",
+          "adjudicaciones": 391
+        },
+        {
+          "month": "2025-07",
+          "adjudicaciones": 440
+        },
+        {
+          "month": "2025-08",
+          "adjudicaciones": 384
+        },
+        {
+          "month": "2025-09",
+          "adjudicaciones": 522
+        },
+        {
+          "month": "2025-10",
+          "adjudicaciones": 427
+        },
+        {
+          "month": "2025-11",
+          "adjudicaciones": 532
+        },
+        {
+          "month": "2025-12",
+          "adjudicaciones": 809
+        },
         {
           "month": "2026-01",
           "adjudicaciones": 312
@@ -74,58 +218,58 @@
     },
     {
       "rank": 4,
-      "name": "CENTRO DISTRIBUIDOR SOCIEDAD ANONIMA",
-      "total_adjudicaciones": 2224,
-      "pct_of_total": 1.89,
-      "monthly_series": [
-        {
-          "month": "2026-01",
-          "adjudicaciones": 477
-        },
-        {
-          "month": "2026-02",
-          "adjudicaciones": 330
-        },
-        {
-          "month": "2026-03",
-          "adjudicaciones": 1219
-        },
-        {
-          "month": "2026-04",
-          "adjudicaciones": 198
-        }
-      ]
-    },
-    {
-      "rank": 5,
-      "name": "REUS PHARMA, SOCIEDAD ANÓNIMA",
-      "total_adjudicaciones": 1923,
-      "pct_of_total": 1.64,
-      "monthly_series": [
-        {
-          "month": "2026-01",
-          "adjudicaciones": 149
-        },
-        {
-          "month": "2026-02",
-          "adjudicaciones": 428
-        },
-        {
-          "month": "2026-03",
-          "adjudicaciones": 1180
-        },
-        {
-          "month": "2026-04",
-          "adjudicaciones": 166
-        }
-      ]
-    },
-    {
-      "rank": 6,
       "name": "LABYMED, SOCIEDAD ANONIMA",
-      "total_adjudicaciones": 1907,
-      "pct_of_total": 1.62,
+      "total_adjudicaciones": 7284,
+      "pct_of_total": 1.84,
       "monthly_series": [
+        {
+          "month": "2025-01",
+          "adjudicaciones": 167
+        },
+        {
+          "month": "2025-02",
+          "adjudicaciones": 313
+        },
+        {
+          "month": "2025-03",
+          "adjudicaciones": 805
+        },
+        {
+          "month": "2025-04",
+          "adjudicaciones": 283
+        },
+        {
+          "month": "2025-05",
+          "adjudicaciones": 367
+        },
+        {
+          "month": "2025-06",
+          "adjudicaciones": 476
+        },
+        {
+          "month": "2025-07",
+          "adjudicaciones": 380
+        },
+        {
+          "month": "2025-08",
+          "adjudicaciones": 493
+        },
+        {
+          "month": "2025-09",
+          "adjudicaciones": 410
+        },
+        {
+          "month": "2025-10",
+          "adjudicaciones": 556
+        },
+        {
+          "month": "2025-11",
+          "adjudicaciones": 501
+        },
+        {
+          "month": "2025-12",
+          "adjudicaciones": 626
+        },
         {
           "month": "2026-01",
           "adjudicaciones": 264
@@ -145,35 +289,203 @@
       ]
     },
     {
-      "rank": 7,
-      "name": "AVIV FARMACEUTICA, SOCIEDAD ANONIMA",
-      "total_adjudicaciones": 1592,
-      "pct_of_total": 1.35,
+      "rank": 5,
+      "name": "CENTRO DISTRIBUIDOR SOCIEDAD ANONIMA",
+      "total_adjudicaciones": 6533,
+      "pct_of_total": 1.65,
       "monthly_series": [
         {
+          "month": "2025-01",
+          "adjudicaciones": 184
+        },
+        {
+          "month": "2025-02",
+          "adjudicaciones": 444
+        },
+        {
+          "month": "2025-03",
+          "adjudicaciones": 397
+        },
+        {
+          "month": "2025-04",
+          "adjudicaciones": 307
+        },
+        {
+          "month": "2025-05",
+          "adjudicaciones": 272
+        },
+        {
+          "month": "2025-06",
+          "adjudicaciones": 197
+        },
+        {
+          "month": "2025-07",
+          "adjudicaciones": 497
+        },
+        {
+          "month": "2025-08",
+          "adjudicaciones": 409
+        },
+        {
+          "month": "2025-09",
+          "adjudicaciones": 414
+        },
+        {
+          "month": "2025-10",
+          "adjudicaciones": 338
+        },
+        {
+          "month": "2025-11",
+          "adjudicaciones": 223
+        },
+        {
+          "month": "2025-12",
+          "adjudicaciones": 627
+        },
+        {
           "month": "2026-01",
-          "adjudicaciones": 142
+          "adjudicaciones": 477
         },
         {
           "month": "2026-02",
-          "adjudicaciones": 361
+          "adjudicaciones": 330
         },
         {
           "month": "2026-03",
-          "adjudicaciones": 976
+          "adjudicaciones": 1219
         },
         {
           "month": "2026-04",
-          "adjudicaciones": 113
+          "adjudicaciones": 198
         }
       ]
     },
     {
-      "rank": 8,
-      "name": "PRODUCTOS ROCHE GUATEMALA, SOCIEDAD ANÓNIMA",
-      "total_adjudicaciones": 1510,
-      "pct_of_total": 1.29,
+      "rank": 6,
+      "name": "REUS PHARMA, SOCIEDAD ANÓNIMA",
+      "total_adjudicaciones": 6255,
+      "pct_of_total": 1.58,
       "monthly_series": [
+        {
+          "month": "2025-01",
+          "adjudicaciones": 66
+        },
+        {
+          "month": "2025-02",
+          "adjudicaciones": 352
+        },
+        {
+          "month": "2025-03",
+          "adjudicaciones": 664
+        },
+        {
+          "month": "2025-04",
+          "adjudicaciones": 247
+        },
+        {
+          "month": "2025-05",
+          "adjudicaciones": 338
+        },
+        {
+          "month": "2025-06",
+          "adjudicaciones": 357
+        },
+        {
+          "month": "2025-07",
+          "adjudicaciones": 395
+        },
+        {
+          "month": "2025-08",
+          "adjudicaciones": 440
+        },
+        {
+          "month": "2025-09",
+          "adjudicaciones": 384
+        },
+        {
+          "month": "2025-10",
+          "adjudicaciones": 444
+        },
+        {
+          "month": "2025-11",
+          "adjudicaciones": 322
+        },
+        {
+          "month": "2025-12",
+          "adjudicaciones": 323
+        },
+        {
+          "month": "2026-01",
+          "adjudicaciones": 149
+        },
+        {
+          "month": "2026-02",
+          "adjudicaciones": 428
+        },
+        {
+          "month": "2026-03",
+          "adjudicaciones": 1180
+        },
+        {
+          "month": "2026-04",
+          "adjudicaciones": 166
+        }
+      ]
+    },
+    {
+      "rank": 7,
+      "name": "PRODUCTOS ROCHE GUATEMALA, SOCIEDAD ANÓNIMA",
+      "total_adjudicaciones": 6197,
+      "pct_of_total": 1.57,
+      "monthly_series": [
+        {
+          "month": "2025-01",
+          "adjudicaciones": 118
+        },
+        {
+          "month": "2025-02",
+          "adjudicaciones": 226
+        },
+        {
+          "month": "2025-03",
+          "adjudicaciones": 659
+        },
+        {
+          "month": "2025-04",
+          "adjudicaciones": 327
+        },
+        {
+          "month": "2025-05",
+          "adjudicaciones": 273
+        },
+        {
+          "month": "2025-06",
+          "adjudicaciones": 410
+        },
+        {
+          "month": "2025-07",
+          "adjudicaciones": 390
+        },
+        {
+          "month": "2025-08",
+          "adjudicaciones": 390
+        },
+        {
+          "month": "2025-09",
+          "adjudicaciones": 320
+        },
+        {
+          "month": "2025-10",
+          "adjudicaciones": 490
+        },
+        {
+          "month": "2025-11",
+          "adjudicaciones": 575
+        },
+        {
+          "month": "2025-12",
+          "adjudicaciones": 509
+        },
         {
           "month": "2026-01",
           "adjudicaciones": 162
@@ -193,11 +505,131 @@
       ]
     },
     {
+      "rank": 8,
+      "name": "COMPAÑIA FARMACEUTICA LANQUETIN, SOCIEDAD ANONIMA",
+      "total_adjudicaciones": 5879,
+      "pct_of_total": 1.49,
+      "monthly_series": [
+        {
+          "month": "2025-01",
+          "adjudicaciones": 61
+        },
+        {
+          "month": "2025-02",
+          "adjudicaciones": 215
+        },
+        {
+          "month": "2025-03",
+          "adjudicaciones": 322
+        },
+        {
+          "month": "2025-04",
+          "adjudicaciones": 111
+        },
+        {
+          "month": "2025-05",
+          "adjudicaciones": 202
+        },
+        {
+          "month": "2025-06",
+          "adjudicaciones": 496
+        },
+        {
+          "month": "2025-07",
+          "adjudicaciones": 506
+        },
+        {
+          "month": "2025-08",
+          "adjudicaciones": 514
+        },
+        {
+          "month": "2025-09",
+          "adjudicaciones": 653
+        },
+        {
+          "month": "2025-10",
+          "adjudicaciones": 718
+        },
+        {
+          "month": "2025-11",
+          "adjudicaciones": 421
+        },
+        {
+          "month": "2025-12",
+          "adjudicaciones": 406
+        },
+        {
+          "month": "2026-01",
+          "adjudicaciones": 225
+        },
+        {
+          "month": "2026-02",
+          "adjudicaciones": 190
+        },
+        {
+          "month": "2026-03",
+          "adjudicaciones": 664
+        },
+        {
+          "month": "2026-04",
+          "adjudicaciones": 175
+        }
+      ]
+    },
+    {
       "rank": 9,
       "name": "MEDICINA CORPORATIVA DE DIALISIS, SOCIEDAD ANONIMA",
-      "total_adjudicaciones": 1307,
-      "pct_of_total": 1.11,
+      "total_adjudicaciones": 4213,
+      "pct_of_total": 1.07,
       "monthly_series": [
+        {
+          "month": "2025-01",
+          "adjudicaciones": 223
+        },
+        {
+          "month": "2025-02",
+          "adjudicaciones": 242
+        },
+        {
+          "month": "2025-03",
+          "adjudicaciones": 269
+        },
+        {
+          "month": "2025-04",
+          "adjudicaciones": 249
+        },
+        {
+          "month": "2025-05",
+          "adjudicaciones": 220
+        },
+        {
+          "month": "2025-06",
+          "adjudicaciones": 227
+        },
+        {
+          "month": "2025-07",
+          "adjudicaciones": 268
+        },
+        {
+          "month": "2025-08",
+          "adjudicaciones": 257
+        },
+        {
+          "month": "2025-09",
+          "adjudicaciones": 240
+        },
+        {
+          "month": "2025-10",
+          "adjudicaciones": 160
+        },
+        {
+          "month": "2025-11",
+          "adjudicaciones": 169
+        },
+        {
+          "month": "2025-12",
+          "adjudicaciones": 382
+        },
         {
           "month": "2026-01",
           "adjudicaciones": 335
@@ -218,25 +650,73 @@
     },
     {
       "rank": 10,
-      "name": "NIPRO MEDICAL CORPORATION - SUCURSAL DE GUATEMALA",
-      "total_adjudicaciones": 1301,
-      "pct_of_total": 1.11,
+      "name": "AVIV FARMACEUTICA, SOCIEDAD ANONIMA",
+      "total_adjudicaciones": 4111,
+      "pct_of_total": 1.04,
       "monthly_series": [
         {
+          "month": "2025-01",
+          "adjudicaciones": 47
+        },
+        {
+          "month": "2025-02",
+          "adjudicaciones": 123
+        },
+        {
+          "month": "2025-03",
+          "adjudicaciones": 144
+        },
+        {
+          "month": "2025-04",
+          "adjudicaciones": 93
+        },
+        {
+          "month": "2025-05",
+          "adjudicaciones": 201
+        },
+        {
+          "month": "2025-06",
+          "adjudicaciones": 306
+        },
+        {
+          "month": "2025-07",
+          "adjudicaciones": 509
+        },
+        {
+          "month": "2025-08",
+          "adjudicaciones": 174
+        },
+        {
+          "month": "2025-09",
+          "adjudicaciones": 215
+        },
+        {
+          "month": "2025-10",
+          "adjudicaciones": 170
+        },
+        {
+          "month": "2025-11",
+          "adjudicaciones": 130
+        },
+        {
+          "month": "2025-12",
+          "adjudicaciones": 407
+        },
+        {
           "month": "2026-01",
-          "adjudicaciones": 422
+          "adjudicaciones": 142
         },
         {
           "month": "2026-02",
-          "adjudicaciones": 258
+          "adjudicaciones": 361
         },
         {
           "month": "2026-03",
-          "adjudicaciones": 539
+          "adjudicaciones": 976
         },
         {
           "month": "2026-04",
-          "adjudicaciones": 82
+          "adjudicaciones": 113
         }
       ]
     }

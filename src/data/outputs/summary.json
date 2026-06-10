@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-05-19T05:40:03.147264Z",
+  "generated_at": "2026-06-09T03:13:08.633817Z",
   "period": {
-    "start": "2026-01-02",
+    "start": "2025-01-02",
     "end": "2026-04-08"
   },
   "totals": {
-    "processes": 143233,
-    "unique_buyers": 546,
-    "unique_suppliers": 7940,
-    "total_amount_gtq": 50222443389.64,
-    "total_items": 1948387713
+    "processes": 480379,
+    "unique_buyers": 597,
+    "unique_suppliers": 13044,
+    "total_amount_gtq": 111738289404.68,
+    "total_items": 4433811075
   }
 }
