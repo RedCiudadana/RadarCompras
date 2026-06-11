@@ -12,6 +12,7 @@ import {
   Linkedin,
   Mail,
   Globe,
+  Store,
 } from 'lucide-react';
 
 const navItems = [
@@ -19,6 +20,7 @@ const navItems = [
   { path: '/oportunidades', label: 'Oportunidades', icon: Radar },
   // { path: '/estadisticas', label: 'Estadísticas', icon: BarChart3 },
   { path: '/tendencias', label: 'Tendencias', icon: TrendingUp },
+  { path: '/pymes', label: 'PYMES', icon: Store },
 ];
 
 export const Navigation: React.FC = () => {

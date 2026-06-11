@@ -1,0 +1,225 @@
+{
+  "median_ticket_gtq": 63811.8,
+  "global_distribution": [
+    {
+      "bucket": "compra_directa",
+      "count": 365340,
+      "pct": 92.54,
+      "total_amount_gtq": 18263213353.94
+    },
+    {
+      "bucket": "cotizacion",
+      "count": 19713,
+      "pct": 4.99,
+      "total_amount_gtq": 9776684887.3
+    },
+    {
+      "bucket": "licitacion",
+      "count": 9720,
+      "pct": 2.46,
+      "total_amount_gtq": 83698391163.45
+    }
+  ],
+  "by_familia": [
+    {
+      "familia_code": "8512",
+      "familia_name": "Práctica médica",
+      "compra_directa": 31496,
+      "cotizacion": 64,
+      "licitacion": 21,
+      "median_ticket_gtq": 78000.0
+    },
+    {
+      "familia_code": "5114",
+      "familia_name": "Medicamentos para el sistema nervioso central",
+      "compra_directa": 27610,
+      "cotizacion": 87,
+      "licitacion": 28,
+      "median_ticket_gtq": 79608.9
+    },
+    {
+      "familia_code": "4111",
+      "familia_name": "Instrumentos de medida, observación y ensayo",
+      "compra_directa": 24373,
+      "cotizacion": 382,
+      "licitacion": 84,
+      "median_ticket_gtq": 45309.04
+    },
+    {
+      "familia_code": "4229",
+      "familia_name": "Productos quirúrgicos",
+      "compra_directa": 18707,
+      "cotizacion": 89,
+      "licitacion": 41,
+      "median_ticket_gtq": 6450.0
+    },
+    {
+      "familia_code": "5110",
+      "familia_name": "Medicamentos antiinfecciosos",
+      "compra_directa": 17637,
+      "cotizacion": 136,
+      "licitacion": 25,
+      "median_ticket_gtq": 38125.0
+    },
+    {
+      "familia_code": "5111",
+      "familia_name": "Agentes antitumorales",
+      "compra_directa": 14672,
+      "cotizacion": 32,
+      "licitacion": 15,
+      "median_ticket_gtq": 71993.0
+    },
+    {
+      "familia_code": "5118",
+      "familia_name": "Hormonas y antagonistas hormonales",
+      "compra_directa": 12459,
+      "cotizacion": 41,
+      "licitacion": 10,
+      "median_ticket_gtq": 80325.17
+    },
+    {
+      "familia_code": "5112",
+      "familia_name": "Medicamentos cardiovasculares",
+      "compra_directa": 10186,
+      "cotizacion": 19,
+      "licitacion": 8,
+      "median_ticket_gtq": 77251.28
+    },
+    {
+      "familia_code": "5113",
+      "familia_name": "Medicamentos hematólogos",
+      "compra_directa": 9143,
+      "cotizacion": 65,
+      "licitacion": 37,
+      "median_ticket_gtq": 89577.25
+    },
+    {
+      "familia_code": "7214",
+      "familia_name": "Servicios de construcción pesada",
+      "compra_directa": 3693,
+      "cotizacion": 2812,
+      "licitacion": 2011,
+      "median_ticket_gtq": 370294.44
+    },
+    {
+      "familia_code": "8510",
+      "familia_name": "Servicios integrales de salud",
+      "compra_directa": 7049,
+      "cotizacion": 27,
+      "licitacion": 32,
+      "median_ticket_gtq": 70000.0
+    },
+    {
+      "familia_code": "5119",
+      "familia_name": "Agentes que afectan el agua y los electrolitos",
+      "compra_directa": 6685,
+      "cotizacion": 102,
+      "licitacion": 20,
+      "median_ticket_gtq": 47030.4
+    },
+    {
+      "familia_code": "5117",
+      "familia_name": "Medicamentos que afectan al sistema gastrointestinal",
+      "compra_directa": 6502,
+      "cotizacion": 13,
+      "licitacion": 2,
+      "median_ticket_gtq": 51450.0
+    },
+    {
+      "familia_code": "1235",
+      "familia_name": "Compuestos y mezclas",
+      "compra_directa": 6416,
+      "cotizacion": 23,
+      "licitacion": 21,
+      "median_ticket_gtq": 79980.0
+    },
+    {
+      "familia_code": "4214",
+      "familia_name": "Suministros, productos de tratamiento y cuidado del enfermo",
+      "compra_directa": 6080,
+      "cotizacion": 48,
+      "licitacion": 9,
+      "median_ticket_gtq": 11600.0
+    },
+    {
+      "familia_code": "5120",
+      "familia_name": "Medicamentos inmunomoduladores",
+      "compra_directa": 5471,
+      "cotizacion": 53,
+      "licitacion": 25,
+      "median_ticket_gtq": 84000.0
+    },
+    {
+      "familia_code": "4231",
+      "familia_name": "Productos para el cuidado de heridas",
+      "compra_directa": 4588,
+      "cotizacion": 39,
+      "licitacion": 19,
+      "median_ticket_gtq": 8881.88
+    },
+    {
+      "familia_code": "8013",
+      "familia_name": "Servicios inmobiliarios",
+      "compra_directa": 2531,
+      "cotizacion": 1906,
+      "licitacion": 94,
+      "median_ticket_gtq": 89970.0
+    },
+    {
+      "familia_code": "4222",
+      "familia_name": "Productos para administración intravenosa y arterial",
+      "compra_directa": 4157,
+      "cotizacion": 36,
+      "licitacion": 4,
+      "median_ticket_gtq": 65483.25
+    },
+    {
+      "familia_code": "4112",
+      "familia_name": "Suministros y accesorios de laboratorio",
+      "compra_directa": 4165,
+      "cotizacion": 10,
+      "licitacion": 1,
+      "median_ticket_gtq": 26760.0
+    },
+    {
+      "familia_code": "7210",
+      "familia_name": "Servicios de mantenimiento y reparaciones de construcciones e instalaciones",
+      "compra_directa": 3382,
+      "cotizacion": 381,
+      "licitacion": 225,
+      "median_ticket_gtq": 82397.48
+    },
+    {
+      "familia_code": "4321",
+      "familia_name": "Equipo informático y accesorios",
+      "compra_directa": 3708,
+      "cotizacion": 195,
+      "licitacion": 56,
+      "median_ticket_gtq": 58400.0
+    },
+    {
+      "familia_code": "5116",
+      "familia_name": "Medicamentos que afectan al sistema respiratorio",
+      "compra_directa": 3759,
+      "cotizacion": 30,
+      "licitacion": 4,
+      "median_ticket_gtq": 30000.0
+    },
+    {
+      "familia_code": "8511",
+      "familia_name": "Prevención y control de enfermedades",
+      "compra_directa": 3490,
+      "cotizacion": 0,
+      "licitacion": 3,
+      "median_ticket_gtq": 84980.0
+    },
+    {
+      "familia_code": "4227",
+      "familia_name": "Productos de resucitación, anestesia y respiratorio",
+      "compra_directa": 3228,
+      "cotizacion": 41,
+      "licitacion": 10,
+      "median_ticket_gtq": 9740.0
+    }
+  ]
+}

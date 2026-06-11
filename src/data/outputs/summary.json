@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-09T03:13:08.633817Z",
+  "generated_at": "2026-06-10T04:58:04.787718Z",
   "period": {
     "start": "2025-01-02",
     "end": "2026-04-08"
@@ -9,6 +9,7 @@
     "unique_buyers": 597,
     "unique_suppliers": 13044,
     "total_amount_gtq": 111738289404.68,
-    "total_items": 4433811075
+    "total_items": 4433811075,
+    "median_ticket_gtq": 63811.8
   }
 }

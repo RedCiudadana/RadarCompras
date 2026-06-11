@@ -1,0 +1,351 @@
+{
+  "single_bidder_pct_global": 56.71,
+  "desiertos_total": 43302,
+  "tenderers_distribution": {
+    "1": 56.7118,
+    "2": 18.5594,
+    "3": 10.9494,
+    "4": 5.5783,
+    "5": 3.0156,
+    "6": 1.7592,
+    "7": 1.0794,
+    "8": 0.7091,
+    "9": 0.4675,
+    "10+": 1.1702
+  },
+  "by_familia": [
+    {
+      "familia_code": "8512",
+      "familia_name": "Práctica médica",
+      "n_processes": 34379,
+      "single_bidder_pct": 68.63,
+      "desiertos": 3733
+    },
+    {
+      "familia_code": "5114",
+      "familia_name": "Medicamentos para el sistema nervioso central",
+      "n_processes": 30127,
+      "single_bidder_pct": 56.73,
+      "desiertos": 4248
+    },
+    {
+      "familia_code": "4111",
+      "familia_name": "Instrumentos de medida, observación y ensayo",
+      "n_processes": 26176,
+      "single_bidder_pct": 75.0,
+      "desiertos": 2219
+    },
+    {
+      "familia_code": "4229",
+      "familia_name": "Productos quirúrgicos",
+      "n_processes": 20350,
+      "single_bidder_pct": 41.68,
+      "desiertos": 1699
+    },
+    {
+      "familia_code": "5110",
+      "familia_name": "Medicamentos antiinfecciosos",
+      "n_processes": 17503,
+      "single_bidder_pct": 46.8,
+      "desiertos": 1962
+    },
+    {
+      "familia_code": "5111",
+      "familia_name": "Agentes antitumorales",
+      "n_processes": 15986,
+      "single_bidder_pct": 73.4,
+      "desiertos": 1104
+    },
+    {
+      "familia_code": "5118",
+      "familia_name": "Hormonas y antagonistas hormonales",
+      "n_processes": 13189,
+      "single_bidder_pct": 43.32,
+      "desiertos": 2758
+    },
+    {
+      "familia_code": "5112",
+      "familia_name": "Medicamentos cardiovasculares",
+      "n_processes": 11031,
+      "single_bidder_pct": 51.53,
+      "desiertos": 1309
+    },
+    {
+      "familia_code": "5113",
+      "familia_name": "Medicamentos hematólogos",
+      "n_processes": 10075,
+      "single_bidder_pct": 73.68,
+      "desiertos": 546
+    },
+    {
+      "familia_code": "7214",
+      "familia_name": "Servicios de construcción pesada",
+      "n_processes": 8941,
+      "single_bidder_pct": 89.74,
+      "desiertos": 243
+    },
+    {
+      "familia_code": "8510",
+      "familia_name": "Servicios integrales de salud",
+      "n_processes": 7801,
+      "single_bidder_pct": 62.36,
+      "desiertos": 918
+    },
+    {
+      "familia_code": "5119",
+      "familia_name": "Agentes que afectan el agua y los electrolitos",
+      "n_processes": 7126,
+      "single_bidder_pct": 48.44,
+      "desiertos": 806
+    },
+    {
+      "familia_code": "5117",
+      "familia_name": "Medicamentos que afectan al sistema gastrointestinal",
+      "n_processes": 6916,
+      "single_bidder_pct": 39.98,
+      "desiertos": 663
+    },
+    {
+      "familia_code": "1235",
+      "familia_name": "Compuestos y mezclas",
+      "n_processes": 6800,
+      "single_bidder_pct": 90.9,
+      "desiertos": 261
+    },
+    {
+      "familia_code": "5120",
+      "familia_name": "Medicamentos inmunomoduladores",
+      "n_processes": 6268,
+      "single_bidder_pct": 68.91,
+      "desiertos": 368
+    },
+    {
+      "familia_code": "4214",
+      "familia_name": "Suministros, productos de tratamiento y cuidado del enfermo",
+      "n_processes": 6186,
+      "single_bidder_pct": 49.48,
+      "desiertos": 1166
+    },
+    {
+      "familia_code": "4321",
+      "familia_name": "Equipo informático y accesorios",
+      "n_processes": 5339,
+      "single_bidder_pct": 26.15,
+      "desiertos": 486
+    },
+    {
+      "familia_code": "4231",
+      "familia_name": "Productos para el cuidado de heridas",
+      "n_processes": 4782,
+      "single_bidder_pct": 41.2,
+      "desiertos": 1035
+    },
+    {
+      "familia_code": "7210",
+      "familia_name": "Servicios de mantenimiento y reparaciones de construcciones e instalaciones",
+      "n_processes": 4733,
+      "single_bidder_pct": 43.59,
+      "desiertos": 259
+    },
+    {
+      "familia_code": "8013",
+      "familia_name": "Servicios inmobiliarios",
+      "n_processes": 4495,
+      "single_bidder_pct": 97.4,
+      "desiertos": 49
+    },
+    {
+      "familia_code": "4222",
+      "familia_name": "Productos para administración intravenosa y arterial",
+      "n_processes": 4312,
+      "single_bidder_pct": 69.18,
+      "desiertos": 687
+    },
+    {
+      "familia_code": "4112",
+      "familia_name": "Suministros y accesorios de laboratorio",
+      "n_processes": 4220,
+      "single_bidder_pct": 64.95,
+      "desiertos": 693
+    },
+    {
+      "familia_code": "5610",
+      "familia_name": "Muebles de alojamiento",
+      "n_processes": 3897,
+      "single_bidder_pct": 22.66,
+      "desiertos": 306
+    },
+    {
+      "familia_code": "5116",
+      "familia_name": "Medicamentos que afectan al sistema respiratorio",
+      "n_processes": 3867,
+      "single_bidder_pct": 39.41,
+      "desiertos": 170
+    },
+    {
+      "familia_code": "8511",
+      "familia_name": "Prevención y control de enfermedades",
+      "n_processes": 3832,
+      "single_bidder_pct": 56.39,
+      "desiertos": 459
+    }
+  ],
+  "by_buyer": [
+    {
+      "name": "INSTITUTO GUATEMALTECO DE SEGURIDAD SOCIAL -IGSS-",
+      "n_processes": 262383,
+      "single_bidder_pct": 57.46,
+      "desiertos": 32958
+    },
+    {
+      "name": "MINISTERIO DE SALUD PÚBLICA",
+      "n_processes": 66902,
+      "single_bidder_pct": 46.65,
+      "desiertos": 6620
+    },
+    {
+      "name": "INSTITUTO NACIONAL DE ELECTRIFICACIÓN -INDE",
+      "n_processes": 11128,
+      "single_bidder_pct": 83.66,
+      "desiertos": 47
+    },
+    {
+      "name": "MINISTERIO DE GOBERNACIÓN",
+      "n_processes": 6627,
+      "single_bidder_pct": 54.19,
+      "desiertos": 259
+    },
+    {
+      "name": "MINISTERIO DE LA DEFENSA NACIONAL",
+      "n_processes": 4629,
+      "single_bidder_pct": 33.7,
+      "desiertos": 133
+    },
+    {
+      "name": "MINISTERIO DE EDUCACIÓN",
+      "n_processes": 3583,
+      "single_bidder_pct": 23.08,
+      "desiertos": 160
+    },
+    {
+      "name": "MINISTERIO DE COMUNICACIONES, INFRAESTRUCTURA Y VIVIENDA",
+      "n_processes": 3349,
+      "single_bidder_pct": 37.41,
+      "desiertos": 185
+    },
+    {
+      "name": "ORGANISMO JUDICIAL",
+      "n_processes": 3115,
+      "single_bidder_pct": 16.73,
+      "desiertos": 50
+    },
+    {
+      "name": "MINISTERIO DE CULTURA Y DEPORTES",
+      "n_processes": 1832,
+      "single_bidder_pct": 31.71,
+      "desiertos": 187
+    },
+    {
+      "name": "SUPERINTENDENCIA DE ADMINISTRACION TRIBUTARIA -SAT-",
+      "n_processes": 1813,
+      "single_bidder_pct": 34.8,
+      "desiertos": 66
+    },
+    {
+      "name": "UNIVERSIDAD DE SAN CARLOS DE GUATEMALA -USAC-",
+      "n_processes": 1643,
+      "single_bidder_pct": 42.12,
+      "desiertos": 194
+    },
+    {
+      "name": "MINISTERIO PÚBLICO",
+      "n_processes": 1398,
+      "single_bidder_pct": 56.58,
+      "desiertos": 43
+    },
+    {
+      "name": "EMPRESA PORTUARIA QUETZAL -EPQ-",
+      "n_processes": 1276,
+      "single_bidder_pct": 69.44,
+      "desiertos": 14
+    },
+    {
+      "name": "MINISTERIO DE DESARROLLO SOCIAL",
+      "n_processes": 1230,
+      "single_bidder_pct": 47.56,
+      "desiertos": 77
+    },
+    {
+      "name": "CONSEJO NACIONAL DE ÁREAS PROTEGIDAS",
+      "n_processes": 1154,
+      "single_bidder_pct": 21.75,
+      "desiertos": 1
+    }
+  ],
+  "desiertos_monthly": [
+    {
+      "month": "2025-01",
+      "count": 1642
+    },
+    {
+      "month": "2025-02",
+      "count": 1968
+    },
+    {
+      "month": "2025-03",
+      "count": 4701
+    },
+    {
+      "month": "2025-04",
+      "count": 2450
+    },
+    {
+      "month": "2025-05",
+      "count": 2863
+    },
+    {
+      "month": "2025-06",
+      "count": 2949
+    },
+    {
+      "month": "2025-07",
+      "count": 3318
+    },
+    {
+      "month": "2025-08",
+      "count": 3083
+    },
+    {
+      "month": "2025-09",
+      "count": 2977
+    },
+    {
+      "month": "2025-10",
+      "count": 3868
+    },
+    {
+      "month": "2025-11",
+      "count": 3497
+    },
+    {
+      "month": "2025-12",
+      "count": 2043
+    },
+    {
+      "month": "2026-01",
+      "count": 1872
+    },
+    {
+      "month": "2026-02",
+      "count": 2708
+    },
+    {
+      "month": "2026-03",
+      "count": 3073
+    },
+    {
+      "month": "2026-04",
+      "count": 290
+    }
+  ]
+}

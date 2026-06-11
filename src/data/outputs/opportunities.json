@@ -1,0 +1,185 @@
+{
+  "note": "Los montos estimados de procesos desiertos no están disponibles (tender.value ausente en la fuente de datos).",
+  "opportunities": [
+    {
+      "familia_code": "8512",
+      "familia_name": "Práctica médica",
+      "n_processes": 34379,
+      "single_bidder_pct": 68.63,
+      "desiertos": 3733,
+      "median_ticket_gtq": 78000.0,
+      "opportunity_score": 0.68632
+    },
+    {
+      "familia_code": "4111",
+      "familia_name": "Instrumentos de medida, observación y ensayo",
+      "n_processes": 26176,
+      "single_bidder_pct": 75.0,
+      "desiertos": 2219,
+      "median_ticket_gtq": 45309.04,
+      "opportunity_score": 0.571075
+    },
+    {
+      "familia_code": "5114",
+      "familia_name": "Medicamentos para el sistema nervioso central",
+      "n_processes": 30127,
+      "single_bidder_pct": 56.73,
+      "desiertos": 4248,
+      "median_ticket_gtq": 79608.9,
+      "opportunity_score": 0.497106
+    },
+    {
+      "familia_code": "5111",
+      "familia_name": "Agentes antitumorales",
+      "n_processes": 15986,
+      "single_bidder_pct": 73.4,
+      "desiertos": 1104,
+      "median_ticket_gtq": 71993.0,
+      "opportunity_score": 0.341313
+    },
+    {
+      "familia_code": "4229",
+      "familia_name": "Productos quirúrgicos",
+      "n_processes": 20350,
+      "single_bidder_pct": 41.68,
+      "desiertos": 1699,
+      "median_ticket_gtq": 6450.0,
+      "opportunity_score": 0.246691
+    },
+    {
+      "familia_code": "5110",
+      "familia_name": "Medicamentos antiinfecciosos",
+      "n_processes": 17503,
+      "single_bidder_pct": 46.8,
+      "desiertos": 1962,
+      "median_ticket_gtq": 38125.0,
+      "opportunity_score": 0.238285
+    },
+    {
+      "familia_code": "7214",
+      "familia_name": "Servicios de construcción pesada",
+      "n_processes": 8941,
+      "single_bidder_pct": 89.74,
+      "desiertos": 243,
+      "median_ticket_gtq": 370294.44,
+      "opportunity_score": 0.233398
+    },
+    {
+      "familia_code": "5113",
+      "familia_name": "Medicamentos hematólogos",
+      "n_processes": 10075,
+      "single_bidder_pct": 73.68,
+      "desiertos": 546,
+      "median_ticket_gtq": 89577.25,
+      "opportunity_score": 0.215917
+    },
+    {
+      "familia_code": "1235",
+      "familia_name": "Compuestos y mezclas",
+      "n_processes": 6800,
+      "single_bidder_pct": 90.9,
+      "desiertos": 261,
+      "median_ticket_gtq": 79980.0,
+      "opportunity_score": 0.17979
+    },
+    {
+      "familia_code": "5118",
+      "familia_name": "Hormonas y antagonistas hormonales",
+      "n_processes": 13189,
+      "single_bidder_pct": 43.32,
+      "desiertos": 2758,
+      "median_ticket_gtq": 80325.17,
+      "opportunity_score": 0.166206
+    },
+    {
+      "familia_code": "5112",
+      "familia_name": "Medicamentos cardiovasculares",
+      "n_processes": 11031,
+      "single_bidder_pct": 51.53,
+      "desiertos": 1309,
+      "median_ticket_gtq": 77251.28,
+      "opportunity_score": 0.165333
+    },
+    {
+      "familia_code": "8510",
+      "familia_name": "Servicios integrales de salud",
+      "n_processes": 7801,
+      "single_bidder_pct": 62.36,
+      "desiertos": 918,
+      "median_ticket_gtq": 70000.0,
+      "opportunity_score": 0.141511
+    },
+    {
+      "familia_code": "8013",
+      "familia_name": "Servicios inmobiliarios",
+      "n_processes": 4495,
+      "single_bidder_pct": 97.4,
+      "desiertos": 49,
+      "median_ticket_gtq": 89970.0,
+      "opportunity_score": 0.127345
+    },
+    {
+      "familia_code": "5120",
+      "familia_name": "Medicamentos inmunomoduladores",
+      "n_processes": 6268,
+      "single_bidder_pct": 68.91,
+      "desiertos": 368,
+      "median_ticket_gtq": 84000.0,
+      "opportunity_score": 0.125629
+    },
+    {
+      "familia_code": "5119",
+      "familia_name": "Agentes que afectan el agua y los electrolitos",
+      "n_processes": 7126,
+      "single_bidder_pct": 48.44,
+      "desiertos": 806,
+      "median_ticket_gtq": 47030.4,
+      "opportunity_score": 0.10041
+    },
+    {
+      "familia_code": "4214",
+      "familia_name": "Suministros, productos de tratamiento y cuidado del enfermo",
+      "n_processes": 6186,
+      "single_bidder_pct": 49.48,
+      "desiertos": 1166,
+      "median_ticket_gtq": 11600.0,
+      "opportunity_score": 0.089037
+    },
+    {
+      "familia_code": "4222",
+      "familia_name": "Productos para administración intravenosa y arterial",
+      "n_processes": 4312,
+      "single_bidder_pct": 69.18,
+      "desiertos": 687,
+      "median_ticket_gtq": 65483.25,
+      "opportunity_score": 0.086768
+    },
+    {
+      "familia_code": "5117",
+      "familia_name": "Medicamentos que afectan al sistema gastrointestinal",
+      "n_processes": 6916,
+      "single_bidder_pct": 39.98,
+      "desiertos": 663,
+      "median_ticket_gtq": 51450.0,
+      "opportunity_score": 0.080427
+    },
+    {
+      "familia_code": "4112",
+      "familia_name": "Suministros y accesorios de laboratorio",
+      "n_processes": 4220,
+      "single_bidder_pct": 64.95,
+      "desiertos": 693,
+      "median_ticket_gtq": 26760.0,
+      "opportunity_score": 0.079729
+    },
+    {
+      "familia_code": "8516",
+      "familia_name": "Servicios de mantenimiento, renovación y reparación de equipo médico quirúrgico",
+      "n_processes": 3557,
+      "single_bidder_pct": 71.49,
+      "desiertos": 495,
+      "median_ticket_gtq": 80625.0,
+      "opportunity_score": 0.07397
+    }
+  ]
+}

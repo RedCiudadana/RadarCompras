@@ -1,0 +1,221 @@
+{
+  "total_unique_suppliers": 13044,
+  "monthly_series": [
+    {
+      "month": "2025-01",
+      "new_suppliers": 1440
+    },
+    {
+      "month": "2025-02",
+      "new_suppliers": 895
+    },
+    {
+      "month": "2025-03",
+      "new_suppliers": 2890
+    },
+    {
+      "month": "2025-04",
+      "new_suppliers": 727
+    },
+    {
+      "month": "2025-05",
+      "new_suppliers": 923
+    },
+    {
+      "month": "2025-06",
+      "new_suppliers": 747
+    },
+    {
+      "month": "2025-07",
+      "new_suppliers": 547
+    },
+    {
+      "month": "2025-08",
+      "new_suppliers": 510
+    },
+    {
+      "month": "2025-09",
+      "new_suppliers": 465
+    },
+    {
+      "month": "2025-10",
+      "new_suppliers": 552
+    },
+    {
+      "month": "2025-11",
+      "new_suppliers": 534
+    },
+    {
+      "month": "2025-12",
+      "new_suppliers": 800
+    },
+    {
+      "month": "2026-01",
+      "new_suppliers": 629
+    },
+    {
+      "month": "2026-02",
+      "new_suppliers": 341
+    },
+    {
+      "month": "2026-03",
+      "new_suppliers": 957
+    },
+    {
+      "month": "2026-04",
+      "new_suppliers": 87
+    }
+  ],
+  "by_familia": [
+    {
+      "familia_code": "8013",
+      "familia_name": "Servicios inmobiliarios",
+      "entry_ticket_median_gtq": 120000.0,
+      "n_new_suppliers": 1946
+    },
+    {
+      "familia_code": "8012",
+      "familia_name": "Servicios legales",
+      "entry_ticket_median_gtq": 88000.0,
+      "n_new_suppliers": 1022
+    },
+    {
+      "familia_code": "7214",
+      "familia_name": "Servicios de construcción pesada",
+      "entry_ticket_median_gtq": 552400.0,
+      "n_new_suppliers": 709
+    },
+    {
+      "familia_code": "7210",
+      "familia_name": "Servicios de mantenimiento y reparaciones de construcciones e instalaciones",
+      "entry_ticket_median_gtq": 79970.0,
+      "n_new_suppliers": 415
+    },
+    {
+      "familia_code": "8110",
+      "familia_name": "Servicios profesionales de ingeniería",
+      "entry_ticket_median_gtq": 634480.0,
+      "n_new_suppliers": 371
+    },
+    {
+      "familia_code": "8512",
+      "familia_name": "Práctica médica",
+      "entry_ticket_median_gtq": 77985.0,
+      "n_new_suppliers": 294
+    },
+    {
+      "familia_code": "8011",
+      "familia_name": "Servicios de recursos humanos",
+      "entry_ticket_median_gtq": 89515.0,
+      "n_new_suppliers": 228
+    },
+    {
+      "familia_code": "8010",
+      "familia_name": "Servicios de asesoría de gestión",
+      "entry_ticket_median_gtq": 88000.0,
+      "n_new_suppliers": 227
+    },
+    {
+      "familia_code": "1510",
+      "familia_name": "Combustibles",
+      "entry_ticket_median_gtq": 89095.2,
+      "n_new_suppliers": 209
+    },
+    {
+      "familia_code": "4323",
+      "familia_name": "Software",
+      "entry_ticket_median_gtq": 89000.0,
+      "n_new_suppliers": 168
+    },
+    {
+      "familia_code": "3011",
+      "familia_name": "Hormigón, cemento y yeso",
+      "entry_ticket_median_gtq": 89818.0,
+      "n_new_suppliers": 163
+    },
+    {
+      "familia_code": "8310",
+      "familia_name": "Servicios públicos",
+      "entry_ticket_median_gtq": 723975.5,
+      "n_new_suppliers": 151
+    },
+    {
+      "familia_code": "5020",
+      "familia_name": "Bebidas",
+      "entry_ticket_median_gtq": 6650.0,
+      "n_new_suppliers": 150
+    },
+    {
+      "familia_code": "4321",
+      "familia_name": "Equipo informático y accesorios",
+      "entry_ticket_median_gtq": 71000.0,
+      "n_new_suppliers": 145
+    },
+    {
+      "familia_code": "5310",
+      "familia_name": "Ropa",
+      "entry_ticket_median_gtq": 62297.5,
+      "n_new_suppliers": 144
+    },
+    {
+      "familia_code": "7215",
+      "familia_name": "Servicios de mantenimiento y construcción de comercio especializado",
+      "entry_ticket_median_gtq": 69992.9,
+      "n_new_suppliers": 140
+    },
+    {
+      "familia_code": "5610",
+      "familia_name": "Muebles de alojamiento",
+      "entry_ticket_median_gtq": 47425.0,
+      "n_new_suppliers": 138
+    },
+    {
+      "familia_code": "9313",
+      "familia_name": "Ayuda y asistencia humanitaria",
+      "entry_ticket_median_gtq": 37973.45,
+      "n_new_suppliers": 135
+    },
+    {
+      "familia_code": "8210",
+      "familia_name": "Publicidad",
+      "entry_ticket_median_gtq": 85500.0,
+      "n_new_suppliers": 131
+    },
+    {
+      "familia_code": "2510",
+      "familia_name": "Vehículos de motor",
+      "entry_ticket_median_gtq": 89750.0,
+      "n_new_suppliers": 118
+    },
+    {
+      "familia_code": "4111",
+      "familia_name": "Instrumentos de medida, observación y ensayo",
+      "entry_ticket_median_gtq": 57500.03,
+      "n_new_suppliers": 111
+    },
+    {
+      "familia_code": "3912",
+      "familia_name": "Equipos, suministros y componentes eléctricos",
+      "entry_ticket_median_gtq": 69893.0,
+      "n_new_suppliers": 111
+    },
+    {
+      "familia_code": "3012",
+      "familia_name": "Carreteras y paisaje",
+      "entry_ticket_median_gtq": 424623.65,
+      "n_new_suppliers": 108
+    },
+    {
+      "familia_code": "9315",
+      "familia_name": "Servicios de administración y financiación pública",
+      "entry_ticket_median_gtq": 75000.0,
+      "n_new_suppliers": 99
+    },
+    {
+      "familia_code": "9314",
+      "familia_name": "Servicios comunitarios y sociales",
+      "entry_ticket_median_gtq": 89900.0,
+      "n_new_suppliers": 99
+    }
+  ]
+}
