@@ -27,24 +27,23 @@ interface SectorComparisonSectionProps {
 }
 
 // UNSPSC segment classification (PRD Decisions Log: standards-based code lookup).
-// Labels are defined here, NOT read from segment_name: codes 84/85 are "Otros" in the JSON.
-const SECTOR_SEGMENTS: Record<string, { column: 'social' | 'economic'; label: string }> = {
+const SECTOR_SEGMENTS: Record<string, { column: 'social' | 'economic' }> = {
   // Sectores Sociales (blue)
-  '50': { column: 'social', label: 'Alimentos' },
-  '51': { column: 'social', label: 'Medicamentos' },
-  '52': { column: 'social', label: 'Equipo médico' },
-  '53': { column: 'social', label: 'Cuidado personal' },
-  '83': { column: 'social', label: 'Salud y Sociales' },
-  '84': { column: 'social', label: 'Servicios educativos' },
-  '85': { column: 'social', label: 'Educación' },
+  '50': { column: 'social' },
+  '51': { column: 'social' },
+  '52': { column: 'social' },
+  '53': { column: 'social' },
+  '83': { column: 'social' },
+  '84': { column: 'social' },
+  '85': { column: 'social' },
   // Sectores Económicos (orange)
-  '30': { column: 'economic', label: 'Transporte/Logística' },
-  '43': { column: 'economic', label: 'Equipos TIC' },
-  '56': { column: 'economic', label: 'Telecomunicaciones' },
-  '72': { column: 'economic', label: 'Infraestructura' },
-  '78': { column: 'economic', label: 'Almacenamiento' },
-  '80': { column: 'economic', label: 'Gestión/Negocios' },
-  '81': { column: 'economic', label: 'Industria/Manufactura' },
+  '30': { column: 'economic' },
+  '43': { column: 'economic' },
+  '56': { column: 'economic' },
+  '72': { column: 'economic' },
+  '78': { column: 'economic' },
+  '80': { column: 'economic' },
+  '81': { column: 'economic' },
 };
 
 const categories = topCategoriesData.categories as CategoryEntry[];
@@ -54,7 +53,7 @@ const buildSectors = (column: 'social' | 'economic'): SectorData[] =>
     .filter((c) => SECTOR_SEGMENTS[c.segment_code]?.column === column)
     .map((c) => ({
       id: c.segment_code,
-      name: SECTOR_SEGMENTS[c.segment_code].label,
+      name: c.segment_name,
       processCount: c.item_count,
       totalAmount: formatAbbreviatedCurrency(c.total_amount_gtq),
     }));
@@ -62,18 +61,16 @@ const buildSectors = (column: 'social' | 'economic'): SectorData[] =>
 const realBlueSectors = buildSectors('social');
 const realOrangeSectors = buildSectors('economic');
 
-const SectorItem: React.FC<{ sector: SectorData; color: 'blue' | 'orange'; onClick?: () => void }> = ({
+const SectorItem: React.FC<{ sector: SectorData; color: 'blue' | 'orange'; }> = ({
   sector,
-  color,
-  onClick
+  color
 }) => {
   const bgColor = color === 'blue' ? 'hover:bg-blue-50' : 'hover:bg-orange-50';
   const textColor = color === 'blue' ? 'text-rc-blue' : 'text-rc-orange';
 
   return (
     <div
-      onClick={onClick}
-      className={`px-4 py-3 rounded-lg border border-gray-200 ${bgColor} transition-all cursor-pointer flex items-center justify-between`}
+      className={`px-4 py-3 rounded-lg border border-gray-200 ${bgColor} transition-all flex items-center justify-between`}
     >
       <div className="flex-1">
         <h4 className="font-medium text-gray-900 text-sm">{sector.name}</h4>
@@ -112,7 +109,6 @@ export const SectorComparisonSection: React.FC<SectorComparisonSectionProps> = (
                   key={sector.id}
                   sector={sector}
                   color="blue"
-                  onClick={() => onSelectSector?.(sector.id)}
                 />
               ))}
             </div>
@@ -130,7 +126,6 @@ export const SectorComparisonSection: React.FC<SectorComparisonSectionProps> = (
                   key={sector.id}
                   sector={sector}
                   color="orange"
-                  onClick={() => onSelectSector?.(sector.id)}
                 />
               ))}
             </div>
