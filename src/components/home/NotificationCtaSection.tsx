@@ -59,6 +59,7 @@ export const NotificationCtaSection: React.FC<NotificationCtaSectionProps> = ({
                 <input
                   type="email"
                   value={email}
+                  name="email"
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="tu@empresa.com"
                   className="flex-1 px-4 py-3 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white"
