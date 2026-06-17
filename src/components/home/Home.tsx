@@ -92,21 +92,12 @@ export const Home: React.FC = () => {
     navigate(`/busqueda?section=${section}`);
   };
 
-  const handleSubscribe = (email: string) => {
-    console.log('Subscribe:', email);
-    // TODO: Implement subscription
-  };
-
   const handleSelectProcess = (id: string) => {
     navigate(`/busqueda/${id}`);
   };
 
   const handleSelectBidding = (id: string) => {
     navigate(`/busqueda/${id}`);
-  };
-
-  const handleSelectSector = (sectorId: string) => {
-    navigate(`/busqueda?sector=${sectorId}`);
   };
 
   return (
@@ -135,13 +126,9 @@ export const Home: React.FC = () => {
         onSelectBidding={handleSelectBidding}
       />
 
-      <SectorComparisonSection
-        onSelectSector={handleSelectSector}
-      />
+      <SectorComparisonSection/>
 
-      <NotificationCtaSection
-        onSubscribe={handleSubscribe}
-      />
+      <NotificationCtaSection/>
 
       <HowItWorksSection />
 

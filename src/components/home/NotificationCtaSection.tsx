@@ -13,6 +13,18 @@ export const NotificationCtaSection: React.FC<NotificationCtaSectionProps> = ({
   const [email, setEmail] = React.useState('');
   const [submitSuccess, setSubmitSuccess] = React.useState(false);
   const [submitError, setSubmitError] = React.useState(false);
+  const [sitekey, setSitekey] = React.useState<string>(
+    () => (window as any).__rcSitekey || ''
+  );
+
+  React.useEffect(() => {
+    if (sitekey) return;
+    const id = setInterval(() => {
+      const key = (window as any).__rcSitekey;
+      if (key) { setSitekey(key); clearInterval(id); }
+    }, 100);
+    return () => clearInterval(id);
+  }, [sitekey]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -52,7 +64,6 @@ export const NotificationCtaSection: React.FC<NotificationCtaSectionProps> = ({
               onSubmit={handleSubmit}
               className="max-w-xl w-full mx-auto"
               data-netlify="true"
-              data-netlify-recaptcha="true"
             >
               <input type="hidden" name="form-name" value="subscription_herramientas_ocds" />
               <div className="flex flex-col sm:flex-row gap-3">
@@ -73,7 +84,7 @@ export const NotificationCtaSection: React.FC<NotificationCtaSectionProps> = ({
                   <ArrowRight size={13}/>
                 </Button>
               </div>
-              <div data-netlify-recaptcha="true"></div>
+              {sitekey && <div className="g-recaptcha mt-6 mx-auto" data-sitekey={sitekey}></div>}
             </form>
           )}
 

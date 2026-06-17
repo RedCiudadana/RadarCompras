@@ -44,8 +44,6 @@ function AppShell() {
 
   const isHOME = location.pathname === '/';
 
-  console.log(isHOME, location)
-
   const banner = SLIDERS_CONFIG[location.pathname] || DEFAULT_SLIDER_CONFIG;
 
   return (

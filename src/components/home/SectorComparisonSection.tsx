@@ -23,7 +23,6 @@ interface CategoryEntry {
 interface SectorComparisonSectionProps {
   blueSectors?: SectorData[];
   orangeSectors?: SectorData[];
-  onSelectSector?: (sectorId: string) => void;
 }
 
 // UNSPSC segment classification (PRD Decisions Log: standards-based code lookup).
@@ -86,7 +85,6 @@ const SectorItem: React.FC<{ sector: SectorData; color: 'blue' | 'orange'; }> = 
 export const SectorComparisonSection: React.FC<SectorComparisonSectionProps> = ({
   blueSectors = realBlueSectors,
   orangeSectors = realOrangeSectors,
-  onSelectSector
 }) => {
   return (
     <section className="w-full bg-white">

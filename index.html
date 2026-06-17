@@ -8,11 +8,30 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    <meta property="og:image" content="https://bolt.new/static/og_default.png" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="https://bolt.new/static/og_default.png" />
   </head>
   <body>
+    <script>
+      fetch('/data-netlify.html')
+        .then(function(r) { return r.text(); })
+        .then(function(html) {
+          var doc = new DOMParser().parseFromString(html, 'text/html');
+          var rcScript = doc.querySelector('script[src*="recaptcha"]');
+          var rcDiv = doc.querySelector('.g-recaptcha');
+          if (rcScript) {
+            var s = document.createElement('script');
+            s.src = rcScript.getAttribute('src');
+            s.async = true;
+            document.head.appendChild(s);
+          }
+          if (rcDiv) {
+            window.__rcSitekey = rcDiv.dataset.sitekey;
+          }
+        });
+    </script>
+    <form name="subscription_herramientas_ocds" netlify data-netlify-recaptcha="true" hidden>
+      <input type="email" name="email" />
+    </form>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
