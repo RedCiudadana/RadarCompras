@@ -4,121 +4,121 @@
       "rank": 1,
       "segment_code": "72",
       "segment_name": "Servicios de Edificación, Construcción de Instalaciones y Mantenimiento",
-      "total_amount_gtq": 29481247756.79,
-      "pct_of_total": 26.38,
-      "item_count": 27337456
+      "total_amount_gtq": 23831203241.65,
+      "pct_of_total": 31.41,
+      "item_count": 15204096
     },
     {
       "rank": 2,
-      "segment_code": "51",
-      "segment_name": "Medicamentos y Productos Farmacéuticos",
-      "total_amount_gtq": 8756002935.57,
-      "pct_of_total": 7.84,
-      "item_count": 1989163309
+      "segment_code": "81",
+      "segment_name": "Servicios Basados en Ingeniería, Investigación y Tecnología",
+      "total_amount_gtq": 9559816003.24,
+      "pct_of_total": 12.6,
+      "item_count": 1231393
     },
     {
       "rank": 3,
-      "segment_code": "81",
-      "segment_name": "Servicios Basados en Ingeniería, Investigación y Tecnología",
-      "total_amount_gtq": 8729002608.4,
-      "pct_of_total": 7.81,
-      "item_count": 2477182
+      "segment_code": "51",
+      "segment_name": "Medicamentos y Productos Farmacéuticos",
+      "total_amount_gtq": 4926111765.08,
+      "pct_of_total": 6.49,
+      "item_count": 967454819
     },
     {
       "rank": 4,
       "segment_code": "83",
       "segment_name": "Servicios Públicos y Servicios Relacionados con el Sector Público",
-      "total_amount_gtq": 7165043225.52,
-      "pct_of_total": 6.41,
-      "item_count": 2197332
+      "total_amount_gtq": 3808435018.92,
+      "pct_of_total": 5.02,
+      "item_count": 225919655
     },
     {
       "rank": 5,
       "segment_code": "30",
       "segment_name": "Componentes y Suministros para Estructuras, Edificación, Construcción y Obras Civiles",
-      "total_amount_gtq": 5724558432.57,
-      "pct_of_total": 5.12,
-      "item_count": 26103851
+      "total_amount_gtq": 3715896166.14,
+      "pct_of_total": 4.9,
+      "item_count": 21058990
     },
     {
       "rank": 6,
-      "segment_code": "86",
-      "segment_name": "Servicios Educativos y de Formación",
-      "total_amount_gtq": 3903678343.39,
-      "pct_of_total": 3.49,
-      "item_count": 1123793
+      "segment_code": "80",
+      "segment_name": "Servicios de Gestión, Servicios Profesionales de Empresa y Servicios Administrativos",
+      "total_amount_gtq": 3165378563.17,
+      "pct_of_total": 4.17,
+      "item_count": 4761555
     },
     {
       "rank": 7,
       "segment_code": "85",
       "segment_name": "Servicios de Salud",
-      "total_amount_gtq": 3776555255.35,
-      "pct_of_total": 3.38,
-      "item_count": 12772925
+      "total_amount_gtq": 1905530997.16,
+      "pct_of_total": 2.51,
+      "item_count": 7944152
     },
     {
       "rank": 8,
       "segment_code": "42",
       "segment_name": "Equipo Médico, Accesorios y Suministros",
-      "total_amount_gtq": 3125569483.23,
-      "pct_of_total": 2.8,
-      "item_count": 460868064
+      "total_amount_gtq": 1899026754.08,
+      "pct_of_total": 2.5,
+      "item_count": 244526908
     },
     {
       "rank": 9,
-      "segment_code": "80",
-      "segment_name": "Servicios de Gestión, Servicios Profesionales de Empresa y Servicios Administrativos",
-      "total_amount_gtq": 3068653073.75,
-      "pct_of_total": 2.75,
-      "item_count": 13731906
+      "segment_code": "50",
+      "segment_name": "Alimentos, Bebidas y Tabaco",
+      "total_amount_gtq": 1745084030.29,
+      "pct_of_total": 2.3,
+      "item_count": 383878019
     },
     {
       "rank": 10,
-      "segment_code": "0",
-      "segment_name": "Segmento 0",
-      "total_amount_gtq": 2789110570.55,
-      "pct_of_total": 2.5,
-      "item_count": 4201
+      "segment_code": "43",
+      "segment_name": "Difusión de Tecnologías de Información y Telecomunicaciones",
+      "total_amount_gtq": 1673029735.81,
+      "pct_of_total": 2.21,
+      "item_count": 4851805
     },
     {
       "rank": 11,
-      "segment_code": "50",
-      "segment_name": "Alimentos, Bebidas y Tabaco",
-      "total_amount_gtq": 2701656696.38,
-      "pct_of_total": 2.42,
-      "item_count": 459665759
+      "segment_code": "78",
+      "segment_name": "Servicios de Transporte, Almacenaje y Correo",
+      "total_amount_gtq": 1581095247.68,
+      "pct_of_total": 2.08,
+      "item_count": 1900290
     },
     {
       "rank": 12,
-      "segment_code": "43",
-      "segment_name": "Difusión de Tecnologías de Información y Telecomunicaciones",
-      "total_amount_gtq": 2524309641.79,
-      "pct_of_total": 2.26,
-      "item_count": 10384105
+      "segment_code": "56",
+      "segment_name": "Muebles, Mobiliario y Decoración",
+      "total_amount_gtq": 1514537955.89,
+      "pct_of_total": 2.0,
+      "item_count": 638603
     },
     {
       "rank": 13,
       "segment_code": "25",
       "segment_name": "Vehículos Comerciales, Militares y Particulares, Accesorios y Componentes",
-      "total_amount_gtq": 2338367546.64,
-      "pct_of_total": 2.09,
-      "item_count": 1715293
+      "total_amount_gtq": 1145148681.25,
+      "pct_of_total": 1.51,
+      "item_count": 1732578
     },
     {
       "rank": 14,
-      "segment_code": "78",
-      "segment_name": "Servicios de Transporte, Almacenaje y Correo",
-      "total_amount_gtq": 2259351162.41,
-      "pct_of_total": 2.02,
-      "item_count": 5295356
+      "segment_code": "41",
+      "segment_name": "Equipos y Suministros de Laboratorio, de Medición, de Observación y de Pruebas",
+      "total_amount_gtq": 1026855087.81,
+      "pct_of_total": 1.35,
+      "item_count": 56921262
     },
     {
       "rank": 15,
-      "segment_code": "41",
-      "segment_name": "Equipos y Suministros de Laboratorio, de Medición, de Observación y de Pruebas",
-      "total_amount_gtq": 2005156797.15,
-      "pct_of_total": 1.79,
-      "item_count": 130911116
+      "segment_code": "15",
+      "segment_name": "Materiales Combustibles, Aditivos para Combustibles, Lubricantes y Anticorrosivos",
+      "total_amount_gtq": 918212156.93,
+      "pct_of_total": 1.21,
+      "item_count": 18763710
     }
   ]
 }

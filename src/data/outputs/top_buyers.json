@@ -3,215 +3,107 @@
     {
       "rank": 1,
       "name": "INSTITUTO GUATEMALTECO DE SEGURIDAD SOCIAL -IGSS-",
-      "total_processes": 300815,
-      "pct_of_total": 62.62,
+      "total_processes": 159183,
+      "pct_of_total": 64.97,
       "monthly_series": [
         {
-          "month": "2025-01",
-          "processes": 8311
-        },
-        {
-          "month": "2025-02",
-          "processes": 13581
-        },
-        {
-          "month": "2025-03",
-          "processes": 22812
-        },
-        {
-          "month": "2025-04",
-          "processes": 14165
-        },
-        {
-          "month": "2025-05",
-          "processes": 14913
-        },
-        {
-          "month": "2025-06",
-          "processes": 17595
-        },
-        {
-          "month": "2025-07",
-          "processes": 20053
-        },
-        {
-          "month": "2025-08",
-          "processes": 19183
-        },
-        {
-          "month": "2025-09",
-          "processes": 17661
-        },
-        {
-          "month": "2025-10",
-          "processes": 19646
-        },
-        {
-          "month": "2025-11",
-          "processes": 20259
-        },
-        {
-          "month": "2025-12",
-          "processes": 20161
-        },
-        {
           "month": "2026-01",
-          "processes": 16121
+          "processes": 14708
         },
         {
           "month": "2026-02",
-          "processes": 21406
+          "processes": 17934
         },
         {
           "month": "2026-03",
-          "processes": 43246
+          "processes": 25018
         },
         {
           "month": "2026-04",
-          "processes": 11702
+          "processes": 18867
+        },
+        {
+          "month": "2026-05",
+          "processes": 28399
+        },
+        {
+          "month": "2026-06",
+          "processes": 39100
+        },
+        {
+          "month": "2026-07",
+          "processes": 15157
         }
       ]
     },
     {
       "rank": 2,
       "name": "MINISTERIO DE SALUD PÚBLICA",
-      "total_processes": 75088,
-      "pct_of_total": 15.63,
+      "total_processes": 34896,
+      "pct_of_total": 14.24,
       "monthly_series": [
         {
-          "month": "2025-01",
-          "processes": 1681
-        },
-        {
-          "month": "2025-02",
-          "processes": 2182
-        },
-        {
-          "month": "2025-03",
-          "processes": 9664
-        },
-        {
-          "month": "2025-04",
-          "processes": 3161
-        },
-        {
-          "month": "2025-05",
-          "processes": 3699
-        },
-        {
-          "month": "2025-06",
-          "processes": 3780
-        },
-        {
-          "month": "2025-07",
-          "processes": 4043
-        },
-        {
-          "month": "2025-08",
-          "processes": 4414
-        },
-        {
-          "month": "2025-09",
-          "processes": 4658
-        },
-        {
-          "month": "2025-10",
-          "processes": 4803
-        },
-        {
-          "month": "2025-11",
-          "processes": 5314
-        },
-        {
-          "month": "2025-12",
-          "processes": 7071
-        },
-        {
           "month": "2026-01",
-          "processes": 3831
+          "processes": 3589
         },
         {
           "month": "2026-02",
-          "processes": 4776
+          "processes": 3572
         },
         {
           "month": "2026-03",
-          "processes": 9890
+          "processes": 4645
         },
         {
           "month": "2026-04",
-          "processes": 2121
+          "processes": 4683
+        },
+        {
+          "month": "2026-05",
+          "processes": 5712
+        },
+        {
+          "month": "2026-06",
+          "processes": 9129
+        },
+        {
+          "month": "2026-07",
+          "processes": 3566
         }
       ]
     },
     {
       "rank": 3,
       "name": "INSTITUTO NACIONAL DE ELECTRIFICACIÓN -INDE",
-      "total_processes": 11351,
-      "pct_of_total": 2.36,
+      "total_processes": 4652,
+      "pct_of_total": 1.9,
       "monthly_series": [
         {
-          "month": "2025-01",
-          "processes": 271
-        },
-        {
-          "month": "2025-02",
-          "processes": 658
-        },
-        {
-          "month": "2025-03",
-          "processes": 876
-        },
-        {
-          "month": "2025-04",
-          "processes": 751
-        },
-        {
-          "month": "2025-05",
-          "processes": 818
-        },
-        {
-          "month": "2025-06",
-          "processes": 752
-        },
-        {
-          "month": "2025-07",
-          "processes": 771
-        },
-        {
-          "month": "2025-08",
-          "processes": 766
-        },
-        {
-          "month": "2025-09",
-          "processes": 799
-        },
-        {
-          "month": "2025-10",
-          "processes": 937
-        },
-        {
-          "month": "2025-11",
-          "processes": 945
-        },
-        {
-          "month": "2025-12",
-          "processes": 638
-        },
-        {
           "month": "2026-01",
-          "processes": 476
+          "processes": 466
         },
         {
           "month": "2026-02",
-          "processes": 707
+          "processes": 632
         },
         {
           "month": "2026-03",
-          "processes": 1023
+          "processes": 848
         },
         {
           "month": "2026-04",
+          "processes": 760
+        },
+        {
+          "month": "2026-05",
+          "processes": 847
+        },
+        {
+          "month": "2026-06",
+          "processes": 936
+        },
+        {
+          "month": "2026-07",
           "processes": 163
         }
       ]
@@ -219,504 +111,252 @@
     {
       "rank": 4,
       "name": "MINISTERIO DE GOBERNACIÓN",
-      "total_processes": 7084,
-      "pct_of_total": 1.47,
+      "total_processes": 4652,
+      "pct_of_total": 1.9,
       "monthly_series": [
         {
-          "month": "2025-01",
-          "processes": 146
-        },
-        {
-          "month": "2025-02",
-          "processes": 129
-        },
-        {
-          "month": "2025-03",
-          "processes": 825
-        },
-        {
-          "month": "2025-04",
-          "processes": 246
-        },
-        {
-          "month": "2025-05",
-          "processes": 269
-        },
-        {
-          "month": "2025-06",
-          "processes": 246
-        },
-        {
-          "month": "2025-07",
-          "processes": 472
-        },
-        {
-          "month": "2025-08",
-          "processes": 361
-        },
-        {
-          "month": "2025-09",
-          "processes": 264
-        },
-        {
-          "month": "2025-10",
-          "processes": 437
-        },
-        {
-          "month": "2025-11",
-          "processes": 359
-        },
-        {
-          "month": "2025-12",
-          "processes": 425
-        },
-        {
           "month": "2026-01",
-          "processes": 840
+          "processes": 812
         },
         {
           "month": "2026-02",
-          "processes": 575
+          "processes": 426
         },
         {
           "month": "2026-03",
-          "processes": 1361
+          "processes": 419
         },
         {
           "month": "2026-04",
-          "processes": 129
+          "processes": 393
+        },
+        {
+          "month": "2026-05",
+          "processes": 789
+        },
+        {
+          "month": "2026-06",
+          "processes": 1451
+        },
+        {
+          "month": "2026-07",
+          "processes": 362
         }
       ]
     },
     {
       "rank": 5,
       "name": "MINISTERIO DE LA DEFENSA NACIONAL",
-      "total_processes": 4836,
+      "total_processes": 2466,
       "pct_of_total": 1.01,
       "monthly_series": [
         {
-          "month": "2025-01",
-          "processes": 41
-        },
-        {
-          "month": "2025-02",
-          "processes": 54
-        },
-        {
-          "month": "2025-03",
-          "processes": 862
-        },
-        {
-          "month": "2025-04",
-          "processes": 233
-        },
-        {
-          "month": "2025-05",
-          "processes": 178
-        },
-        {
-          "month": "2025-06",
-          "processes": 184
-        },
-        {
-          "month": "2025-07",
-          "processes": 178
-        },
-        {
-          "month": "2025-08",
-          "processes": 132
-        },
-        {
-          "month": "2025-09",
-          "processes": 227
-        },
-        {
-          "month": "2025-10",
-          "processes": 248
-        },
-        {
-          "month": "2025-11",
-          "processes": 415
-        },
-        {
-          "month": "2025-12",
-          "processes": 363
-        },
-        {
           "month": "2026-01",
-          "processes": 483
+          "processes": 355
         },
         {
           "month": "2026-02",
-          "processes": 337
+          "processes": 282
         },
         {
           "month": "2026-03",
-          "processes": 656
+          "processes": 296
         },
         {
           "month": "2026-04",
-          "processes": 245
+          "processes": 308
+        },
+        {
+          "month": "2026-05",
+          "processes": 477
+        },
+        {
+          "month": "2026-06",
+          "processes": 592
+        },
+        {
+          "month": "2026-07",
+          "processes": 156
         }
       ]
     },
     {
       "rank": 6,
-      "name": "MINISTERIO DE EDUCACIÓN",
-      "total_processes": 3873,
+      "name": "MINISTERIO DE COMUNICACIONES, INFRAESTRUCTURA Y VIVIENDA",
+      "total_processes": 1991,
       "pct_of_total": 0.81,
       "monthly_series": [
         {
-          "month": "2025-01",
-          "processes": 38
-        },
-        {
-          "month": "2025-02",
-          "processes": 79
-        },
-        {
-          "month": "2025-03",
-          "processes": 343
-        },
-        {
-          "month": "2025-04",
-          "processes": 247
-        },
-        {
-          "month": "2025-05",
-          "processes": 264
-        },
-        {
-          "month": "2025-06",
-          "processes": 284
-        },
-        {
-          "month": "2025-07",
-          "processes": 278
-        },
-        {
-          "month": "2025-08",
-          "processes": 266
-        },
-        {
-          "month": "2025-09",
-          "processes": 270
-        },
-        {
-          "month": "2025-10",
-          "processes": 302
-        },
-        {
-          "month": "2025-11",
-          "processes": 400
-        },
-        {
-          "month": "2025-12",
-          "processes": 417
-        },
-        {
           "month": "2026-01",
-          "processes": 81
+          "processes": 114
         },
         {
           "month": "2026-02",
-          "processes": 172
+          "processes": 107
         },
         {
           "month": "2026-03",
-          "processes": 312
+          "processes": 168
         },
         {
           "month": "2026-04",
-          "processes": 120
+          "processes": 240
+        },
+        {
+          "month": "2026-05",
+          "processes": 458
+        },
+        {
+          "month": "2026-06",
+          "processes": 724
+        },
+        {
+          "month": "2026-07",
+          "processes": 180
         }
       ]
     },
     {
       "rank": 7,
-      "name": "MINISTERIO DE COMUNICACIONES, INFRAESTRUCTURA Y VIVIENDA",
-      "total_processes": 3734,
-      "pct_of_total": 0.78,
+      "name": "MINISTERIO DE EDUCACIÓN",
+      "total_processes": 1770,
+      "pct_of_total": 0.72,
       "monthly_series": [
         {
-          "month": "2025-01",
-          "processes": 1
-        },
-        {
-          "month": "2025-02",
-          "processes": 3
-        },
-        {
-          "month": "2025-03",
-          "processes": 375
-        },
-        {
-          "month": "2025-04",
-          "processes": 136
-        },
-        {
-          "month": "2025-05",
-          "processes": 159
-        },
-        {
-          "month": "2025-06",
-          "processes": 193
-        },
-        {
-          "month": "2025-07",
-          "processes": 189
-        },
-        {
-          "month": "2025-08",
-          "processes": 204
-        },
-        {
-          "month": "2025-09",
-          "processes": 202
-        },
-        {
-          "month": "2025-10",
-          "processes": 308
-        },
-        {
-          "month": "2025-11",
-          "processes": 314
-        },
-        {
-          "month": "2025-12",
-          "processes": 444
-        },
-        {
           "month": "2026-01",
-          "processes": 201
+          "processes": 76
         },
         {
           "month": "2026-02",
-          "processes": 278
+          "processes": 165
         },
         {
           "month": "2026-03",
-          "processes": 599
+          "processes": 254
         },
         {
           "month": "2026-04",
-          "processes": 128
+          "processes": 341
+        },
+        {
+          "month": "2026-05",
+          "processes": 369
+        },
+        {
+          "month": "2026-06",
+          "processes": 441
+        },
+        {
+          "month": "2026-07",
+          "processes": 124
         }
       ]
     },
     {
       "rank": 8,
       "name": "ORGANISMO JUDICIAL",
-      "total_processes": 3348,
-      "pct_of_total": 0.7,
+      "total_processes": 1505,
+      "pct_of_total": 0.61,
       "monthly_series": [
         {
-          "month": "2025-01",
-          "processes": 11
-        },
-        {
-          "month": "2025-02",
-          "processes": 80
-        },
-        {
-          "month": "2025-03",
-          "processes": 228
-        },
-        {
-          "month": "2025-04",
-          "processes": 151
-        },
-        {
-          "month": "2025-05",
-          "processes": 171
-        },
-        {
-          "month": "2025-06",
-          "processes": 157
-        },
-        {
-          "month": "2025-07",
-          "processes": 138
-        },
-        {
-          "month": "2025-08",
-          "processes": 194
-        },
-        {
-          "month": "2025-09",
-          "processes": 156
-        },
-        {
-          "month": "2025-10",
-          "processes": 221
-        },
-        {
-          "month": "2025-11",
-          "processes": 301
-        },
-        {
-          "month": "2025-12",
-          "processes": 484
-        },
-        {
           "month": "2026-01",
-          "processes": 98
+          "processes": 95
         },
         {
           "month": "2026-02",
-          "processes": 180
+          "processes": 137
         },
         {
           "month": "2026-03",
-          "processes": 717
+          "processes": 548
         },
         {
           "month": "2026-04",
-          "processes": 61
+          "processes": 125
+        },
+        {
+          "month": "2026-05",
+          "processes": 192
+        },
+        {
+          "month": "2026-06",
+          "processes": 315
+        },
+        {
+          "month": "2026-07",
+          "processes": 93
         }
       ]
     },
     {
       "rank": 9,
-      "name": "MINISTERIO DE CULTURA Y DEPORTES",
-      "total_processes": 2087,
-      "pct_of_total": 0.43,
+      "name": "SUPERINTENDENCIA DE ADMINISTRACION TRIBUTARIA -SAT-",
+      "total_processes": 1105,
+      "pct_of_total": 0.45,
       "monthly_series": [
         {
-          "month": "2025-01",
-          "processes": 21
-        },
-        {
-          "month": "2025-02",
-          "processes": 40
-        },
-        {
-          "month": "2025-03",
-          "processes": 75
-        },
-        {
-          "month": "2025-04",
-          "processes": 89
-        },
-        {
-          "month": "2025-05",
-          "processes": 137
-        },
-        {
-          "month": "2025-06",
-          "processes": 97
-        },
-        {
-          "month": "2025-07",
-          "processes": 161
-        },
-        {
-          "month": "2025-08",
-          "processes": 154
-        },
-        {
-          "month": "2025-09",
-          "processes": 136
-        },
-        {
-          "month": "2025-10",
-          "processes": 260
-        },
-        {
-          "month": "2025-11",
-          "processes": 271
-        },
-        {
-          "month": "2025-12",
-          "processes": 300
-        },
-        {
           "month": "2026-01",
-          "processes": 37
+          "processes": 39
         },
         {
           "month": "2026-02",
-          "processes": 60
+          "processes": 72
         },
         {
           "month": "2026-03",
-          "processes": 189
+          "processes": 91
         },
         {
           "month": "2026-04",
-          "processes": 60
+          "processes": 110
+        },
+        {
+          "month": "2026-05",
+          "processes": 185
+        },
+        {
+          "month": "2026-06",
+          "processes": 373
+        },
+        {
+          "month": "2026-07",
+          "processes": 235
         }
       ]
     },
     {
       "rank": 10,
-      "name": "SUPERINTENDENCIA DE ADMINISTRACION TRIBUTARIA -SAT-",
-      "total_processes": 1911,
-      "pct_of_total": 0.4,
+      "name": "MINISTERIO PÚBLICO",
+      "total_processes": 887,
+      "pct_of_total": 0.36,
       "monthly_series": [
         {
-          "month": "2025-01",
-          "processes": 26
-        },
-        {
-          "month": "2025-02",
-          "processes": 35
-        },
-        {
-          "month": "2025-03",
-          "processes": 127
-        },
-        {
-          "month": "2025-04",
-          "processes": 92
-        },
-        {
-          "month": "2025-05",
-          "processes": 112
-        },
-        {
-          "month": "2025-06",
-          "processes": 99
-        },
-        {
-          "month": "2025-07",
-          "processes": 127
-        },
-        {
-          "month": "2025-08",
-          "processes": 106
-        },
-        {
-          "month": "2025-09",
-          "processes": 68
-        },
-        {
-          "month": "2025-10",
-          "processes": 119
-        },
-        {
-          "month": "2025-11",
-          "processes": 85
-        },
-        {
-          "month": "2025-12",
-          "processes": 217
-        },
-        {
           "month": "2026-01",
-          "processes": 51
+          "processes": 133
         },
         {
           "month": "2026-02",
-          "processes": 104
+          "processes": 12
         },
         {
           "month": "2026-03",
-          "processes": 424
+          "processes": 38
         },
         {
           "month": "2026-04",
-          "processes": 119
+          "processes": 65
+        },
+        {
+          "month": "2026-05",
+          "processes": 70
+        },
+        {
+          "month": "2026-06",
+          "processes": 523
+        },
+        {
+          "month": "2026-07",
+          "processes": 46
         }
       ]
     }

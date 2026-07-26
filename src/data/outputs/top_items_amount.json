@@ -4,121 +4,121 @@
       "rank": 1,
       "unspsc_id": "72141003",
       "description": "Servicio de mantenimiento de calles y carreteras",
-      "total_amount_gtq": 12662258989.62,
-      "pct_of_total": 11.33,
-      "item_count": 18505790
+      "total_amount_gtq": 9869313741.55,
+      "pct_of_total": 13.01,
+      "item_count": 10075221
     },
     {
       "rank": 2,
-      "unspsc_id": "81101513",
-      "description": "Gestión de construcción de edificios",
-      "total_amount_gtq": 6133718826.17,
-      "pct_of_total": 5.49,
-      "item_count": 1358336
+      "unspsc_id": "72141104",
+      "description": "Servicio de repavimentación de calles y carreteras",
+      "total_amount_gtq": 7441702703.48,
+      "pct_of_total": 9.81,
+      "item_count": 2585
     },
     {
       "rank": 3,
-      "unspsc_id": "72141104",
-      "description": "Servicio de repavimentación de calles y carreteras",
-      "total_amount_gtq": 5799600827.11,
-      "pct_of_total": 5.19,
-      "item_count": 26938
+      "unspsc_id": "81101513",
+      "description": "Gestión de construcción de edificios",
+      "total_amount_gtq": 5416991687.99,
+      "pct_of_total": 7.14,
+      "item_count": 627552
     },
     {
       "rank": 4,
-      "unspsc_id": "83101806",
-      "description": "Distribución de energía eléctrica rural",
-      "total_amount_gtq": 4269547664.05,
-      "pct_of_total": 3.82,
-      "item_count": 18000
+      "unspsc_id": "81101510",
+      "description": "Ingeniería de carreteras",
+      "total_amount_gtq": 2710027048.87,
+      "pct_of_total": 3.57,
+      "item_count": 240338
     },
     {
       "rank": 5,
-      "unspsc_id": "86121504",
-      "description": "Escuelas públicas de educación primaria o secundaria",
-      "total_amount_gtq": 3587726532.67,
-      "pct_of_total": 3.21,
-      "item_count": 757977
+      "unspsc_id": "83101806",
+      "description": "Distribución de energía eléctrica rural",
+      "total_amount_gtq": 1888877752.81,
+      "pct_of_total": 2.49,
+      "item_count": 20897
     },
     {
       "rank": 6,
-      "unspsc_id": "0",
-      "description": "CONSTRUCCION REDES Y LINEAS ELECTRICAS DE DISTRIBUCION CASERIO EL AGUAJAL, ALDEA EL SOCORRO, CONCEPC",
-      "total_amount_gtq": 2789110570.55,
-      "pct_of_total": 2.5,
-      "item_count": 4201
+      "unspsc_id": "72141107",
+      "description": "Servicio de construcción y reparación de puentes",
+      "total_amount_gtq": 1648783585.89,
+      "pct_of_total": 2.17,
+      "item_count": 38188
     },
     {
       "rank": 7,
-      "unspsc_id": "72141107",
-      "description": "Servicio de construcción y reparación de puentes",
-      "total_amount_gtq": 2370828885.97,
-      "pct_of_total": 2.12,
-      "item_count": 49862
+      "unspsc_id": "72141103",
+      "description": "Servicio de pavimentación de calles y carreteras",
+      "total_amount_gtq": 1410685018.49,
+      "pct_of_total": 1.86,
+      "item_count": 2122206
     },
     {
       "rank": 8,
       "unspsc_id": "30121705",
       "description": "Losa de pavimento",
-      "total_amount_gtq": 2079336150.15,
-      "pct_of_total": 1.86,
-      "item_count": 4690782
+      "total_amount_gtq": 1153635998.7,
+      "pct_of_total": 1.52,
+      "item_count": 2477190
     },
     {
       "rank": 9,
-      "unspsc_id": "72141103",
-      "description": "Servicio de pavimentación de calles y carreteras",
-      "total_amount_gtq": 2060666824.89,
-      "pct_of_total": 1.84,
-      "item_count": 3941933
+      "unspsc_id": "56121805",
+      "description": "Archivos planos",
+      "total_amount_gtq": 943259341.63,
+      "pct_of_total": 1.24,
+      "item_count": 19
     },
     {
       "rank": 10,
-      "unspsc_id": "85121603",
-      "description": "Servicios de cardiología",
-      "total_amount_gtq": 1571599257.14,
-      "pct_of_total": 1.41,
-      "item_count": 1373718
+      "unspsc_id": "80101602",
+      "description": "Estudios regionales o locales para proyectos",
+      "total_amount_gtq": 852505658.47,
+      "pct_of_total": 1.12,
+      "item_count": 145
     },
     {
       "rank": 11,
-      "unspsc_id": "78101902",
-      "description": "Transporte marítimo a ferroviario",
-      "total_amount_gtq": 1285150750.98,
-      "pct_of_total": 1.15,
-      "item_count": 5
+      "unspsc_id": "30111601",
+      "description": "Cemento",
+      "total_amount_gtq": 832245269.05,
+      "pct_of_total": 1.1,
+      "item_count": 3595891
     },
     {
       "rank": 12,
-      "unspsc_id": "30111601",
-      "description": "Cemento",
-      "total_amount_gtq": 1194254995.8,
-      "pct_of_total": 1.07,
-      "item_count": 4349873
+      "unspsc_id": "78101902",
+      "description": "Transporte marítimo a ferroviario",
+      "total_amount_gtq": 825466806.0,
+      "pct_of_total": 1.09,
+      "item_count": 2
     },
     {
       "rank": 13,
-      "unspsc_id": "72101507",
-      "description": "Servicio de mantenimiento de edificios",
-      "total_amount_gtq": 1113639671.0,
-      "pct_of_total": 1.0,
-      "item_count": 213847
+      "unspsc_id": "83101807",
+      "description": "Distribución de energía eléctrica municipal",
+      "total_amount_gtq": 807982224.24,
+      "pct_of_total": 1.06,
+      "item_count": 225102192
     },
     {
       "rank": 14,
-      "unspsc_id": "50192701",
-      "description": "Comidas combinadas frescas",
-      "total_amount_gtq": 1019325106.28,
-      "pct_of_total": 0.91,
-      "item_count": 64453085
+      "unspsc_id": "80101507",
+      "description": "Servicios de asesoramiento sobre tecnologías de la información",
+      "total_amount_gtq": 798195497.67,
+      "pct_of_total": 1.05,
+      "item_count": 357
     },
     {
       "rank": 15,
-      "unspsc_id": "72141001",
-      "description": "Servicio de construcción de calles y carreteras nuevas",
-      "total_amount_gtq": 1004957294.45,
-      "pct_of_total": 0.9,
-      "item_count": 840381
+      "unspsc_id": "72101507",
+      "description": "Servicio de mantenimiento de edificios",
+      "total_amount_gtq": 769080509.99,
+      "pct_of_total": 1.01,
+      "item_count": 103862
     }
   ]
 }

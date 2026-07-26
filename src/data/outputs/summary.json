@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-06-10T04:58:04.787718Z",
+  "generated_at": "2026-07-26T04:16:25.313458Z",
   "period": {
-    "start": "2025-01-02",
-    "end": "2026-04-08"
+    "start": "2026-01-02",
+    "end": "2026-07-06"
   },
   "totals": {
-    "processes": 480379,
-    "unique_buyers": 597,
-    "unique_suppliers": 13044,
-    "total_amount_gtq": 111738289404.68,
-    "total_items": 4433811075,
-    "median_ticket_gtq": 63811.8
+    "processes": 245013,
+    "unique_buyers": 573,
+    "unique_suppliers": 9787,
+    "total_amount_gtq": 75872248255.06,
+    "total_items": 2883565081,
+    "median_ticket_gtq": 67680.48
   }
 }
