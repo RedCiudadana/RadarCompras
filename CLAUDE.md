@@ -22,9 +22,26 @@ npx vitest run src/services/__tests__/ocdsApi.test.ts
 
 **Radar de Compras Públicas** — a public procurement intelligence tool for Guatemala, built by Red Ciudadana. It surfaces data from the OCDS API at `https://ocds.guatecompras.gt`.
 
+### Domain language
+
+`CONTEXT.md` at the repo root is the glossary — the canonical term for each domain concept and the synonyms to avoid. The domain speaks two languages (OCDS in English, Guatecompras in Spanish); the glossary picks one per concept. Read it before naming anything. Decisions with lasting consequences live in `docs/adr/`.
+
 ### View routing
 
-There is no router library. `App.tsx` manages a `currentView` string state and renders components via a `switch`. Navigation calls `setCurrentView(viewName)`. Views: `home`, `search`, `detail`, `opportunities`, `analytics`, `trends`, `docs`.
+`react-router-dom`. `App.tsx` declares the routes inside `AppShell`; `SLIDERS_CONFIG` in the same file maps a path to its hero banner title and image, keyed by pathname.
+
+| Path | Component |
+|------|-----------|
+| `/` | `Home` (rendered without the `main` wrapper or hero slider) |
+| `/busqueda` | `ProcessSearch` |
+| `/busqueda/:releaseId` | `ProcessDetail` |
+| `/oportunidades` | `OpportunitiesRadar` |
+| `/tendencias` | `Trends` |
+| `/pymes` | `TrendsHome` |
+| `/docs` | `Documentation` |
+| `*` | redirect to `/` |
+
+`Analytics` exists but its `/estadisticas` route is commented out.
 
 ### Data layer
 
@@ -32,6 +49,12 @@ There is no router library. `App.tsx` manages a `currentView` string state and r
 - `searchReleases(filters, page)` — calls `/release/search` on the OCDS API; the API **requires** at least one of Año/Mes/Dia. Defaults to current year/month. Returns `{ data, hasMore, total }`.
 - `getRecord(ocid)` — fetches full process record from `/record/{ocid}`.
 - `filterReleases(releases, filters)` — client-side filter (buyer name, date range). Used after API response since the API doesn't support free-text search or amount filtering.
+
+#### Identifying the Entidad
+
+A release lists several parties with role `buyer`: the Entidad and its Unidades de compra. They are told apart by identifier scheme — `GT-CISP` with `memberOf: null` is the Entidad, `GT-GCUC` with `memberOf` pointing at the `GT-CISP` party is a Unidad de compra. `release.buyer` and `tender.procuringEntity` both carry the Entidad, under a third scheme (`GT-NIT`).
+
+The `Entidad` query parameter takes a fourth ID space: the head of the `GT-GCUC` compound code (`GT-GCUC-52-15` → `52`), which is what `entidades_selector.json` and `guatecompras.ts` are keyed on. `utils/marketContext.ts` `getBuyerEntidadId` derives it. Filtering is only possible at Entidad level — there is no parameter for a Unidad de compra.
 
 ### Types
 

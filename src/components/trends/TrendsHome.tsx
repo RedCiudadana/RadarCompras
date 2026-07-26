@@ -117,7 +117,7 @@ const PARTIAL_APRIL_NOTE = 'Nota: abril 2026 es parcial (datos hasta el 2026-04-
 
 const gridColor = '#e5e7eb';
 
-export const TrendsPYME: React.FC = () => {
+export const TrendsHome: React.FC = () => {
   const { totals, period } = summaryData;
   const buckets = ticketSizesData.global_distribution as TicketBucket[];
   const ticketFamilias = ticketSizesData.by_familia as TicketFamilia[];

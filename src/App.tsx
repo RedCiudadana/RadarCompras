@@ -6,7 +6,7 @@ import { ProcessDetail } from './components/detail/ProcessDetail';
 import { OpportunitiesRadar } from './components/opportunities/OpportunitiesRadar';
 import { Analytics } from './components/analytics/Analytics';
 import { Trends } from './components/trends/Trends';
-import { TrendsPYME } from './components/trends/TrendsPYME';
+import { TrendsHome } from './components/trends/TrendsHome';
 import { Documentation } from './components/docs/Documentation';
 import Footer from './Footer';
 import { HeroSlider } from './components/ui/HeroSlider';
@@ -58,7 +58,7 @@ function AppShell() {
           <Route path="/oportunidades" element={<OpportunitiesRadar />} />
           {/* <Route path="/estadisticas" element={<Analytics />} /> */}
           <Route path="/tendencias" element={<Trends />} />
-          <Route path="/pymes" element={<TrendsPYME />} />
+          <Route path="/pymes" element={<TrendsHome />} />
           <Route path="/docs" element={<Documentation />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
