@@ -7,6 +7,7 @@ import { OpportunitiesRadar } from './components/opportunities/OpportunitiesRada
 import { Analytics } from './components/analytics/Analytics';
 import { Trends } from './components/trends/Trends';
 import { TrendsHome } from './components/trends/TrendsHome';
+import { NicheIt } from './components/trends/NicheIt';
 import { Documentation } from './components/docs/Documentation';
 import Footer from './Footer';
 import { HeroSlider } from './components/ui/HeroSlider';
@@ -30,6 +31,10 @@ const SLIDERS_CONFIG: Record<string, { title: string; slider: string; }> = {
   },
   '/pymes': {
     title: 'Oportunidades para PYMES',
+    slider: '/slider_oportunidades.png'
+  },
+  '/pymes/it': {
+    title: 'Nicho TI para PYMES',
     slider: '/slider_oportunidades.png'
   },
 };
@@ -59,6 +64,7 @@ function AppShell() {
           {/* <Route path="/estadisticas" element={<Analytics />} /> */}
           <Route path="/tendencias" element={<Trends />} />
           <Route path="/pymes" element={<TrendsHome />} />
+          <Route path="/pymes/it" element={<NicheIt />} />
           <Route path="/docs" element={<Documentation />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

@@ -1,0 +1,436 @@
+{
+  "generated_at": "2026-07-29T22:07:21.590296Z",
+  "filter": {
+    "core_modalities": [
+      "Compra Directa con Oferta Electrónica",
+      "Cotización (Art. 38",
+      "Adquisición Directa por Ausencia de Oferta"
+    ],
+    "unspsc_prefix": "43",
+    "item_match": "any",
+    "award_status": "active",
+    "currency": "GTQ",
+    "published_slice": "ex_igss_salud",
+    "excluded_buyer_substrings": [
+      "IGSS",
+      "Salud"
+    ],
+    "ui_note": "UI must present published totals as the niche; do not surface exclusion copy."
+  },
+  "period": {
+    "start": "2025-01-02",
+    "end": "2026-04-08"
+  },
+  "totals": {
+    "processes": 7215,
+    "unique_buyers": 247,
+    "total_amount_gtq": 610931733.01,
+    "median_ticket_gtq": 74633.0,
+    "pct_le_90k": 86.59
+  },
+  "competition": {
+    "pct_le1": 36.16,
+    "pct_ge3": 42.52
+  },
+  "ticket_histogram": [
+    {
+      "bucket_label": "0-10k",
+      "bucket_min": 0,
+      "bucket_max": 10000,
+      "n_processes": 116,
+      "pct_of_total": 2.35
+    },
+    {
+      "bucket_label": "10-30k",
+      "bucket_min": 10000,
+      "bucket_max": 30000,
+      "n_processes": 451,
+      "pct_of_total": 9.14
+    },
+    {
+      "bucket_label": "30-50k",
+      "bucket_min": 30000,
+      "bucket_max": 50000,
+      "n_processes": 824,
+      "pct_of_total": 16.69
+    },
+    {
+      "bucket_label": "50-90k",
+      "bucket_min": 50000,
+      "bucket_max": 90000,
+      "n_processes": 2884,
+      "pct_of_total": 58.42
+    },
+    {
+      "bucket_label": "90-300k",
+      "bucket_min": 90000,
+      "bucket_max": 300000,
+      "n_processes": 179,
+      "pct_of_total": 3.63
+    },
+    {
+      "bucket_label": "300-900k",
+      "bucket_min": 300000,
+      "bucket_max": 900000,
+      "n_processes": 479,
+      "pct_of_total": 9.7
+    },
+    {
+      "bucket_label": "900k+",
+      "bucket_min": 900000,
+      "bucket_max": null,
+      "n_processes": 4,
+      "pct_of_total": 0.08
+    }
+  ],
+  "modalities": [
+    {
+      "modality": "Compra Directa con Oferta Electrónica (Art. 43 LCE Inciso b)",
+      "n_processes": 6213,
+      "pct_of_total": 86.11
+    },
+    {
+      "modality": "Cotización (Art. 38 LCE)",
+      "n_processes": 915,
+      "pct_of_total": 12.68
+    },
+    {
+      "modality": "Adquisición Directa por Ausencia de Oferta",
+      "n_processes": 87,
+      "pct_of_total": 1.21
+    }
+  ],
+  "main_procurement_category": [
+    {
+      "category": "goods",
+      "n_processes": 5382,
+      "pct_of_total": 74.59
+    },
+    {
+      "category": "services",
+      "n_processes": 1809,
+      "pct_of_total": 25.07
+    },
+    {
+      "category": "works",
+      "n_processes": 24,
+      "pct_of_total": 0.33
+    }
+  ],
+  "by_familia": [
+    {
+      "familia_code": "4321",
+      "familia_name": "Equipo informático y accesorios",
+      "n_processes": 3436,
+      "total_amount_gtq": 203146702.28,
+      "median_ticket_gtq": 69640.0
+    },
+    {
+      "familia_code": "4322",
+      "familia_name": "Equipos o plataformas y accesorios de redes multimedia o de voz y datos",
+      "n_processes": 726,
+      "total_amount_gtq": 70101055.64,
+      "median_ticket_gtq": 78000.0
+    },
+    {
+      "familia_code": "4323",
+      "familia_name": "Software",
+      "n_processes": 2098,
+      "total_amount_gtq": 265921932.13,
+      "median_ticket_gtq": 84095.89
+    }
+  ],
+  "by_product": [
+    {
+      "unspsc_id": "43231512",
+      "description": "Software de manejo de licencias",
+      "total_amount_gtq": 148012921.73,
+      "pct_of_total": 24.23,
+      "item_count": 111226
+    },
+    {
+      "unspsc_id": "43211507",
+      "description": "Computadores de escritorio",
+      "total_amount_gtq": 64765191.52,
+      "pct_of_total": 10.6,
+      "item_count": 7198
+    },
+    {
+      "unspsc_id": "43233004",
+      "description": "Software de sistema operativo",
+      "total_amount_gtq": 56291295.94,
+      "pct_of_total": 9.21,
+      "item_count": 5262
+    },
+    {
+      "unspsc_id": "43211508",
+      "description": "Computadores personales",
+      "total_amount_gtq": 30430880.6,
+      "pct_of_total": 4.98,
+      "item_count": 3421
+    },
+    {
+      "unspsc_id": "43212110",
+      "description": "Impresoras de múltiples funciones",
+      "total_amount_gtq": 19361503.88,
+      "pct_of_total": 3.17,
+      "item_count": 2883553
+    },
+    {
+      "unspsc_id": "43211513",
+      "description": "Computadores personales ultra móviles",
+      "total_amount_gtq": 18224591.1,
+      "pct_of_total": 2.98,
+      "item_count": 2898
+    },
+    {
+      "unspsc_id": "43211515",
+      "description": "Estaciones de trabajo para computadores",
+      "total_amount_gtq": 18132570.72,
+      "pct_of_total": 2.97,
+      "item_count": 1606
+    },
+    {
+      "unspsc_id": "43222612",
+      "description": "Interruptores de red",
+      "total_amount_gtq": 18075125.55,
+      "pct_of_total": 2.96,
+      "item_count": 1994
+    },
+    {
+      "unspsc_id": "43211501",
+      "description": "Servidores de computador",
+      "total_amount_gtq": 16714062.11,
+      "pct_of_total": 2.74,
+      "item_count": 249
+    },
+    {
+      "unspsc_id": "43211711",
+      "description": "Escáneres",
+      "total_amount_gtq": 14955582.65,
+      "pct_of_total": 2.45,
+      "item_count": 2032
+    },
+    {
+      "unspsc_id": "43233205",
+      "description": "Software de seguridad de transacciones y de protección contra virus",
+      "total_amount_gtq": 12373758.42,
+      "pct_of_total": 2.03,
+      "item_count": 15517
+    },
+    {
+      "unspsc_id": "43222634",
+      "description": "Dispositivo de monitoreo o manejo de redes",
+      "total_amount_gtq": 10319457.99,
+      "pct_of_total": 1.69,
+      "item_count": 1620
+    },
+    {
+      "unspsc_id": "43222501",
+      "description": "Equipo de seguridad de red cortafuegos (firewall)",
+      "total_amount_gtq": 10267689.03,
+      "pct_of_total": 1.68,
+      "item_count": 106
+    },
+    {
+      "unspsc_id": "43211509",
+      "description": "Computadores de tableta",
+      "total_amount_gtq": 8877366.6,
+      "pct_of_total": 1.45,
+      "item_count": 2511
+    },
+    {
+      "unspsc_id": "43233501",
+      "description": "Software de correo electrónico",
+      "total_amount_gtq": 6327319.78,
+      "pct_of_total": 1.04,
+      "item_count": 7730
+    }
+  ],
+  "monthly_series": [
+    {
+      "month": "2025-01",
+      "processes": 64
+    },
+    {
+      "month": "2025-02",
+      "processes": 103
+    },
+    {
+      "month": "2025-03",
+      "processes": 519
+    },
+    {
+      "month": "2025-04",
+      "processes": 292
+    },
+    {
+      "month": "2025-05",
+      "processes": 402
+    },
+    {
+      "month": "2025-06",
+      "processes": 397
+    },
+    {
+      "month": "2025-07",
+      "processes": 390
+    },
+    {
+      "month": "2025-08",
+      "processes": 516
+    },
+    {
+      "month": "2025-09",
+      "processes": 460
+    },
+    {
+      "month": "2025-10",
+      "processes": 607
+    },
+    {
+      "month": "2025-11",
+      "processes": 773
+    },
+    {
+      "month": "2025-12",
+      "processes": 1100
+    },
+    {
+      "month": "2026-01",
+      "processes": 295
+    },
+    {
+      "month": "2026-02",
+      "processes": 296
+    },
+    {
+      "month": "2026-03",
+      "processes": 766
+    },
+    {
+      "month": "2026-04",
+      "processes": 235
+    }
+  ],
+  "buyers": {
+    "top": [
+      {
+        "name": "MINISTERIO DE EDUCACIÓN",
+        "n_processes": 611,
+        "entidad_id": "8"
+      },
+      {
+        "name": "ORGANISMO JUDICIAL",
+        "n_processes": 524,
+        "entidad_id": "2"
+      },
+      {
+        "name": "MINISTERIO DE COMUNICACIONES, INFRAESTRUCTURA Y VIVIENDA",
+        "n_processes": 408,
+        "entidad_id": "13"
+      },
+      {
+        "name": "UNIVERSIDAD DE SAN CARLOS DE GUATEMALA -USAC-",
+        "n_processes": 393,
+        "entidad_id": "47"
+      },
+      {
+        "name": "MINISTERIO DE GOBERNACIÓN",
+        "n_processes": 355,
+        "entidad_id": "5"
+      },
+      {
+        "name": "SUPERINTENDENCIA DE ADMINISTRACION TRIBUTARIA -SAT-",
+        "n_processes": 322,
+        "entidad_id": "45"
+      },
+      {
+        "name": "MINISTERIO DE ECONOMIA",
+        "n_processes": 251,
+        "entidad_id": "11"
+      },
+      {
+        "name": "MINISTERIO DE CULTURA Y DEPORTES",
+        "n_processes": 250,
+        "entidad_id": "15"
+      },
+      {
+        "name": "MINISTERIO DE FINANZAS PÚBLICAS",
+        "n_processes": 193,
+        "entidad_id": "7"
+      },
+      {
+        "name": "MINISTERIO DE AGRICULTURA, GANADERIA Y ALIMENTACIÓN",
+        "n_processes": 172,
+        "entidad_id": "12"
+      }
+    ]
+  },
+  "lanes": {
+    "with_health": {
+      "n_processes": 10913,
+      "median_ticket_gtq": 65780.0,
+      "pct_le_90k": 90.5,
+      "pct_le1": 34.37,
+      "pct_ge3": 43.87,
+      "buyers_top": [
+        {
+          "name": "INSTITUTO GUATEMALTECO DE SEGURIDAD SOCIAL -IGSS-",
+          "n_processes": 2449,
+          "entidad_id": "52"
+        },
+        {
+          "name": "MINISTERIO DE SALUD PÚBLICA",
+          "n_processes": 1249,
+          "entidad_id": "9"
+        },
+        {
+          "name": "MINISTERIO DE EDUCACIÓN",
+          "n_processes": 611,
+          "entidad_id": "8"
+        },
+        {
+          "name": "ORGANISMO JUDICIAL",
+          "n_processes": 524,
+          "entidad_id": "2"
+        },
+        {
+          "name": "MINISTERIO DE COMUNICACIONES, INFRAESTRUCTURA Y VIVIENDA",
+          "n_processes": 408,
+          "entidad_id": "13"
+        },
+        {
+          "name": "UNIVERSIDAD DE SAN CARLOS DE GUATEMALA -USAC-",
+          "n_processes": 393,
+          "entidad_id": "47"
+        },
+        {
+          "name": "MINISTERIO DE GOBERNACIÓN",
+          "n_processes": 355,
+          "entidad_id": "5"
+        },
+        {
+          "name": "SUPERINTENDENCIA DE ADMINISTRACION TRIBUTARIA -SAT-",
+          "n_processes": 322,
+          "entidad_id": "45"
+        },
+        {
+          "name": "MINISTERIO DE ECONOMIA",
+          "n_processes": 251,
+          "entidad_id": "11"
+        },
+        {
+          "name": "MINISTERIO DE CULTURA Y DEPORTES",
+          "n_processes": 250,
+          "entidad_id": "15"
+        }
+      ],
+      "note": "QA only — compare to notebook 43_it; never render in UI"
+    }
+  },
+  "notes": [
+    "Desert/withdrawn are secondary signals for this niche.",
+    "Abril 2026 parcial si el corte del corpus lo indica."
+  ]
+}
