@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   Banknote,
   Building2,
@@ -408,6 +409,9 @@ export const TrendsHome: React.FC = () => {
           El Estado compró {formatAbbreviatedCurrency(totals.total_amount_gtq)} entre {period.start} y {period.end}.
           Estos datos muestran dónde hay demanda, poca competencia y el monto de los tickets promedios.
         </p>
+        <Link to="/pymes/it" className="text-xs text-gray-500 hover:text-gray-700 underline">
+          Nicho TI →
+        </Link>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
